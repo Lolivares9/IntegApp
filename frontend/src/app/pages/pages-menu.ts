@@ -7,7 +7,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Clientes',
-    icon: 'nb-tables',
+    icon: 'nb-person',
     children: [
       {
         title: 'Administrar',
@@ -29,7 +29,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Empleados',
-    icon: 'nb-tables',
+    icon: 'nb-person',
     children: [
       {
         title: 'Administrar',
@@ -39,7 +39,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Novedades',
-    icon: 'nb-compose',
+    icon: 'nb-notifications',
     children: [
       {
         title: 'Cargar Novedades',

@@ -54,6 +54,30 @@ export class SmartTableComponent {
         title: 'Telefono',
         type: 'number',
       },
+      tipoLiquidacion: {
+        title: 'Tipo de Liquidacion',
+        type: 'string',
+      },
+      convenio: {
+        title: 'Convenio',
+        type: 'string',
+      },
+      categoria: {
+        title: 'Categoria',
+        type: 'string',
+      },
+      salario: {
+        title: 'Salario',
+        type: 'number',
+      },
+      vacacionesDisponibles: {
+        title: 'Vacaciones Disponibles',
+        type: 'number',
+      },
+      diasdeEstudio: {
+        title: 'Dias de Estudio',
+        type: 'number',
+      }
     },
   };
 
