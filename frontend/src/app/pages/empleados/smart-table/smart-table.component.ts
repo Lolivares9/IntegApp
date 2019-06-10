@@ -30,28 +30,28 @@ export class SmartTableComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
+      cuil: {
+        title: 'CUIL',
         type: 'number',
       },
-      firstName: {
-        title: 'First Name',
+      nombre: {
+        title: 'Nombre',
         type: 'string',
       },
-      lastName: {
-        title: 'Last Name',
+      apellido: {
+        title: 'Apellido',
         type: 'string',
       },
-      username: {
-        title: 'Username',
+      direccion: {
+        title: 'Direccion',
         type: 'string',
       },
       email: {
         title: 'E-mail',
         type: 'string',
       },
-      age: {
-        title: 'Age',
+      telefono: {
+        title: 'Telefono',
         type: 'number',
       },
     },
