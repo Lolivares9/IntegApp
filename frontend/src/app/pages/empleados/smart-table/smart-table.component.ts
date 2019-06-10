@@ -65,7 +65,7 @@ export class SmartTableComponent {
   }
 
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
+    if (window.confirm('Esta Seguro que desea eliminar el Empleado?')) {
       event.confirm.resolve();
     } else {
       event.confirm.reject();
