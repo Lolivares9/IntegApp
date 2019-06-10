@@ -11,6 +11,7 @@ public class Empleado {
 	private String telefono;
 	private String tipoLiquidacion;
 	private boolean convenio;
+	private String rubro;
 	private String categoria;
 	private float salario;
 	private List<Novedad> novedades;

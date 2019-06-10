@@ -12,11 +12,10 @@ public class Cliente {
 	private String telefono;
 	private String tipoPersona;
 	private List<Empleado> empleados;
-	private Cuenta cuentaCliente;
 	
 
 	public Cliente(String razonSocial, String cuit, String direccion, String localidad, String mail, String telefono,
-			String tipoPersona, List<Empleado> empleados, Cuenta cuenta) {
+			String tipoPersona, List<Empleado> empleados) {
 		super();
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
@@ -26,7 +25,6 @@ public class Cliente {
 		this.telefono = telefono;
 		this.tipoPersona = tipoPersona;
 		this.empleados = empleados;
-		this.setCuentaCliente(cuenta);
 	}
 	
 	public String getRazonSocial() {
@@ -76,11 +74,5 @@ public class Cliente {
 	}
 	public void setEmpleados(List<Empleado> empleados) {
 		this.empleados = empleados;
-	}
-	public Cuenta getCuentaCliente() {
-		return cuentaCliente;
-	}
-	public void setCuentaCliente(Cuenta cuentaCliente) {
-		this.cuentaCliente = cuentaCliente;
 	}
 }
