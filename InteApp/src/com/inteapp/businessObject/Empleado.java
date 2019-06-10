@@ -16,13 +16,14 @@ public class Empleado {
 	private String rubro;
 	private String categoria;
 	private float salario;
-	private List<Concepto> conceptos;
+	private List<Novedad> novedades;
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
+	private List<Liquidacion> liquidaciones;
 	
 	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
-			String tipoLiquidacion, boolean convenio, String categoria, float salario, List<Novedad> novedades,
-			int vacacionesDisp, int diasEstudioDisp) {
+			String tipoLiquidacion, boolean convenio, String rubro, String categoria, float salario,
+			List<Novedad> novedades, int vacacionesDisp, int diasEstudioDisp, List<Liquidacion> liquidaciones) {
 		super();
 		this.cuil = cuil;
 		this.nombre = nombre;
@@ -32,11 +33,25 @@ public class Empleado {
 		this.telefono = telefono;
 		this.tipoLiquidacion = tipoLiquidacion;
 		this.convenio = convenio;
+		this.rubro = rubro;
 		this.categoria = categoria;
 		this.salario = salario;
 		this.novedades = novedades;
 		this.vacacionesDisp = vacacionesDisp;
 		this.diasEstudioDisp = diasEstudioDisp;
+		this.liquidaciones = liquidaciones;
+	}
+	public String getRubro() {
+		return rubro;
+	}
+	public void setRubro(String rubro) {
+		this.rubro = rubro;
+	}
+	public List<Liquidacion> getLiquidaciones() {
+		return liquidaciones;
+	}
+	public void setLiquidaciones(List<Liquidacion> liquidaciones) {
+		this.liquidaciones = liquidaciones;
 	}
 	public String getCuil() {
 		return cuil;
@@ -116,10 +131,5 @@ public class Empleado {
 	public void setDiasEstudioDisp(int diasEstudioDisp) {
 		this.diasEstudioDisp = diasEstudioDisp;
 	}
-	
-	
-
-
-	
 	
 }

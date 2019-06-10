@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 public class Liquidacion {
-	private Empleado empleado;
-	Li
 	private List<Novedad> novedades;
 	private Date fechaDesde;
 	private Date fechaHasta;
