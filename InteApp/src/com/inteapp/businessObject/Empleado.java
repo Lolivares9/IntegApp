@@ -2,6 +2,8 @@ package com.inteapp.businessObject;
 
 import java.util.List;
 
+import com.inteapp.enums.Rubro;
+
 public class Empleado {
 	private String cuil;
 	private String nombre;
@@ -14,7 +16,7 @@ public class Empleado {
 	private String rubro;
 	private String categoria;
 	private float salario;
-	private List<Novedad> novedades;
+	private List<Concepto> conceptos;
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
 	

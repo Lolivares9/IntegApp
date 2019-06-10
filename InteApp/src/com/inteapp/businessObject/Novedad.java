@@ -2,9 +2,11 @@ package com.inteapp.businessObject;
 
 import java.util.Date;
 
+import com.inteapp.enums.NovedadLiquidacion;
+
 public class Novedad {
 	private Date fecha;
-	private String concepto;
+	private NovedadLiquidacion conceptoNovedad;
 	private int dias;
 	
 		public Novedad(Date fecha, String concepto, int dias) {
