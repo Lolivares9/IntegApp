@@ -17,8 +17,6 @@ public class Empleado {
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
 	
-	
-	
 	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
 			String tipoLiquidacion, boolean convenio, String categoria, float salario, List<Novedad> novedades,
 			int vacacionesDisp, int diasEstudioDisp) {
