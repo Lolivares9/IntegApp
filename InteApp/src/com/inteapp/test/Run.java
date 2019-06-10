@@ -1,4 +1,4 @@
-package test;
+package com.inteapp.test;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
