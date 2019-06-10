@@ -4,6 +4,33 @@ import java.util.Date;
 
 public class Novedad {
 	private Date fecha;
-	private String novedad;
-	//completar
+	private String concepto;
+	private int dias;
+	
+		public Novedad(Date fecha, String concepto, int dias) {
+		super();
+		this.fecha = fecha;
+		this.concepto = concepto;
+		this.dias = dias;
+	}
+	public Date getFecha() {
+		return fecha;
+	}
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+	public String getConcepto() {
+		return concepto;
+	}
+	public void setConcepto(String concepto) {
+		this.concepto = concepto;
+	}
+	public int getDias() {
+		return dias;
+	}
+	public void setDias(int dias) {
+		this.dias = dias;
+	}
+	
+	
 }
