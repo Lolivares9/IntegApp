@@ -69,11 +69,6 @@ public class ClienteDAO {
 		
 		return aux ;
 	}
-	
-	public Cliente findByCodigo(String cuit) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public void save(Cliente c) {
 		

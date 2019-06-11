@@ -7,10 +7,11 @@ public class Concepto {
 	private boolean obligatorio;
 	private String signo;
 	
-	public Concepto(String descripcion, boolean obligatorio) {
+	public Concepto(String descripcion, boolean obligatorio, String signo) {
 		super();
 		this.descripcion = descripcion;
 		this.obligatorio = obligatorio;
+		this.signo = signo;
 	}
 	public String getDescripcion() {
 		return descripcion;

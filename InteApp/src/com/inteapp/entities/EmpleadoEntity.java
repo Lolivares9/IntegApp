@@ -27,7 +27,8 @@ public class EmpleadoEntity {
 	private Integer idEmpleado;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_CLIENTE")
+	@JoinColumn(name="ID_CLIENTE"
+	)
 	private ClienteEntity cliente;
 	
 	@Column (name="CUIL")
@@ -78,6 +79,8 @@ public class EmpleadoEntity {
 	@JoinColumn(name="ID_NOVEDAD")
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<NovedadEntity> novedades;
+	
+	
 	
 	public EmpleadoEntity(){
 	}

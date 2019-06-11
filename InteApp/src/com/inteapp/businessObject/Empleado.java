@@ -1,4 +1,6 @@
 package com.inteapp.businessObject;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.inteapp.entities.EmpleadoEntity;
@@ -162,10 +164,73 @@ public class Empleado {
 	public void liquidarSueldo() {
 		if (convenio == true ) {
 			float sueldo = categoriaVigente.getSueldo();
+			float sueldoBruto = 0;
+			float sueldoNeto = 0;
+			List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
 			
+			cargarNovedadesItemsRubro(itemsRubro);
+			List<ItemRubro> retribuciones = new ArrayList<ItemRubro>();
+			List<ItemRubro> contribuciones = new ArrayList<ItemRubro>();
+			
+			separarItemsRubro (itemsRubro, retribuciones, contribuciones);
+			
+			sueldoBruto = calcularSueldoBruto(sueldo, retribuciones);
+			sueldoNeto = calcularSueldoNeto(sueldoBruto, contribuciones);
+			
+			Liquidacion liq = new Liquidacion (itemsRubro, new Date(), new Date(), sueldoBruto, sueldoNeto);
+			liquidaciones.add(liq);
+			System.out.println("Cliente " + nombre + ": ");
+			for (Liquidacion l : liquidaciones){
+				System.out.println("Liquidacion: ");
+				System.out.println("Sueldo Bruto: " + l.getLiqBruta());
+				System.out.println("Sueldo Neta: " + l.getLiqNeta());
+				System.out.println("Conceptos: ");
+				for (ItemRubro it: l.getItems()){
+					System.out.println(it.getConcepto().getDescripcion() + " Porcentaje: " + it.getPorcentaje() + " $" + it.getPorcentaje() * sueldoBruto);
+				}
+			}
+			System.out.println("");
 		}
 		else {
 			
+		}
+	}
+
+	private float calcularSueldoNeto(float sueldoBruto, List<ItemRubro> contribuciones) {
+		float sueldoNeto = sueldoBruto; 
+		for (ItemRubro it: contribuciones) {
+			sueldoNeto = sueldoNeto - (sueldoBruto * (it.getPorcentaje()));
+		}
+		return sueldoNeto;
+	}
+
+	private float calcularSueldoBruto(float sueldo, List<ItemRubro> retribuciones) {
+		float sueldoBruto = 0; 
+		for (ItemRubro it: retribuciones) {
+			sueldoBruto = sueldoBruto + (sueldo * (it.getPorcentaje()));
+		}
+		return sueldoBruto;
+	}
+
+	private void separarItemsRubro(List<ItemRubro> itemsRubro, List<ItemRubro> retribuciones,List<ItemRubro> contribuciones) {
+		for (ItemRubro it : itemsRubro) {
+			if (it.getConcepto().getSigno().equals("+")) {
+				retribuciones.add(it);
+			}
+			else {
+				contribuciones.add(it);
+			}
+		}	
+	}
+
+	private void cargarNovedadesItemsRubro(List<ItemRubro> itemsRubro) {
+		ItemRubro it= null;
+		for (Novedad n: novedades) {
+			Concepto c = n.getConcepto();
+			it = this.rubro.buscarItemRubro(c);
+			if (it != null) {
+				itemsRubro.add(it);
+			}
 		}
 	}	
 }

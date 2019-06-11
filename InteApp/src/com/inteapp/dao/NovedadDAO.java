@@ -1,9 +1,11 @@
 package com.inteapp.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.inteapp.businessObject.Categoria;
+import com.inteapp.businessObject.Concepto;
 import com.inteapp.businessObject.Novedad;
 import com.inteapp.entities.CategoriaEntity;
 import com.inteapp.entities.NovedadEntity;
@@ -18,12 +20,10 @@ private static NovedadDAO instancia;
 		return instancia;
 	}
 	
-	
-//	public Novedad toNegocio(NovedadEntity novEnt){
-//		Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(), novEnt.getIdNovedad(), novEnt.getCantDias(), novEnt.getConcepto(), novEnt.getEmpleado());
-//		return novNegocio;
-//	}
-	
+	public Novedad toNegocio(NovedadEntity novEnt){
+	Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(),null, novEnt.getCantDias());//TODO:AgregarConcepto
+	return novNegocio;
+}
 //	public List<Novedad> toNegocioAll(List<NovedadEntity> novedadesEnt){
 //		List <Novedad> novNegocio = new ArrayList<Novedad>();
 //		for(NovedadEntity n: novedadesEnt){
@@ -31,5 +31,7 @@ private static NovedadDAO instancia;
 //		}
 //		return novNegocio;
 //	}
+	
+	
 	
 }

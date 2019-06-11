@@ -36,7 +36,7 @@ public class Liquidador {
 	}
 	
 	private Cliente buscarCliente(ClienteView cView) {
-		Cliente c = ClienteDAO.getInstancia().findByCodigo(cView.getCuit());
+		Cliente c = ClienteDAO.getInstancia().buscarCliente(cView.getCuit());
 		return c;
 	}
 }
