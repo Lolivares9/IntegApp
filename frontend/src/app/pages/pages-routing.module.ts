@@ -49,15 +49,16 @@ const routes: Routes = [{
   }, {
     path: 'sueldos',
     loadChildren: './sueldos/forms.module#FormsModule',
-  },
-   {
+  }, {
+    path: 'reportes',
+    loadChildren: './reportes/forms.module#FormsModule',
+  }, {
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
   }, {
-  path: 'empleados',
-  loadChildren: './empleados/tables.module#TablesModule',
-},
- {
+    path: 'empleados',
+    loadChildren: './empleados/tables.module#TablesModule',
+  }, {
     path: 'miscellaneous',
     loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',
   }, {

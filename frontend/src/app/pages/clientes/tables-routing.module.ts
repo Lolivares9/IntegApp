@@ -18,15 +18,17 @@ const routes: Routes = [{
   {
     path: 'facturacion',
     component: SmartTableComponent2,
-  },
+  }
+  //,
   // {
   //   path: 'cobranza',
   //   component: SmartTableComponent3,
   // },
-  {
-    path: 'reportes',
-    component: SmartTableComponent4,
-  }],
+  // {
+  //   path: 'reportes',
+  //   component: SmartTableComponent4,
+  // }
+],
 }];
 
 @NgModule({
@@ -38,7 +40,8 @@ export class TablesRoutingModule { }
 export const routedComponents = [
   TablesComponent,
   SmartTableComponent1,
-  SmartTableComponent2,
+  SmartTableComponent2
+  //,
   // SmartTableComponent3,
-  SmartTableComponent4
+  // SmartTableComponent4
 ];

@@ -56,6 +56,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/sueldos/inputs',
       },
     ],
+  },
+  {
+    title: 'Reportes',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Generar Reportes',
+        link: '/pages/reportes/inputs',
+      },
+    ],
   }
 
   // ,
