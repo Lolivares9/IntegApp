@@ -39,6 +39,9 @@ const routes: Routes = [{
   },{
     path: 'clientes',
     loadChildren: './clientes/tables.module#TablesModule',
+  },{
+    path: 'reportes',
+    loadChildren: './reportes/forms.module#FormsModule',
   },
    {
     path: 'forms',
@@ -49,9 +52,10 @@ const routes: Routes = [{
   }, {
     path: 'sueldos',
     loadChildren: './sueldos/forms.module#FormsModule',
-  }, {
-    path: 'reportes',
-    loadChildren: './reportes/forms.module#FormsModule',
+  },
+  {
+    path: 'reporte',
+    loadChildren: './reporte/forms.module#FormsModule',
   }, {
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
