@@ -28,12 +28,12 @@ public class ClienteDAO {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
 		Cliente clienteCarga =  this.buscarCliente(clienteBO.getCuit());
-		
 		if (clienteCarga == null){		
-		s.beginTransaction();
-		s.saveOrUpdate(clienteBO);
-		s.getTransaction().commit();
-		s.close();
+			s.beginTransaction();
+			ClienteEntity cE = clienteBO.toEntity();
+			s.saveOrUpdate(cE);
+			s.getTransaction().commit();
+			s.close();
 		}
 	}
 	

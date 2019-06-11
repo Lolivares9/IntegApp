@@ -49,11 +49,6 @@ public class ClienteEntity {
 	@JoinColumn(name="ID_EMPLEADO")
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<EmpleadoEntity> empleados;
-	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_FACTURA")
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<FacturaEntity> facturas;
 
 	public ClienteEntity(){
 	}
@@ -128,13 +123,5 @@ public class ClienteEntity {
 
 	public void setEmpleados(List<EmpleadoEntity> empleados) {
 		this.empleados = empleados;
-	}
-
-	public List<FacturaEntity> getFacturas() {
-		return facturas;
-	}
-
-	public void setFacturas(List<FacturaEntity> facturas) {
-		this.facturas = facturas;
 	}
 }

@@ -19,17 +19,17 @@ private static NovedadDAO instancia;
 	}
 	
 	
-	public Novedad toNegocio(NovedadEntity novEnt){
-		Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(), novEnt.getIdNovedad(), novEnt.getCantDias(), novEnt.getConcepto(), novEnt.getEmpleado());
-		return novNegocio;
-	}
+//	public Novedad toNegocio(NovedadEntity novEnt){
+//		Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(), novEnt.getIdNovedad(), novEnt.getCantDias(), novEnt.getConcepto(), novEnt.getEmpleado());
+//		return novNegocio;
+//	}
 	
-	public List<Novedad> toNegocioAll(List<NovedadEntity> novedadesEnt){
-		List <Novedad> novNegocio = new ArrayList<Novedad>();
-		for(NovedadEntity n: novedadesEnt){
-			novNegocio.add(toNegocio(n));
-		}
-		return novNegocio;
-	}
+//	public List<Novedad> toNegocioAll(List<NovedadEntity> novedadesEnt){
+//		List <Novedad> novNegocio = new ArrayList<Novedad>();
+//		for(NovedadEntity n: novedadesEnt){
+//			novNegocio.add(toNegocio(n));
+//		}
+//		return novNegocio;
+//	}
 	
 }
