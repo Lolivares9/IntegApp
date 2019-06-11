@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,12 +30,17 @@ public class NovedadEntity {
 	@Temporal(TemporalType.DATE)
 	private Date fechaNovedad;
 	
-	@Column(name="CONCEPTO")
-	private String concepto;
+	@OneToOne
+	@JoinColumn(name="ID_CONCEPTO")
+	private ConceptoEntity concepto;
 	
 	@Column(name="CANT_DIAS")
 	private Integer cantDias;
 
+	@ManyToOne
+	@JoinColumn(name="ID_LIQUIDACION")
+	private LiquidacionEntity liquidacion;
+	
 	public NovedadEntity(){
 	}
 	
@@ -62,11 +68,11 @@ public class NovedadEntity {
 		this.fechaNovedad = fechaNovedad;
 	}
 
-	public String getConcepto() {
+	public ConceptoEntity getConcepto() {
 		return concepto;
 	}
 
-	public void setConcepto(String concepto) {
+	public void setConcepto(ConceptoEntity concepto) {
 		this.concepto = concepto;
 	}
 

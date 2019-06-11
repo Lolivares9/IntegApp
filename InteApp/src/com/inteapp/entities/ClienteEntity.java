@@ -26,7 +26,10 @@ public class ClienteEntity {
 	
 	@Column (name="CUIT")
 	private String cuit;
-
+	
+	@Column (name="DIRECCION")
+	private String direccion;
+	
 	@Column (name="RAZON_SOCIAL")
 	private String razonSocial;
 
@@ -71,6 +74,14 @@ public class ClienteEntity {
 		this.cuit = cuit;
 	}
 	
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	public String getLocalidad() {
 		return localidad;
 	}

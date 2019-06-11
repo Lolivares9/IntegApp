@@ -48,17 +48,23 @@ public class EmpleadoEntity {
 	@Column (name="TIPO_LIQUIDACION")
 	private String tipoLiquidacion;
 	
-	@Column (name="EN_CONVENIO")
-	private boolean perteneceConvenio;
-	
-	@Column (name="CATEGORIA")
-	private String categoria;
-	
 	@Column (name="VACACIONES_DISP")
 	private Integer vacacionesDisp;
 	
 	@Column (name="DIAS_EST_DISP")
 	private Integer diasEstudioDisp;
+	
+	@Column (name="EN_CONVENIO")
+	private boolean perteneceConvenio;
+	
+	@Column (name="RUBRO")
+	private String rubro;
+	
+	@Column (name="CATEGORIA")
+	private String categoria;
+
+	@Column (name="SALARIO")
+	private float salario;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_LIQUIDACION")
@@ -136,23 +142,7 @@ public class EmpleadoEntity {
 	public void setTipoLiquidacion(String tipoLiquidacion) {
 		this.tipoLiquidacion = tipoLiquidacion;
 	}
-
-	public boolean isPerteneceConvenio() {
-		return perteneceConvenio;
-	}
-
-	public void setPerteneceConvenio(boolean perteneceConvenio) {
-		this.perteneceConvenio = perteneceConvenio;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
+	
 	public Integer getVacacionesDisp() {
 		return vacacionesDisp;
 	}
@@ -167,6 +157,38 @@ public class EmpleadoEntity {
 
 	public void setDiasEstudioDisp(Integer diasEstudioDisp) {
 		this.diasEstudioDisp = diasEstudioDisp;
+	}
+	
+	public boolean isPerteneceConvenio() {
+		return perteneceConvenio;
+	}
+
+	public void setPerteneceConvenio(boolean perteneceConvenio) {
+		this.perteneceConvenio = perteneceConvenio;
+	}
+	
+	public String getRubro() {
+		return rubro;
+	}
+
+	public void setRubro(String rubro) {
+		this.rubro = rubro;
+	}
+	
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public float getSalario() {
+		return salario;
+	}
+
+	public void setSalario(float salario) {
+		this.salario = salario;
 	}
 
 	public List<LiquidacionEntity> getLiquidaciones() {

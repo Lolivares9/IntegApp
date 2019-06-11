@@ -1,17 +1,24 @@
 package com.inteapp.entities;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table (name="LIQUIDACIONES")
@@ -37,10 +44,20 @@ public class LiquidacionEntity {
 	private Date fechaHasta;
 	
 	@Column (name="LIQ_BRUTA")
-	private String liqBruta;
+	private float liqBruta;
 	
 	@Column (name="LIQ_NETA")
-	private String liqNeta;
+	private float liqNeta;
+	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_NOVEDAD")
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<NovedadEntity> novedades;
+	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_CONCEPTO")
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<ConceptoEntity> conceptos;
 
 	public LiquidacionEntity(){
 	}
@@ -85,19 +102,35 @@ public class LiquidacionEntity {
 		this.fechaHasta = fechaHasta;
 	}
 
-	public String getLiqBruta() {
+	public float getLiqBruta() {
 		return liqBruta;
 	}
 
-	public void setLiqBruta(String liqBruta) {
+	public void setLiqBruta(float liqBruta) {
 		this.liqBruta = liqBruta;
 	}
 
-	public String getLiqNeta() {
+	public float getLiqNeta() {
 		return liqNeta;
 	}
 
-	public void setLiqNeta(String liqNeta) {
+	public void setLiqNeta(float liqNeta) {
 		this.liqNeta = liqNeta;
+	}
+
+	public List<NovedadEntity> getNovedades() {
+		return novedades;
+	}
+
+	public void setNovedades(List<NovedadEntity> novedades) {
+		this.novedades = novedades;
+	}
+
+	public List<ConceptoEntity> getConceptos() {
+		return conceptos;
+	}
+
+	public void setConceptos(List<ConceptoEntity> conceptos) {
+		this.conceptos = conceptos;
 	}
 }
