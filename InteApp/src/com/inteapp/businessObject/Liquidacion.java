@@ -13,15 +13,22 @@ public class Liquidacion {
 	private float liqBruta;
 	private float liqNeta;
 	
-	public Liquidacion(List<Concepto> conceptos, List<Novedad> novedades, Date fechaDesde, Date fechaHasta,
-			float liqBruta, float liqNeta) {
+	public Liquidacion(Integer idLiquidacion, List<Concepto> conceptos, List<Novedad> novedades, Date fechaDesde,
+			Date fechaHasta, float liqBruta, float liqNeta) {
 		super();
+		this.idLiquidacion = idLiquidacion;
 		this.conceptos = conceptos;
 		this.novedades = novedades;
 		this.fechaDesde = fechaDesde;
 		this.fechaHasta = fechaHasta;
 		this.liqBruta = liqBruta;
 		this.liqNeta = liqNeta;
+	}
+	public Integer getIdLiquidacion() {
+		return idLiquidacion;
+	}
+	public void setIdLiquidacion(Integer idLiquidacion) {
+		this.idLiquidacion = idLiquidacion;
 	}
 	public List<Concepto> getConceptos() {
 		return conceptos;
@@ -59,12 +66,8 @@ public class Liquidacion {
 	public void setLiqNeta(float liqNeta) {
 		this.liqNeta = liqNeta;
 	}
-	public Integer getIdLiquidacion() {
-		return idLiquidacion;
-	}
-	public void setIdLiquidacion(Integer idLiquidacion) {
-		this.idLiquidacion = idLiquidacion;
-	}
+	
+
 	
 
 }

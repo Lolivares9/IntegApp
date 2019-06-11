@@ -1,4 +1,6 @@
 package com.inteapp.businessObject;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.inteapp.entities.EmpleadoEntity;
@@ -162,10 +164,32 @@ public class Empleado {
 	public void liquidarSueldo() {
 		if (convenio == true ) {
 			float sueldo = categoriaVigente.getSueldo();
+			float sueldoBruto;
+			float sueldoNeto;
+			List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
+			
+			cargarNovedadesItemsRubro(itemsRubro);
+			List<ItemRubro> retribuciones = new ArrayList<ItemRubro>();
+			List<ItemRubro> contribuciones = new ArrayList<ItemRubro>();
+			
+			separarItemsRubro (itemsRubro, retribuciones, contribuciones);
+			
+			//Liquidacion liq = new Liquidacion (itemsRubro, novedades, new Date(), new Date(), sueldo, sueldo);
 			
 		}
 		else {
 			
 		}
+	}
+
+	private void separarItemsRubro(List<ItemRubro> itemsRubro, List<ItemRubro> retribuciones,
+			List<ItemRubro> contribuciones) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void cargarNovedadesItemsRubro(List<ItemRubro> itemsRubro) {
+		// TODO Auto-generated method stub
+		
 	}	
 }
