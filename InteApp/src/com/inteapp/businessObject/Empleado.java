@@ -1,4 +1,6 @@
 package com.inteapp.businessObject;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.inteapp.entities.EmpleadoEntity;
@@ -19,16 +21,16 @@ public class Empleado {
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
 	private boolean convenio;
-	private String rubro;
-	private String categoria;
+	private Rubro rubro;
+	private Categoria categoriaVigente;
 	private float salario;
 	private List<Novedad> novedades;
 	private List<Liquidacion> liquidaciones;
 	
 
 	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
-			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, String rubro,
-			String categoria, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
+			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, Rubro rubro,
+			Categoria categoriaVigente, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
 		super();
 		this.cuil = cuil;
 		this.nombre = nombre;
@@ -41,7 +43,7 @@ public class Empleado {
 		this.diasEstudioDisp = diasEstudioDisp;
 		this.convenio = convenio;
 		this.rubro = rubro;
-		this.categoria = categoria;
+		this.categoriaVigente = categoriaVigente;
 		this.salario = salario;
 		this.novedades = novedades;
 		this.liquidaciones = liquidaciones;
@@ -115,17 +117,17 @@ public class Empleado {
 	public void setConvenio(boolean convenio) {
 		this.convenio = convenio;
 	}
-	public String getRubro() {
+	public Rubro getRubro() {
 		return rubro;
 	}
-	public void setRubro(String rubro) {
+	public void setRubro(Rubro rubro) {
 		this.rubro = rubro;
 	}
-	public String getCategoria() {
-		return categoria;
+	public Categoria getCategoriaVigente() {
+		return categoriaVigente;
 	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setCategoria(Categoria categoriaVigente) {
+		this.categoriaVigente = categoriaVigente;
 	}
 	public float getSalario() {
 		return salario;
@@ -158,5 +160,66 @@ public class Empleado {
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
-	
+
+	public void liquidarSueldo() {
+		if (convenio == true ) {
+			float sueldo = categoriaVigente.getSueldo();
+			float sueldoBruto = 0;
+			float sueldoNeto = 0;
+			List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
+			
+			cargarNovedadesItemsRubro(itemsRubro);
+			List<ItemRubro> retribuciones = new ArrayList<ItemRubro>();
+			List<ItemRubro> contribuciones = new ArrayList<ItemRubro>();
+			
+			separarItemsRubro (itemsRubro, retribuciones, contribuciones);
+			
+			sueldoBruto = calcularSueldoBruto(sueldo, retribuciones);
+			sueldoNeto = calcularSueldoNeto(sueldoBruto, contribuciones);
+			
+			Liquidacion liq = new Liquidacion (itemsRubro, new Date(), new Date(), sueldoBruto, sueldoNeto);
+			liquidaciones.add(liq);
+		}
+		else {
+			
+		}
+	}
+
+	private float calcularSueldoNeto(float sueldoBruto, List<ItemRubro> contribuciones) {
+		float sueldoNeto = sueldoBruto; 
+		for (ItemRubro it: contribuciones) {
+			sueldoNeto = sueldoNeto - (sueldoBruto * (it.getPorcentaje()));
+		}
+		return sueldoNeto;
+	}
+
+	private float calcularSueldoBruto(float sueldo, List<ItemRubro> retribuciones) {
+		float sueldoBruto = sueldo; 
+		for (ItemRubro it: retribuciones) {
+			sueldoBruto = sueldoBruto + (sueldo * (it.getPorcentaje()));
+		}
+		return sueldoBruto;
+	}
+
+	private void separarItemsRubro(List<ItemRubro> itemsRubro, List<ItemRubro> retribuciones,List<ItemRubro> contribuciones) {
+		for (ItemRubro it : itemsRubro) {
+			if (it.getConcepto().getSigno().equals("+")) {
+				retribuciones.add(it);
+			}
+			else {
+				contribuciones.add(it);
+			}
+		}	
+	}
+
+	private void cargarNovedadesItemsRubro(List<ItemRubro> itemsRubro) {
+		ItemRubro it= null;
+		for (Novedad n: novedades) {
+			Concepto c = n.getConcepto();
+			it = this.rubro.buscarItemRubro(c);
+			if (it != null) {
+				itemsRubro.add(it);
+			}
+		}
+	}	
 }

@@ -5,14 +5,14 @@ import { SmartTableData } from '../../../@core/data/smart-table';
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './smart-table.component.html',
+  templateUrl: './smart-table3.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],
 })
-export class SmartTableComponent {
+export class SmartTableComponent3 {
 
   settings = {
     add: {

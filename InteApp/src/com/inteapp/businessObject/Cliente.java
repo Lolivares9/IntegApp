@@ -115,4 +115,11 @@ public class Cliente {
 		
 		return ce;
 	}
+
+	public boolean liquidarEmpleados() {
+		for (Empleado e: empleados) {
+			e.liquidarSueldo();
+		}
+		return true;
+	}
 }

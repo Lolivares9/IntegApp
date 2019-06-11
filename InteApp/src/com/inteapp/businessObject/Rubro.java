@@ -1,5 +1,6 @@
 package com.inteapp.businessObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rubro {
@@ -38,5 +39,23 @@ public class Rubro {
 	}
 	public void setIdRubro(Integer idRubro) {
 		this.idRubro = idRubro;
+	}
+	public List<ItemRubro> getItemsRubroObligatorios() {
+		List<ItemRubro> itemsRubro = new ArrayList<ItemRubro>();
+		for (ItemRubro ir: conceptos) {
+			if (ir.getConcepto().isObligatorio()) {
+				itemsRubro.add(ir);
+			}
+		}
+		return itemsRubro;
+	}
+	public ItemRubro buscarItemRubro(Concepto c) {
+		ItemRubro item= null;
+		for (ItemRubro it: conceptos) {
+			if (it.getConcepto().getDescripcion().equals(c.getDescripcion())) {
+				item = it;
+			}
+		}
+		return item;
 	}	
 }

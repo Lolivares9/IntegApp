@@ -21,6 +21,7 @@ private static NovedadDAO instancia;
 	}
 	
 	
+<<<<<<< HEAD
 	/*/private Integer idNovedad;
 	private Date fecha;
 	private Concepto concepto;
@@ -30,14 +31,20 @@ private static NovedadDAO instancia;
 		Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(),null, novEnt.getCantDias());//TODO:AgregarConcepto
 		return novNegocio;
 	}
+=======
+//	public Novedad toNegocio(NovedadEntity novEnt){
+//		Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(), novEnt.getIdNovedad(), novEnt.getCantDias(), novEnt.getConcepto(), novEnt.getEmpleado());
+//		return novNegocio;
+//	}
+>>>>>>> branch 'master' of https://github.com/Lolivares9/IntegApp
 	
-	public List<Novedad> toNegocioAll(List<NovedadEntity> novedadesEnt){
-		List <Novedad> novNegocio = new ArrayList<Novedad>();
-		for(NovedadEntity n: novedadesEnt){
-			novNegocio.add(toNegocio(n));
-		}
-		return novNegocio;
-	}
+//	public List<Novedad> toNegocioAll(List<NovedadEntity> novedadesEnt){
+//		List <Novedad> novNegocio = new ArrayList<Novedad>();
+//		for(NovedadEntity n: novedadesEnt){
+//			novNegocio.add(toNegocio(n));
+//		}
+//		return novNegocio;
+//	}
 	
 	
 	

@@ -19,7 +19,7 @@ public class Liquidador {
 	
 	public boolean liquidarCliente (ClienteView cView) {
 		Cliente c = buscarCliente(cView); 
-		return true;
+		return c.liquidarEmpleados();
 	}
 	
 	public boolean altaCliente (ClienteView cteView){
@@ -36,7 +36,7 @@ public class Liquidador {
 	}
 	
 	private Cliente buscarCliente(ClienteView cView) {
-		Cliente c = ClienteDAO.getInstancia().findByCodigo(cView.getCuit());
+		Cliente c = ClienteDAO.getInstancia().buscarCliente(cView.getCuit());
 		return c;
 	}
 }

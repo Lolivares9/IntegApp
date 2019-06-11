@@ -20,34 +20,15 @@ public class EmpleadoDAO {
 	}
 	
 	
-	public Empleado toNegocio(EmpleadoEntity empEnt){
-		Empleado empNegocio = new Empleado(
-				empEnt.getCuil(),
-				empEnt.getNombre(),
-				empEnt.getApellido(),
-				empEnt.getDireccion(),
-				empEnt.getMail(), 
-				empEnt.getCategoria(),
-				
-				 
-				empEnt.getRubro(),
-				empEnt.getTelefono(),
-				empEnt.getDiasEstudioDisp(),
-				empEnt.getSalario(),
-				empEnt.getTipoLiquidacion(),
-				empEnt.getVacacionesDisp(),
-				empEnt.getIdEmpleado());
-		return empNegocio;
-	}
+//	public Empleado toNegocio(EmpleadoEntity empEnt){
+//		
+//	}
 	
-	(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
-			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, String rubro,
-			String categoria, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
 	
 	public List<Empleado> toNegocioAll(List<EmpleadoDAO> empEnt){
 		List <Empleado> empNegocio = new ArrayList<Empleado>();
 		for(EmpleadoDAO c: empEnt){
-			empNegocio.add(toNegocio(c));
+			//empNegocio.add(toNegocio(c));
 		}
 		return empNegocio;
 	}
