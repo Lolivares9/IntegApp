@@ -17,14 +17,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Facturacion',
         link: '/pages/clientes/facturacion',
       },
-      {
-        title: 'Cobranza',
-        link: '/pages/clientes/cobranza',
-      },
-      {
-        title: 'Reportes',
-        link: '/pages/clientes/reportes',
-      },
+      // {
+      //   title: 'Cobranza',
+      //   link: '/pages/clientes/cobranza',
+      // },
+      // {
+      //   title: 'Reportes',
+      //   link: '/pages/clientes/reportes',
+      // },
     ],
   },
   {
