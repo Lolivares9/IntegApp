@@ -77,4 +77,14 @@ public class Cliente {
 	public void setEmpleados(List<Empleado> empleados) {
 		this.empleados = empleados;
 	}
+
+	public boolean existeProducto() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
 }

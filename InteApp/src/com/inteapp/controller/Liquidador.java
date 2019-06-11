@@ -1,15 +1,49 @@
 package com.inteapp.controller;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import com.inteapp.businessObject.Cliente;
 import com.inteapp.view.ClienteView;
 
+import controller.ControladorMarcas;
+import edu.uade.apdzpoc.dao.PedidoWebDAO;
+import edu.uade.apdzpoc.dto.PedidoWebDTO;
+import edu.uade.apdzpoc.negocio.PedidoWeb;
+import mappers.MapperMarca;
+import negocio.Marca;
+import negocio.Producto;
+import views.ProductoView;
+
 public class Liquidador {
-	public boolean liquidarCliente (ClienteView c) {
-		Cliente cc = buscarCliente(); 
+	private static Liquidador instance;
+	
+	public static Liquidador getInstance(){
+		if (instance == null){
+			instance = new Liquidador();
+		}
+		return instance;
+	}
+	
+	public boolean liquidarCliente (ClienteView cView) {
+		Cliente c = buscarCliente(cView); 
 		return true;
 	}
-	private Cliente buscarCliente() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public boolean AltaCliente (ClienteView cteView){
+		Cliente c = new Cliente(cteView.getRazonSocial(), cteView.getCuit(), cteView.getDireccion(), cteView.getLocalidad(), cteView.getMail(), cteView.getTelefono(), cteView.getTipoPersona(), cteView.getEmpleados());
+		boolean existe = c.existeProducto();
+		if (existe == false){
+			c.save();
+			return true;
+		}else{ //Existe
+			System.console().writer().println("Ya existe el cliente!");
+			return false;
+		}
+	}
+	
+	private Cliente buscarCliente(ClienteView cView) {
+		Cliente c = ClienteDAO.getInstancia().findByCodigo(c.getCuit());
+		return c;
 	}
 }
