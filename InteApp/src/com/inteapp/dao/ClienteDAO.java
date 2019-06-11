@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 
 import com.inteapp.businessObject.Cliente;
 import com.inteapp.entities.ClienteEntity;
+import com.inteapp.entities.EscalaEntity;
 import com.inteapp.hibernate.HibernateUtil;
 
 public class ClienteDAO {
@@ -43,10 +44,15 @@ public class ClienteDAO {
 	}
 
 	public void save(Cliente c) {
+		
+		
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
+		ClienteEntity cliEnt = new ClienteEntity();
+		cliEnt = c.toEntity();
+		
 		s.beginTransaction();
-		s.saveOrUpdate(c);
+		s.saveOrUpdate(cliEnt);
 		s.getTransaction().commit();
 		s.close();
 	}

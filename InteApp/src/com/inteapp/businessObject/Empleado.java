@@ -1,6 +1,8 @@
 package com.inteapp.businessObject;
 import java.util.List;
 
+import com.inteapp.entities.EmpleadoEntity;
+
 public class Empleado {
 	//Datos personales
 	private String cuil;
@@ -140,5 +142,10 @@ public class Empleado {
 	}
 	public void setLiquidaciones(List<Liquidacion> liquidaciones) {
 		this.liquidaciones = liquidaciones;
+	}
+
+	public EmpleadoEntity toEntity() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
