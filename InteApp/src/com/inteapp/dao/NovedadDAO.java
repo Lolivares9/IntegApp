@@ -27,7 +27,7 @@ private static NovedadDAO instancia;
 	private int dias
 	/*/
 	public Novedad toNegocio(NovedadEntity novEnt){
-		Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(),null, novEnt.getCantDias());
+		Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(),null, novEnt.getCantDias());//TODO:AgregarConcepto
 		return novNegocio;
 	}
 	

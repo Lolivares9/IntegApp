@@ -14,6 +14,7 @@ public class Novedad {
 		this.concepto = concepto;
 		this.dias = dias;
 	}
+	
 	public Date getFecha() {
 		return fecha;
 	}
