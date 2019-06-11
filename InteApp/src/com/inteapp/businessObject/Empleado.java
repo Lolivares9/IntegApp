@@ -41,6 +41,15 @@ public class Empleado {
 		this.novedades = novedades;
 		this.liquidaciones = liquidaciones;
 	}
+	
+	public void AltaNovedad(Novedad n) {
+		this.novedades.add(n);
+	}
+	
+	public void AltaLiquidacion (Liquidacion l){
+		this.liquidaciones.add(l);	
+	}
+	
 	public String getCuil() {
 		return cuil;
 	}

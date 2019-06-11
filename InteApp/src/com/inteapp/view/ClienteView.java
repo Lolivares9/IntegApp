@@ -16,10 +16,11 @@ public class ClienteView {
 	private String telefono;
 	private String tipoPersona;
 	private List<Empleado> empleados;
-	private List <Liquidacion> liquidaciones;
+	
+	public ClienteView() {};
 	
 	public ClienteView(String razonSocial, String cuit, String direccion, String localidad, String mail, String telefono,
-			String tipoPersona, List<Empleado> empleados, List<Liquidacion> liquidaciones) {
+			String tipoPersona, List<Empleado> empleados) {
 		super();
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
@@ -29,7 +30,7 @@ public class ClienteView {
 		this.telefono = telefono;
 		this.tipoPersona = tipoPersona;
 		this.empleados = empleados;
-		this.liquidaciones = liquidaciones;
+		
 	}
 	
 	public String getRazonSocial() {

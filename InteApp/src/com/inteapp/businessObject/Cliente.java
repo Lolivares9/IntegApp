@@ -25,6 +25,10 @@ public class Cliente {
 		this.empleados = empleados;
 	}
 	
+	public void AltaEmpleado(Empleado e) {
+		this.empleados.add(e);
+	}
+	
 	public String getRazonSocial() {
 		return razonSocial;
 	}
