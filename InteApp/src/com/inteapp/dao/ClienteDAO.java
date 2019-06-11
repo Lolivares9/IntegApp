@@ -24,36 +24,36 @@ public class ClienteDAO {
 		}
 		return instancia;
 	}
-	public void guardar(ClienteEntity c) {
+	public void guardar(Cliente clienteBO) {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
+		Cliente clienteCarga =  this.buscarCliente(clienteBO.getCuit());
+		
+		if (clienteCarga == null){		
 		s.beginTransaction();
-		s.saveOrUpdate(c);
+		s.saveOrUpdate(clienteBO);
 		s.getTransaction().commit();
 		s.close();
+		}
 	}
 	
 	
-	//public Cliente buscarCliente(String cuit){
-		//return null;
-	//}
-	
-	public List<ClienteEntity> getCliente(String cuit){
-		List<ClienteEntity> clientesList = new ArrayList<ClienteEntity>();
-		
-		List<Cliente> clientes;
-
+	public Cliente buscarCliente(String cuit){
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
 		ClienteEntity cliEnt;
 		Cliente cliente = null;
 		cliEnt = (ClienteEntity) s.createQuery("from ClienteEntity where CUIT = ?").setString(0, cuit);
 		s.getTransaction().commit();
-		if(cliEnt != null){
+		if(cliEnt != null)
 			cliente = toNegocio(cliEnt);
-		}
-		return null;//cliente;
+		
+	return cliente;
 	}
+		
+	
+	
+	
 	
 	public Cliente toNegocio(ClienteEntity cli){
 		Cliente aux= null;
