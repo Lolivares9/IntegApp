@@ -48,5 +48,14 @@ public class Rubro {
 			}
 		}
 		return itemsRubro;
+	}
+	public ItemRubro buscarItemRubro(Concepto c) {
+		ItemRubro item= null;
+		for (ItemRubro it: conceptos) {
+			if (it.getConcepto().getDescripcion().equals(c.getDescripcion())) {
+				item = it;
+			}
+		}
+		return item;
 	}	
 }

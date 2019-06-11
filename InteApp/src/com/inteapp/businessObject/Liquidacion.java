@@ -6,41 +6,27 @@ import java.util.List;
 public class Liquidacion {
 	
 	private Integer idLiquidacion;
-	private List<Concepto> conceptos;
-	private List<Novedad> novedades; 
+	private List<ItemRubro> items; 
 	private Date fechaDesde;
 	private Date fechaHasta;
 	private float liqBruta;
 	private float liqNeta;
-	
-	public Liquidacion(Integer idLiquidacion, List<Concepto> conceptos, List<Novedad> novedades, Date fechaDesde,
-			Date fechaHasta, float liqBruta, float liqNeta) {
+
+	public Liquidacion(List<ItemRubro> items, Date fechaDesde, Date fechaHasta, float liqBruta,
+			float liqNeta) {
 		super();
-		this.idLiquidacion = idLiquidacion;
-		this.conceptos = conceptos;
-		this.novedades = novedades;
+		this.items = items;
 		this.fechaDesde = fechaDesde;
 		this.fechaHasta = fechaHasta;
 		this.liqBruta = liqBruta;
 		this.liqNeta = liqNeta;
 	}
+	
 	public Integer getIdLiquidacion() {
 		return idLiquidacion;
 	}
 	public void setIdLiquidacion(Integer idLiquidacion) {
 		this.idLiquidacion = idLiquidacion;
-	}
-	public List<Concepto> getConceptos() {
-		return conceptos;
-	}
-	public void setConceptos(List<Concepto> conceptos) {
-		this.conceptos = conceptos;
-	}
-	public List<Novedad> getNovedades() {
-		return novedades;
-	}
-	public void setNovedades(List<Novedad> novedades) {
-		this.novedades = novedades;
 	}
 	public Date getFechaDesde() {
 		return fechaDesde;
@@ -66,8 +52,12 @@ public class Liquidacion {
 	public void setLiqNeta(float liqNeta) {
 		this.liqNeta = liqNeta;
 	}
+	public List<ItemRubro> getItems() {
+		return items;
+	}
+	public void setItems(List<ItemRubro> items) {
+		this.items = items;
+	}
 	
-
 	
-
 }

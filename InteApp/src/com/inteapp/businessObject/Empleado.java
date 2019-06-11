@@ -164,8 +164,8 @@ public class Empleado {
 	public void liquidarSueldo() {
 		if (convenio == true ) {
 			float sueldo = categoriaVigente.getSueldo();
-			float sueldoBruto;
-			float sueldoNeto;
+			float sueldoBruto = 0;
+			float sueldoNeto = 0;
 			List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
 			
 			cargarNovedadesItemsRubro(itemsRubro);
@@ -174,22 +174,52 @@ public class Empleado {
 			
 			separarItemsRubro (itemsRubro, retribuciones, contribuciones);
 			
-			//Liquidacion liq = new Liquidacion (itemsRubro, novedades, new Date(), new Date(), sueldo, sueldo);
+			sueldoBruto = calcularSueldoBruto(sueldo, retribuciones);
+			sueldoNeto = calcularSueldoNeto(sueldoBruto, contribuciones);
 			
+			Liquidacion liq = new Liquidacion (itemsRubro, new Date(), new Date(), sueldoBruto, sueldoNeto);
+			liquidaciones.add(liq);
 		}
 		else {
 			
 		}
 	}
 
-	private void separarItemsRubro(List<ItemRubro> itemsRubro, List<ItemRubro> retribuciones,
-			List<ItemRubro> contribuciones) {
-		// TODO Auto-generated method stub
-		
+	private float calcularSueldoNeto(float sueldoBruto, List<ItemRubro> contribuciones) {
+		float sueldoNeto = sueldoBruto; 
+		for (ItemRubro it: contribuciones) {
+			sueldoNeto = sueldoNeto - (sueldoBruto * (it.getPorcentaje()));
+		}
+		return sueldoNeto;
+	}
+
+	private float calcularSueldoBruto(float sueldo, List<ItemRubro> retribuciones) {
+		float sueldoBruto = sueldo; 
+		for (ItemRubro it: retribuciones) {
+			sueldoBruto = sueldoBruto + (sueldo * (it.getPorcentaje()));
+		}
+		return sueldoBruto;
+	}
+
+	private void separarItemsRubro(List<ItemRubro> itemsRubro, List<ItemRubro> retribuciones,List<ItemRubro> contribuciones) {
+		for (ItemRubro it : itemsRubro) {
+			if (it.getConcepto().getSigno().equals("+")) {
+				retribuciones.add(it);
+			}
+			else {
+				contribuciones.add(it);
+			}
+		}	
 	}
 
 	private void cargarNovedadesItemsRubro(List<ItemRubro> itemsRubro) {
-		// TODO Auto-generated method stub
-		
+		ItemRubro it= null;
+		for (Novedad n: novedades) {
+			Concepto c = n.getConcepto();
+			it = this.rubro.buscarItemRubro(c);
+			if (it != null) {
+				itemsRubro.add(it);
+			}
+		}
 	}	
 }
