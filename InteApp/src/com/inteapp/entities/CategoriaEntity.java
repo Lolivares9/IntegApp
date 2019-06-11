@@ -20,8 +20,8 @@ public class CategoriaEntity {
 	@Column (name="CATEGORIA")
 	private String categoria;
 	
-	@Column (name="sueldo")
-	private float signo;
+	@Column (name="SUELDO")
+	private float sueldo;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_ESCALA")
@@ -46,12 +46,12 @@ public class CategoriaEntity {
 		this.categoria = categoria;
 	}
 
-	public float getSigno() {
-		return signo;
+	public float getSueldo() {
+		return sueldo;
 	}
 
-	public void setSigno(float signo) {
-		this.signo = signo;
+	public void setSueldo(float signo) {
+		this.sueldo = signo;
 	}
 
 	public EscalaEntity getEscala() {

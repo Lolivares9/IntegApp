@@ -28,16 +28,13 @@ public class EscalaEntity {
 	private Integer idEscala;
 	
 	@Column(name="VIGENCIA_DESDE")
-	@Temporal(TemporalType.DATE)
 	private Date vigenciaDesde;
 	
 	@Column(name="VIGENCIA_HASTA")
-	@Temporal(TemporalType.DATE)
 	private Date vigenciaHasta;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_CATEGORIA")
-	@Fetch(value = FetchMode.SUBSELECT)
 	private List<CategoriaEntity> categorias;
 	
 	public EscalaEntity(){
