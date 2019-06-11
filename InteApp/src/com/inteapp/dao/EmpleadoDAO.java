@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.inteapp.businessObject.Categoria;
 import com.inteapp.businessObject.Empleado;
+import com.inteapp.businessObject.Liquidacion;
+import com.inteapp.businessObject.Novedad;
 import com.inteapp.entities.EmpleadoEntity;
 
 public class EmpleadoDAO {
@@ -20,11 +22,14 @@ public class EmpleadoDAO {
 	
 	public Empleado toNegocio(EmpleadoEntity empEnt){
 		Empleado empNegocio = new Empleado(
-				empEnt.getApellido(),
-				empEnt.getCategoria(),
 				empEnt.getCuil(),
-				empEnt.getDireccion(), 
-				empEnt.getNombre(), 
+				empEnt.getNombre(),
+				empEnt.getApellido(),
+				empEnt.getDireccion(),
+				empEnt.getMail(), 
+				empEnt.getCategoria(),
+				
+				 
 				empEnt.getRubro(),
 				empEnt.getTelefono(),
 				empEnt.getDiasEstudioDisp(),
@@ -34,6 +39,10 @@ public class EmpleadoDAO {
 				empEnt.getIdEmpleado());
 		return empNegocio;
 	}
+	
+	(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
+			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, String rubro,
+			String categoria, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
 	
 	public List<Empleado> toNegocioAll(List<EmpleadoDAO> empEnt){
 		List <Empleado> empNegocio = new ArrayList<Empleado>();

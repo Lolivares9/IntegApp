@@ -158,4 +158,5 @@ public class Empleado {
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
+	
 }
