@@ -30,4 +30,8 @@ public class Factura {
 	public void setImporte(float importe) {
 		this.importe = importe;
 	}	
+	
+	public void guardar() {
+		
+	};
 }

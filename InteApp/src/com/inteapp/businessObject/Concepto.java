@@ -4,6 +4,7 @@ public class Concepto {
 	
 	private String descripcion;
 	private boolean obligatorio;
+	private String signo;
 	
 	public Concepto(String descripcion, boolean obligatorio) {
 		super();

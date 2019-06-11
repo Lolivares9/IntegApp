@@ -2,12 +2,15 @@ package com.inteapp.businessObject;
 import java.util.List;
 
 public class Empleado {
+	//Datos personales
 	private String cuil;
 	private String nombre;
 	private String apellido;
 	private String direccion;
 	private String mail; 
 	private String telefono;
+	
+	//Datos laborales
 	private String tipoLiquidacion;
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
