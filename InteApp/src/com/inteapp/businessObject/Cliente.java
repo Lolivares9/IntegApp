@@ -85,6 +85,15 @@ public class Cliente {
 	public void setEmpleados(List<Empleado> empleados) {
 		this.empleados = empleados;
 	}
+	
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+	
 	public void save() {
 		ClienteDAO.getInstancia().save(this);
 	}
@@ -105,13 +114,5 @@ public class Cliente {
 		ce.setEmpleados(empleados);
 		
 		return ce;
-	}
-	
-	public Integer getIdCliente() {
-		return idCliente;
-	}
-
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
 	}
 }
