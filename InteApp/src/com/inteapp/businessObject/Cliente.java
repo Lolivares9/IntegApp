@@ -12,10 +12,8 @@ public class Cliente {
 	private String telefono;
 	private String tipoPersona;
 	private List<Empleado> empleados;
-	private List <Liquidacion> liquidaciones;
 	
-	public Cliente(String razonSocial, String cuit, String direccion, String localidad, String mail, String telefono,
-			String tipoPersona, List<Empleado> empleados, List<Liquidacion> liquidaciones) {
+	public Cliente(String razonSocial, String cuit, String direccion, String localidad, String mail, String telefono,String tipoPersona, List<Empleado> empleados) {
 		super();
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
@@ -25,7 +23,10 @@ public class Cliente {
 		this.telefono = telefono;
 		this.tipoPersona = tipoPersona;
 		this.empleados = empleados;
-		this.liquidaciones = liquidaciones;
+	}
+	
+	public void AltaEmpleado(Empleado e) {
+		this.empleados.add(e);
 	}
 	
 	public String getRazonSocial() {
@@ -77,12 +78,13 @@ public class Cliente {
 		this.empleados = empleados;
 	}
 
-	public List<Liquidacion> getLiquidaciones() {
-		return liquidaciones;
+	public boolean existeProducto() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public void setLiquidaciones(List<Liquidacion> liquidaciones) {
-		this.liquidaciones = liquidaciones;
+	public void save() {
+		// TODO Auto-generated method stub
+		
 	}
-	
 }

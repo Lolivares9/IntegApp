@@ -1,26 +1,30 @@
 package com.inteapp.businessObject;
-
 import java.util.List;
 
 public class Empleado {
+	//Datos personales
 	private String cuil;
 	private String nombre;
 	private String apellido;
 	private String direccion;
 	private String mail; 
 	private String telefono;
+	
+	//Datos laborales
 	private String tipoLiquidacion;
+	private int vacacionesDisp;
+	private int diasEstudioDisp;
 	private boolean convenio;
 	private String rubro;
 	private String categoria;
 	private float salario;
 	private List<Novedad> novedades;
-	private int vacacionesDisp;
-	private int diasEstudioDisp;
+	private List<Liquidacion> liquidaciones;
 	
+
 	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
-			String tipoLiquidacion, boolean convenio, String categoria, float salario, List<Novedad> novedades,
-			int vacacionesDisp, int diasEstudioDisp) {
+			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, String rubro,
+			String categoria, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
 		super();
 		this.cuil = cuil;
 		this.nombre = nombre;
@@ -29,13 +33,24 @@ public class Empleado {
 		this.mail = mail;
 		this.telefono = telefono;
 		this.tipoLiquidacion = tipoLiquidacion;
+		this.vacacionesDisp = vacacionesDisp;
+		this.diasEstudioDisp = diasEstudioDisp;
 		this.convenio = convenio;
+		this.rubro = rubro;
 		this.categoria = categoria;
 		this.salario = salario;
 		this.novedades = novedades;
-		this.vacacionesDisp = vacacionesDisp;
-		this.diasEstudioDisp = diasEstudioDisp;
+		this.liquidaciones = liquidaciones;
 	}
+	
+	public void AltaNovedad(Novedad n) {
+		this.novedades.add(n);
+	}
+	
+	public void AltaLiquidacion (Liquidacion l){
+		this.liquidaciones.add(l);	
+	}
+	
 	public String getCuil() {
 		return cuil;
 	}
@@ -78,11 +93,29 @@ public class Empleado {
 	public void setTipoLiquidacion(String tipoLiquidacion) {
 		this.tipoLiquidacion = tipoLiquidacion;
 	}
+	public int getVacacionesDisp() {
+		return vacacionesDisp;
+	}
+	public void setVacacionesDisp(int vacacionesDisp) {
+		this.vacacionesDisp = vacacionesDisp;
+	}
+	public int getDiasEstudioDisp() {
+		return diasEstudioDisp;
+	}
+	public void setDiasEstudioDisp(int diasEstudioDisp) {
+		this.diasEstudioDisp = diasEstudioDisp;
+	}
 	public boolean isConvenio() {
 		return convenio;
 	}
 	public void setConvenio(boolean convenio) {
 		this.convenio = convenio;
+	}
+	public String getRubro() {
+		return rubro;
+	}
+	public void setRubro(String rubro) {
+		this.rubro = rubro;
 	}
 	public String getCategoria() {
 		return categoria;
@@ -102,22 +135,10 @@ public class Empleado {
 	public void setNovedades(List<Novedad> novedades) {
 		this.novedades = novedades;
 	}
-	public int getVacacionesDisp() {
-		return vacacionesDisp;
+	public List<Liquidacion> getLiquidaciones() {
+		return liquidaciones;
 	}
-	public void setVacacionesDisp(int vacacionesDisp) {
-		this.vacacionesDisp = vacacionesDisp;
+	public void setLiquidaciones(List<Liquidacion> liquidaciones) {
+		this.liquidaciones = liquidaciones;
 	}
-	public int getDiasEstudioDisp() {
-		return diasEstudioDisp;
-	}
-	public void setDiasEstudioDisp(int diasEstudioDisp) {
-		this.diasEstudioDisp = diasEstudioDisp;
-	}
-	
-	
-
-
-	
-	
 }

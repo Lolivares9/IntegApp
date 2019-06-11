@@ -1,15 +1,18 @@
 package com.inteapp.businessObject;
 
+import java.util.Date;
+
 public class Factura {
 
+	private Date fecha;
 	private Cliente cliente;
 	private String descripcion;
 	private float importe;
-	
-	
-	
-	public Factura(Cliente cliente, String descripcion, float importe) {
+
+
+	public Factura(Date fecha, Cliente cliente, String descripcion, float importe) {
 		super();
+		this.fecha = fecha;
 		this.cliente = cliente;
 		this.descripcion = descripcion;
 		this.importe = importe;
@@ -31,7 +34,15 @@ public class Factura {
 	}
 	public void setImporte(float importe) {
 		this.importe = importe;
+	}	
+	
+	public Date getFecha() {
+		return fecha;
 	}
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+	public void guardar() {
 		
-		
+	};
 }

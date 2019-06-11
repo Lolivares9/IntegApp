@@ -1,13 +1,12 @@
 package com.inteapp.businessObject;
-
 import java.util.Date;
 
 public class Novedad {
 	private Date fecha;
-	private String concepto;
+	private Concepto concepto;
 	private int dias;
 	
-		public Novedad(Date fecha, String concepto, int dias) {
+		public Novedad(Date fecha, Concepto concepto, int dias) {
 		super();
 		this.fecha = fecha;
 		this.concepto = concepto;
@@ -19,10 +18,10 @@ public class Novedad {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public String getConcepto() {
+	public Concepto getConcepto() {
 		return concepto;
 	}
-	public void setConcepto(String concepto) {
+	public void setConcepto(Concepto concepto) {
 		this.concepto = concepto;
 	}
 	public int getDias() {
@@ -31,6 +30,4 @@ public class Novedad {
 	public void setDias(int dias) {
 		this.dias = dias;
 	}
-	
-	
 }

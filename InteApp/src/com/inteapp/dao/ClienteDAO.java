@@ -1,8 +1,13 @@
 package com.inteapp.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.inteapp.businessObject.Cliente;
 import com.inteapp.entities.ClienteEntity;
 import com.inteapp.hibernate.HibernateUtil;
 
@@ -24,6 +29,26 @@ public class ClienteDAO {
 		s.saveOrUpdate(c);
 		s.getTransaction().commit();
 		s.close();
+	}
+	
+	public List<ClienteEntity> getCliente(String cuit){
+		List<ClienteEntity> clientesList = new ArrayList<ClienteEntity>();
+		
+		List<Cliente> clientes;
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+		Query query = session.createQuery(" from ClientesEntity c where c.cuit = :clie").setParameter("clie",cuit );
+		clientesList = query.list();
+		for(ClienteEntity ce: clientesList)
+			//clientes.add(ce)
+		
+		session.close();
+		return clientesList;
+	}
+
+	public Cliente findByCodigo(String cuit) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
