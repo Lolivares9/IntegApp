@@ -42,9 +42,13 @@ public class ClienteDAO {
 		return null;
 	}
 
-	public void save(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
+	public void save(Cliente c) {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.openSession();
+		s.beginTransaction();
+		s.saveOrUpdate(c);
+		s.getTransaction().commit();
+		s.close();
 	}
 	
 }
