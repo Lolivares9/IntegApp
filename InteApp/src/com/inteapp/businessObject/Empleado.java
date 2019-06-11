@@ -19,16 +19,16 @@ public class Empleado {
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
 	private boolean convenio;
-	private String rubro;
-	private String categoria;
+	private Rubro rubro;
+	private Categoria categoriaVigente;
 	private float salario;
 	private List<Novedad> novedades;
 	private List<Liquidacion> liquidaciones;
 	
 
 	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
-			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, String rubro,
-			String categoria, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
+			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, Rubro rubro,
+			Categoria categoriaVigente, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
 		super();
 		this.cuil = cuil;
 		this.nombre = nombre;
@@ -41,7 +41,7 @@ public class Empleado {
 		this.diasEstudioDisp = diasEstudioDisp;
 		this.convenio = convenio;
 		this.rubro = rubro;
-		this.categoria = categoria;
+		this.categoriaVigente = categoriaVigente;
 		this.salario = salario;
 		this.novedades = novedades;
 		this.liquidaciones = liquidaciones;
@@ -115,17 +115,17 @@ public class Empleado {
 	public void setConvenio(boolean convenio) {
 		this.convenio = convenio;
 	}
-	public String getRubro() {
+	public Rubro getRubro() {
 		return rubro;
 	}
-	public void setRubro(String rubro) {
+	public void setRubro(Rubro rubro) {
 		this.rubro = rubro;
 	}
-	public String getCategoria() {
-		return categoria;
+	public Categoria getCategoriaVigente() {
+		return categoriaVigente;
 	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setCategoria(Categoria categoriaVigente) {
+		this.categoriaVigente = categoriaVigente;
 	}
 	public float getSalario() {
 		return salario;
@@ -158,5 +158,14 @@ public class Empleado {
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
-	
+
+	public void liquidarSueldo() {
+		if (convenio == true ) {
+			float sueldo = categoriaVigente.getSueldo();
+			
+		}
+		else {
+			
+		}
+	}	
 }

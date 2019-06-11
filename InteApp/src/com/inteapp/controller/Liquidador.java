@@ -19,7 +19,7 @@ public class Liquidador {
 	
 	public boolean liquidarCliente (ClienteView cView) {
 		Cliente c = buscarCliente(cView); 
-		return true;
+		return c.liquidarEmpleados();
 	}
 	
 	public boolean altaCliente (ClienteView cteView){

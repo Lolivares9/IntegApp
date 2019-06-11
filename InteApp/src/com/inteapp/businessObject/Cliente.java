@@ -8,7 +8,6 @@ import com.inteapp.entities.CategoriaEntity;
 import com.inteapp.entities.ClienteEntity;
 import com.inteapp.entities.EmpleadoEntity;
 import com.inteapp.entities.EscalaEntity;
-import com.inteapp.entities.FacturaEntity;
 
 public class Cliente {
 	
@@ -102,7 +101,6 @@ public class Cliente {
 	public ClienteEntity toEntity() {
 		ClienteEntity ce = new ClienteEntity();
 		List<EmpleadoEntity> empleados = new ArrayList<EmpleadoEntity>();
-		List<FacturaEntity> facturas = new ArrayList<FacturaEntity>();
 		for(Empleado e : this.empleados){
 			empleados.add(e.toEntity());
 		}
@@ -116,5 +114,12 @@ public class Cliente {
 		ce.setEmpleados(empleados);
 		
 		return ce;
+	}
+
+	public boolean liquidarEmpleados() {
+		for (Empleado e: empleados) {
+			e.liquidarSueldo();
+		}
+		return true;
 	}
 }
