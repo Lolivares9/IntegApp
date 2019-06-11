@@ -179,6 +179,17 @@ public class Empleado {
 			
 			Liquidacion liq = new Liquidacion (itemsRubro, new Date(), new Date(), sueldoBruto, sueldoNeto);
 			liquidaciones.add(liq);
+			System.out.println("Cliente " + nombre + ": ");
+			for (Liquidacion l : liquidaciones){
+				System.out.println("Liquidacion: ");
+				System.out.println("Sueldo Bruto: " + l.getLiqBruta());
+				System.out.println("Sueldo Neta: " + l.getLiqNeta());
+				System.out.println("Conceptos: ");
+				for (ItemRubro it: l.getItems()){
+					System.out.println(it.getConcepto().getDescripcion() + " Porcentaje: " + it.getPorcentaje() + " $" + it.getPorcentaje() * sueldoBruto);
+				}
+			}
+			System.out.println("");
 		}
 		else {
 			
@@ -194,7 +205,7 @@ public class Empleado {
 	}
 
 	private float calcularSueldoBruto(float sueldo, List<ItemRubro> retribuciones) {
-		float sueldoBruto = sueldo; 
+		float sueldoBruto = 0; 
 		for (ItemRubro it: retribuciones) {
 			sueldoBruto = sueldoBruto + (sueldo * (it.getPorcentaje()));
 		}
