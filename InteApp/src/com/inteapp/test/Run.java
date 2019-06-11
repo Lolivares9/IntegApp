@@ -1,7 +1,8 @@
 package com.inteapp.test;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -30,10 +31,13 @@ public class Run {
 		List<Empleado> empleados = new ArrayList<Empleado>();
 		List<Novedad> novedades = new ArrayList<Novedad>();
 		List<Novedad> novedades2 = new ArrayList<Novedad>();
+		List<Novedad> novedades3 = new ArrayList<Novedad>();
 		List<Liquidacion> liquidaciones = new ArrayList<Liquidacion>();
 		List<Liquidacion> liquidaciones2 = new ArrayList<Liquidacion>();
+		List<Liquidacion> liquidaciones3 = new ArrayList<Liquidacion>();
 		List<ItemRubro> itemsRubros = new ArrayList<ItemRubro>();
 		List<ItemRubro> itemsRubros2 = new ArrayList<ItemRubro>();
+		List<ItemRubro> itemsRubros3 = new ArrayList<ItemRubro>();
 		List<Categoria> categorias = new ArrayList<Categoria>();
 		Novedad novedad1;
 		Novedad novedad2;
@@ -51,6 +55,8 @@ public class Run {
 		Concepto concepto6;
 		Rubro rubro;
 		Rubro rubro2;
+		Rubro rubro3;
+		
 		Categoria categoriaVigente;
 		categoriaVigente = new Categoria("SENIOR",40000);
 		categorias.add(categoriaVigente);
@@ -75,7 +81,6 @@ public class Run {
 		itemsRubros.add(itemRubro4);
 		itemsRubros.add(itemRubro6);
 		
-		
 		itemsRubros2.add(itemRubro5);
 		itemsRubros2.add(itemRubro1);
 		itemsRubros2.add(itemRubro2);
@@ -83,8 +88,15 @@ public class Run {
 		itemsRubros2.add(itemRubro4);
 		itemsRubros2.add(itemRubro6);
 		
+		itemsRubros3.add(itemRubro1);
+		itemsRubros3.add(itemRubro2);
+		itemsRubros3.add(itemRubro3);
+		itemsRubros3.add(itemRubro4);
+		itemsRubros3.add(itemRubro6);
+		
 		rubro =  new Rubro("INFORMATICA","S",itemsRubros);
 		rubro2 =  new Rubro("BANCARIO","S",itemsRubros2);
+		rubro3 =  new Rubro("FUERA DE CONVENIO","S",itemsRubros3);
 		
 		novedad1 = new Novedad(new Date(0),concepto5,1);
 		novedad2 = new Novedad(new Date(0),concepto6,15);
@@ -94,15 +106,35 @@ public class Run {
 		
 		Empleado empleado1;
 		Empleado empleado2;
+		Empleado empleado3;
 		
-		empleado1 = new Empleado("Accenture","30391558486","Avenida Belgrano 3629","Argentina, Bs As",
-				"acc@gmail.com","11562592","Mensual",15,15,true,rubro,categoriaVigente,40000,novedades,liquidaciones);
-		empleado2 = new Empleado("Accenture","12312312","Avenida Belgran123329","Argentina, Bs As",
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(0);
+		cal.set(2009, 7, 30,0,0,0);
+		Date date = (Date)cal.getTime() ;// get back a Date object
 		
-				"acc@gmail.com","11562592","Mensual",15,15,true,rubro2,categoriaVigente,40000,novedades2,liquidaciones2);
+		cal.set(2019, 4, 30,0,0,0);
+		Date fechaUltLiq = (Date)cal.getTime() ;
 		
+		cal.set(2019, 5, 30, 0,0,0);
+		Date fechaProxLiq = (Date)cal.getTime() ;
+		
+		cal.set(2019, 5, 15, 0,0,0);
+		Date fechaProxLiq2 = (Date)cal.getTime() ;
+		
+		empleado1 = new Empleado("30391558486","Matias","Boccardo","Avenida Belgrano 3629","mati_boc@gmail.com",
+				"11562592",date , "MENSUAL",fechaUltLiq, fechaProxLiq, 15,15,true,rubro,categoriaVigente,40000,novedades,liquidaciones);
+		
+		empleado2 = new Empleado("30391558486","Lautaro","Boccardo","Avenida Belgrano 3629","mati_boc@gmail.com",
+				"11562592",date , "MENSUAL",fechaUltLiq, fechaProxLiq, 15,15,true,rubro2,categoriaVigente,40000,novedades2,liquidaciones2);
+		
+		empleado3 = new Empleado("30391558486","Cristian","Boccardo","Avenida Belgrano 3629","mati_boc@gmail.com",
+				"11562592",date , "QUINCENAL", fechaUltLiq,  fechaProxLiq2, 15,15,false,rubro3,null,40000,novedades3,liquidaciones3);
+		
+
 		empleados.add(empleado1);
 		empleados.add(empleado2);
+		empleados.add(empleado3);
 		
 		cli = new Cliente("Accenture","30391558486","Avenida Belgrano 3629","Argentina, Bs As","acc@gmail.com","11562592","J",empleados);
 		cli.liquidarEmpleados();

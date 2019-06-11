@@ -1,6 +1,7 @@
 package com.inteapp.businessObject;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.inteapp.entities.EmpleadoEntity;
@@ -17,7 +18,10 @@ public class Empleado {
 	private String telefono;
 	
 	//Datos laborales
+	private Date fechaIngreso;
 	private String tipoLiquidacion;
+	private Date fechaUltimaLiquidacion;
+	private Date fechaProximaLiquidacion;
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
 	private boolean convenio;
@@ -28,8 +32,8 @@ public class Empleado {
 	private List<Liquidacion> liquidaciones;
 	
 
-	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
-			String tipoLiquidacion, int vacacionesDisp, int diasEstudioDisp, boolean convenio, Rubro rubro,
+	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono, Date fechaIngreso,
+			String tipoLiquidacion,Date fechaUltimaLiquidacion ,Date fechaProximaLiquidacion,  int vacacionesDisp, int diasEstudioDisp, boolean convenio, Rubro rubro,
 			Categoria categoriaVigente, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
 		super();
 		this.cuil = cuil;
@@ -38,7 +42,10 @@ public class Empleado {
 		this.direccion = direccion;
 		this.mail = mail;
 		this.telefono = telefono;
-		this.tipoLiquidacion = tipoLiquidacion;
+		this.fechaIngreso = fechaIngreso;
+		this.tipoLiquidacion = tipoLiquidacion; 
+		this.fechaUltimaLiquidacion = fechaUltimaLiquidacion;
+		this.fechaProximaLiquidacion = fechaProximaLiquidacion;
 		this.vacacionesDisp = vacacionesDisp;
 		this.diasEstudioDisp = diasEstudioDisp;
 		this.convenio = convenio;
@@ -148,6 +155,18 @@ public class Empleado {
 		this.liquidaciones = liquidaciones;
 	}
 
+	public Date getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(Date fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+
+	public void setCategoriaVigente(Categoria categoriaVigente) {
+		this.categoriaVigente = categoriaVigente;
+	}
+
 	public EmpleadoEntity toEntity() {
 		// TODO Auto-generated method stub
 		return null;
@@ -161,9 +180,40 @@ public class Empleado {
 		this.idCliente = idCliente;
 	}
 
+	public Date getFechaUltimaLiquidacion() {
+		return fechaUltimaLiquidacion;
+	}
+
+	public void setFechaUltimaLiquidacion(Date fechaUltimaLiquidacion) {
+		this.fechaUltimaLiquidacion = fechaUltimaLiquidacion;
+	}
+
+	public Date getFechaProximaLiquidacion() {
+		return fechaProximaLiquidacion;
+	}
+
+	public void setFechaProximaLiquidacion(Date fechaProximaLiquidacion) {
+		this.fechaProximaLiquidacion = fechaProximaLiquidacion;
+	}
+
 	public void liquidarSueldo() {
+		//Obtengo el sueldo del empleado. Ya sea por convenio o por lo negociado con el empleador
+		float sueldo = 0;
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(0);
+		cal.set(2019, 5, 15, 0,0,0);
+		Date today = cal.getTime();
+		System.out.println("Fecha obten: " + today);
+
 		if (convenio == true ) {
-			float sueldo = categoriaVigente.getSueldo();
+			sueldo = categoriaVigente.getSueldo();
+		}
+		else {
+			sueldo = this.salario;
+		}
+		if (today.compareTo(fechaProximaLiquidacion) >= 0) {
+			
+			//Liquidacion de sueldo normal
 			float sueldoBruto = 0;
 			float sueldoNeto = 0;
 			List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
@@ -177,9 +227,15 @@ public class Empleado {
 			sueldoBruto = calcularSueldoBruto(sueldo, retribuciones);
 			sueldoNeto = calcularSueldoNeto(sueldoBruto, contribuciones);
 			
-			Liquidacion liq = new Liquidacion (itemsRubro, new Date(), new Date(), sueldoBruto, sueldoNeto);
+			Liquidacion liq = new Liquidacion (itemsRubro, new Date(0), new Date(0), sueldoBruto, sueldoNeto);
 			liquidaciones.add(liq);
+			
+
+			//Impresion por Consola de la liquidacion del cliente 
 			System.out.println("Cliente " + nombre + ": ");
+			System.out.println("Fecha Ingreso: " + fechaIngreso);
+			System.out.println("Fecha Ultima Liquidacion: " + fechaUltimaLiquidacion);
+			System.out.println("Fecha Proxima Liquidacion: " + fechaProximaLiquidacion);
 			for (Liquidacion l : liquidaciones){
 				System.out.println("Liquidacion: ");
 				System.out.println("Sueldo Bruto: " + l.getLiqBruta());
@@ -190,10 +246,42 @@ public class Empleado {
 				}
 			}
 			System.out.println("");
-		}
-		else {
+			//Fin impresion liquidacion
+			
+			actualizarProximaFechaLiquidacion();
 			
 		}
+	}
+
+	private void actualizarProximaFechaLiquidacion() {
+		Calendar cal = Calendar.getInstance();
+		if (tipoLiquidacion.equals("MENSUAL")) {
+			int anio = fechaProximaLiquidacion.getYear();
+			int mes = fechaProximaLiquidacion.getMonth() + 1;
+			int ultimoDiaMes= cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+		
+			cal.set(anio, mes, ultimoDiaMes);
+		}
+		else if (tipoLiquidacion.equals("QUINCENAL")) {
+			int ultimoDiaMes = 15;
+			int anio = fechaProximaLiquidacion.getYear();
+			int mes = fechaProximaLiquidacion.getMonth();
+			int dia = fechaProximaLiquidacion.getDay();
+			if (dia == 15) {
+				ultimoDiaMes= cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+			}else {
+				mes = mes + 1;
+			}
+			cal.set(anio, mes, ultimoDiaMes);
+		}
+		fechaUltimaLiquidacion = fechaProximaLiquidacion;
+		fechaProximaLiquidacion = cal.getTime();
+		
+		//imprimo datos para verificar las nuevas fechas
+		System.out.println("");
+		System.out.println("\nNuevas Fechas de liquidacion:");
+		System.out.println("Fecha Ultima Liquidacion: " + fechaUltimaLiquidacion);
+		System.out.println("Fecha Proxima Liquidacion: " + fechaProximaLiquidacion);
 	}
 
 	private float calcularSueldoNeto(float sueldoBruto, List<ItemRubro> contribuciones) {
