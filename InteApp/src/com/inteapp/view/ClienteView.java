@@ -82,13 +82,7 @@ public class ClienteView {
 		this.empleados = empleados;
 	}
 
-	public List<Liquidacion> getLiquidaciones() {
-		return liquidaciones;
-	}
-
-	public void setLiquidaciones(List<Liquidacion> liquidaciones) {
-		this.liquidaciones = liquidaciones;
-	}
+	
 	
 
 }
