@@ -40,10 +40,15 @@ public class ClienteDAO {
 		Query query = session.createQuery(" from ClientesEntity c where c.cuit = :clie").setParameter("clie",cuit );
 		clientesList = query.list();
 		for(ClienteEntity ce: clientesList)
-			clientes.add(ce)
+			//clientes.add(ce)
 		
 		session.close();
 		return clientesList;
+	}
+
+	public Cliente findByCodigo(String cuit) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

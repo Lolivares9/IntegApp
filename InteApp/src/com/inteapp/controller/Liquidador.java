@@ -4,16 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import com.inteapp.businessObject.Cliente;
+import com.inteapp.dao.ClienteDAO;
 import com.inteapp.view.ClienteView;
-
-import controller.ControladorMarcas;
-import edu.uade.apdzpoc.dao.PedidoWebDAO;
-import edu.uade.apdzpoc.dto.PedidoWebDTO;
-import edu.uade.apdzpoc.negocio.PedidoWeb;
-import mappers.MapperMarca;
-import negocio.Marca;
-import negocio.Producto;
-import views.ProductoView;
 
 public class Liquidador {
 	private static Liquidador instance;

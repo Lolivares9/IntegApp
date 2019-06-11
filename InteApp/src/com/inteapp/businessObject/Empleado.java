@@ -19,7 +19,7 @@ public class Empleado {
 	private String categoria;
 	private float salario;
 	private List<Novedad> novedades;
-	private List<Liquidacion> liquidaciones;ç
+	private List<Liquidacion> liquidaciones;
 	
 
 	public Empleado(String cuil, String nombre, String apellido, String direccion, String mail, String telefono,
