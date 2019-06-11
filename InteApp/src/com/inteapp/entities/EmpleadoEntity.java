@@ -27,7 +27,7 @@ public class EmpleadoEntity {
 	private Integer idEmpleado;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_EMPLEADO")
+	@JoinColumn(name="ID_CLIENTE")
 	private ClienteEntity cliente;
 	
 	@Column (name="CUIL")

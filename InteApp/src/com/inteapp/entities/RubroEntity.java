@@ -29,7 +29,7 @@ public class RubroEntity {
 	
 	@OneToMany
 	@JoinColumn (name ="ID_ITEM_RUBRO") 
-	private List <ItemRubro> itemsRubro;
+	private List <ItemRubroEntity> itemsRubro;
 
 	@OneToMany
 	@JoinColumn (name ="ID_CONCEPTO") 
@@ -63,11 +63,11 @@ public class RubroEntity {
 		this.convenio = convenio;
 	}
 
-	public List<ItemRubro> getItemsRubro() {
+	public List<ItemRubroEntity> getItemsRubro() {
 		return itemsRubro;
 	}
 
-	public void setItemsRubro(List<ItemRubro> itemsRubro) {
+	public void setItemsRubro(List<ItemRubroEntity> itemsRubro) {
 		this.itemsRubro = itemsRubro;
 	}
 
