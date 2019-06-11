@@ -2,7 +2,6 @@ package com.inteapp.businessObject;
 
 import java.util.List;
 
-import com.inteapp.enums.Rubro;
 
 public class Empleado {
 	private String cuil;

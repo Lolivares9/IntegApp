@@ -5,11 +5,9 @@ import com.inteapp.view.ClienteView;
 
 public class Liquidador {
 	public boolean liquidarCliente (ClienteView c) {
-		Cliente c = buscarCliente(); 
-		
+		Cliente cc = buscarCliente(); 
 		return true;
 	}
-
 	private Cliente buscarCliente() {
 		// TODO Auto-generated method stub
 		return null;
