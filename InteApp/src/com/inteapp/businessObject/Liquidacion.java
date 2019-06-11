@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Liquidacion {
+	
+	private Integer idLiquidacion;
 	private List<Concepto> conceptos;
 	private List<Novedad> novedades; 
 	private Date fechaDesde;
@@ -56,6 +58,12 @@ public class Liquidacion {
 	}
 	public void setLiqNeta(float liqNeta) {
 		this.liqNeta = liqNeta;
+	}
+	public Integer getIdLiquidacion() {
+		return idLiquidacion;
+	}
+	public void setIdLiquidacion(Integer idLiquidacion) {
+		this.idLiquidacion = idLiquidacion;
 	}
 	
 

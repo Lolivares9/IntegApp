@@ -3,7 +3,8 @@ package com.inteapp.businessObject;
 import java.util.Date;
 
 public class Factura {
-
+	
+	private Integer idFactura;
 	private Date fecha;
 	private Cliente cliente;
 	private String descripcion;
@@ -44,5 +45,11 @@ public class Factura {
 	}
 	public void guardar() {
 		
+	}
+	public Integer getIdFactura() {
+		return idFactura;
+	}
+	public void setIdFactura(Integer idFactura) {
+		this.idFactura = idFactura;
 	};
 }

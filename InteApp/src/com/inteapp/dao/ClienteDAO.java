@@ -24,7 +24,6 @@ public class ClienteDAO {
 		}
 		return instancia;
 	}
-	
 	public void guardar(ClienteEntity c) {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
@@ -35,7 +34,15 @@ public class ClienteDAO {
 	}
 	
 	
-	public Cliente buscarCliente(String cuit){
+	//public Cliente buscarCliente(String cuit){
+		//return null;
+	//}
+	
+	public List<ClienteEntity> getCliente(String cuit){
+		List<ClienteEntity> clientesList = new ArrayList<ClienteEntity>();
+		
+		List<Cliente> clientes;
+
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
 		ClienteEntity cliEnt;
@@ -45,7 +52,7 @@ public class ClienteDAO {
 		if(cliEnt != null){
 			cliente = toNegocio(cliEnt);
 		}
-		return cliente;
+		return null;//cliente;
 	}
 	
 	public Cliente toNegocio(ClienteEntity cli){
@@ -66,6 +73,20 @@ public class ClienteDAO {
 	public Cliente findByCodigo(String cuit) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void save(Cliente c) {
+		
+		
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.openSession();
+		ClienteEntity cliEnt = new ClienteEntity();
+		cliEnt = c.toEntity();
+		
+		s.beginTransaction();
+		s.saveOrUpdate(cliEnt);
+		s.getTransaction().commit();
+		s.close();
 	}
 	
 }
