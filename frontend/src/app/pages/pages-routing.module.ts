@@ -39,6 +39,9 @@ const routes: Routes = [{
   },{
     path: 'clientes',
     loadChildren: './clientes/tables.module#TablesModule',
+  },{
+    path: 'reportes',
+    loadChildren: './reportes/forms.module#FormsModule',
   },
    {
     path: 'forms',
@@ -50,14 +53,16 @@ const routes: Routes = [{
     path: 'sueldos',
     loadChildren: './sueldos/forms.module#FormsModule',
   },
-   {
+  {
+    path: 'reporte',
+    loadChildren: './reporte/forms.module#FormsModule',
+  }, {
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
   }, {
-  path: 'empleados',
-  loadChildren: './empleados/tables.module#TablesModule',
-},
- {
+    path: 'empleados',
+    loadChildren: './empleados/tables.module#TablesModule',
+  }, {
     path: 'miscellaneous',
     loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',
   }, {
