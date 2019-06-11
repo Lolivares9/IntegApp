@@ -44,6 +44,7 @@ public class Escala {
 		for(Categoria c : this.categorias){
 			cat.add(c.toEntity());
 		}
+		esc.setCategorias(cat);
 		esc.setVigenciaDesde(this.vigenteDesde);
 		esc.setVigenciaHasta(this.vigenteHasta);
 		return esc;
