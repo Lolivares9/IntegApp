@@ -1,7 +1,5 @@
 package com.inteapp.businessObject;
-
 import java.util.Date;
-
 
 public class Novedad {
 	private Date fecha;
@@ -32,6 +30,4 @@ public class Novedad {
 	public void setDias(int dias) {
 		this.dias = dias;
 	}
-	
-	
 }

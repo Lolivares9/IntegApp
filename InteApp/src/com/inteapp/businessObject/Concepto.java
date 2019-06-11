@@ -1,15 +1,14 @@
 package com.inteapp.businessObject;
 
 public class Concepto {
+	
 	private String descripcion;
-	private String Tipo;
+	private boolean obligatorio;
 	
-	
-	
-	public Concepto(String descripcion, String tipo) {
+	public Concepto(String descripcion, boolean obligatorio) {
 		super();
 		this.descripcion = descripcion;
-		Tipo = tipo;
+		this.obligatorio = obligatorio;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -17,12 +16,10 @@ public class Concepto {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public String getTipo() {
-		return Tipo;
+	public boolean isObligatorio() {
+		return obligatorio;
 	}
-	public void setTipo(String tipo) {
-		Tipo = tipo;
+	public void setObligatorio(boolean obligatorio) {
+		this.obligatorio = obligatorio;
 	}
-	
-	
 }

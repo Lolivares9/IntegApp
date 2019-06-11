@@ -49,4 +49,8 @@ public class Liquidacion {
 	public void setLiqNeta(float liqNeta) {
 		this.liqNeta = liqNeta;
 	}
+	
+	public void generarImagen () {
+		return;
+	}
 }
