@@ -30,8 +30,5 @@ public class Rubro {
 	}
 	public void setConceptos(List<ItemRubro> conceptos) {
 		this.conceptos = conceptos;
-	}
-	
-	
-	
+	}	
 }

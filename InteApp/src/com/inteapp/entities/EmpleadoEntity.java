@@ -1,13 +1,21 @@
 package com.inteapp.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "EMPLEADOS")
@@ -51,6 +59,16 @@ public class EmpleadoEntity {
 	
 	@Column (name="DIAS_EST_DISP")
 	private Integer diasEstudioDisp;
+	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_LIQUIDACION")
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<LiquidacionEntity> liquidaciones;
+	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_NOVEDAD")
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<NovedadEntity> novedades;
 	
 	public EmpleadoEntity(){
 	}
@@ -149,5 +167,21 @@ public class EmpleadoEntity {
 
 	public void setDiasEstudioDisp(Integer diasEstudioDisp) {
 		this.diasEstudioDisp = diasEstudioDisp;
+	}
+
+	public List<LiquidacionEntity> getLiquidaciones() {
+		return liquidaciones;
+	}
+
+	public void setLiquidaciones(List<LiquidacionEntity> liquidaciones) {
+		this.liquidaciones = liquidaciones;
+	}
+
+	public List<NovedadEntity> getNovedades() {
+		return novedades;
+	}
+
+	public void setNovedades(List<NovedadEntity> novedades) {
+		this.novedades = novedades;
 	}
 }
