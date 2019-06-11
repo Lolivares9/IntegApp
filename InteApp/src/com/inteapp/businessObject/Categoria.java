@@ -7,6 +7,7 @@ import java.util.List;
 import com.inteapp.entities.CategoriaEntity;
 
 public class Categoria {
+	private Integer idCategoria;
 	private String categoria;
 	private float sueldo;
 	
@@ -32,6 +33,7 @@ public class Categoria {
 		CategoriaEntity ct = new CategoriaEntity();
 		ct.setCategoria(categoria);
 		ct.setSueldo(sueldo);
+		ct.setIdCategoria(this.idCategoria);
 		return ct;
 	}
 	
@@ -41,5 +43,11 @@ public class Categoria {
 			categoriasEntity.add(c.toEntity());
 		}
 		return categoriasEntity;
+	}
+	public Integer getIdCategoria() {
+		return idCategoria;
+	}
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 }

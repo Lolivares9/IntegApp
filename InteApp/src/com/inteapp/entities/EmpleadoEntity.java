@@ -63,6 +63,9 @@ public class EmpleadoEntity {
 	@Column (name="CATEGORIA")
 	private String categoria;
 
+	@Column (name="MAIL")
+	private String mail;
+	
 	@Column (name="SALARIO")
 	private float salario;
 	
@@ -206,4 +209,13 @@ public class EmpleadoEntity {
 	public void setNovedades(List<NovedadEntity> novedades) {
 		this.novedades = novedades;
 	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
 }

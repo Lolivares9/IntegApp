@@ -19,6 +19,7 @@ public class CategoriaDAO {
 	
 	public Categoria toNegocio(CategoriaEntity catEnt){
 		Categoria catNegocio = new Categoria(catEnt.getCategoria(),catEnt.getSueldo());
+		catNegocio.setIdCategoria(catEnt.getIdCategoria());
 		return catNegocio;
 	}
 	

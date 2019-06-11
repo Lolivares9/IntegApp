@@ -1,9 +1,17 @@
 package com.inteapp.businessObject;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.inteapp.dao.ClienteDAO;
+import com.inteapp.entities.CategoriaEntity;
+import com.inteapp.entities.ClienteEntity;
+import com.inteapp.entities.EmpleadoEntity;
+import com.inteapp.entities.EscalaEntity;
 
 public class Cliente {
 	
+	private Integer idCliente;
 	private String razonSocial;
 	private String cuit;
 	private String direccion;
@@ -77,14 +85,41 @@ public class Cliente {
 	public void setEmpleados(List<Empleado> empleados) {
 		this.empleados = empleados;
 	}
-
-	public boolean existeProducto() {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public Integer getIdCliente() {
+		return idCliente;
 	}
 
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+	
 	public void save() {
-		// TODO Auto-generated method stub
+		ClienteDAO.getInstancia().save(this);
+	}
+
+	public ClienteEntity toEntity() {
+		ClienteEntity ce = new ClienteEntity();
+		List<EmpleadoEntity> empleados = new ArrayList<EmpleadoEntity>();
+		for(Empleado e : this.empleados){
+			empleados.add(e.toEntity());
+		}
+		ce.setRazonSocial(razonSocial);
+		ce.setCuit(cuit);
+		ce.setDireccion(direccion);
+		ce.setLocalidad(localidad);
+		ce.setMail(mail);
+		ce.setTelefono(telefono);
+		ce.setTipoPersona(tipoPersona);
+		ce.setEmpleados(empleados);
 		
+		return ce;
+	}
+
+	public boolean liquidarEmpleados() {
+		for (Empleado e: empleados) {
+			e.liquidarSueldo();
+		}
+		return true;
 	}
 }

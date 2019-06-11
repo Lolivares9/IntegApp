@@ -2,6 +2,8 @@ package com.inteapp.businessObject;
 import java.util.Date;
 
 public class Novedad {
+	
+	private Integer idNovedad;
 	private Date fecha;
 	private Concepto concepto;
 	private int dias;
@@ -29,5 +31,11 @@ public class Novedad {
 	}
 	public void setDias(int dias) {
 		this.dias = dias;
+	}
+	public Integer getIdNovedad() {
+		return idNovedad;
+	}
+	public void setIdNovedad(Integer idNovedad) {
+		this.idNovedad = idNovedad;
 	}
 }
