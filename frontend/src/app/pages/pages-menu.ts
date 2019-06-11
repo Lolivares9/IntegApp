@@ -58,6 +58,26 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
+    title: 'Categorias',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Administrar',
+        link: '/pages/categoria/administrar',
+      },
+    ],
+  },
+  {
+    title: 'Escala',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Administrar',
+        link: '/pages/escala/administrar',
+      },
+    ],
+  },
+  {
     title: 'Novedades',
     icon: 'nb-notifications',
     children: [

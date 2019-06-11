@@ -63,6 +63,12 @@ const routes: Routes = [{
     path: 'empleados',
     loadChildren: './empleados/tables.module#TablesModule',
   }, {
+    path: 'categoria',
+    loadChildren: './categoria/tables.module#TablesModule',
+  }, {
+    path: 'escala',
+    loadChildren: './escala/tables.module#TablesModule',
+  }, {
     path: 'rubros',
     loadChildren: './rubros/tables.module#TablesModule',
   }, {
