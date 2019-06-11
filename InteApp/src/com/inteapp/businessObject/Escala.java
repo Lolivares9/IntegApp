@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 
+import com.inteapp.dao.EscalaDAO;
 import com.inteapp.entities.CategoriaEntity;
 import com.inteapp.entities.EscalaEntity;
 
 public class Escala {
 	
+	private Integer idEscala;
 	private Date vigenteDesde;
 	private Date vigenteHasta;
 	private List<Categoria> categorias;
@@ -44,9 +46,20 @@ public class Escala {
 		for(Categoria c : this.categorias){
 			cat.add(c.toEntity());
 		}
+		esc.setIdEscala(this.idEscala);
 		esc.setCategorias(cat);
 		esc.setVigenciaDesde(this.vigenteDesde);
 		esc.setVigenciaHasta(this.vigenteHasta);
 		return esc;
+	}
+	public Integer getIdEscala() {
+		return idEscala;
+	}
+	public void setIdEscala(Integer idEscala) {
+		this.idEscala = idEscala;
+	}
+	
+	public void save(){
+		EscalaDAO.getInstancia().guardar(this);
 	}
 }

@@ -3,6 +3,8 @@ package com.inteapp.businessObject;
 import java.util.List;
 
 public class Rubro {
+	
+	private Integer idRubro;
 	private String nombre;
 	private String convenio;
 	private List <ItemRubro> conceptos;
@@ -30,5 +32,11 @@ public class Rubro {
 	}
 	public void setConceptos(List<ItemRubro> conceptos) {
 		this.conceptos = conceptos;
+	}
+	public Integer getIdRubro() {
+		return idRubro;
+	}
+	public void setIdRubro(Integer idRubro) {
+		this.idRubro = idRubro;
 	}	
 }

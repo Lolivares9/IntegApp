@@ -11,6 +11,7 @@ import com.inteapp.entities.EscalaEntity;
 
 public class Cliente {
 	
+	private Integer idCliente;
 	private String razonSocial;
 	private String cuit;
 	private String direccion;
@@ -104,5 +105,13 @@ public class Cliente {
 		ce.setEmpleados(empleados);
 		
 		return ce;
+	}
+	
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
 	}
 }

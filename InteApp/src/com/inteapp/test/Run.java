@@ -25,7 +25,11 @@ public class Run {
 		categorias.add(cat);
 		Escala esc = new Escala(null,null,categorias);
 		EscalaDAO es = EscalaDAO.getInstancia();
-		es.guardar(esc);
+		//es.guardar(esc);
+		//esc = es.buscarEscala(1);
+		//esc.getCategorias().get(0).setSueldo(2000);
+		//esc.save();
+		//EscalaDAO.getInstancia().eliminarEscala(esc);
 		
 	}
 

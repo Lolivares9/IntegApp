@@ -4,6 +4,8 @@ import java.util.List;
 import com.inteapp.entities.EmpleadoEntity;
 
 public class Empleado {
+	
+	private Integer idCliente;
 	//Datos personales
 	private String cuil;
 	private String nombre;
@@ -147,5 +149,13 @@ public class Empleado {
 	public EmpleadoEntity toEntity() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
 	}
 }

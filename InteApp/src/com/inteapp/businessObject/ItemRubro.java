@@ -2,6 +2,8 @@
 package com.inteapp.businessObject;
 
 public class ItemRubro {
+	
+	private Integer idItemRubro;
 	private Concepto concepto;
 	private float porcentaje;
 	
@@ -21,5 +23,11 @@ public class ItemRubro {
 	}
 	public void setPorcentaje(float porcentaje) {
 		this.porcentaje = porcentaje;
+	}
+	public Integer getIdItemRubro() {
+		return idItemRubro;
+	}
+	public void setIdItemRubro(Integer idItemRubro) {
+		this.idItemRubro = idItemRubro;
 	}
 }
