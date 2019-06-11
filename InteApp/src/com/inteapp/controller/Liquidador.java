@@ -22,10 +22,11 @@ public class Liquidador {
 		return true;
 	}
 	
-	public boolean AltaCliente (ClienteView cteView){
-		Cliente c = new Cliente(cteView.getRazonSocial(), cteView.getCuit(), cteView.getDireccion(), cteView.getLocalidad(), cteView.getMail(), cteView.getTelefono(), cteView.getTipoPersona(), cteView.getEmpleados());
-		boolean existe = c.existeProducto();
-		if (existe == false){
+	public boolean altaCliente (ClienteView cteView){
+		Cliente c = null;
+		c = buscarCliente (cteView);
+		if (c == null){
+			c = new Cliente(cteView.getRazonSocial(), cteView.getCuit(), cteView.getDireccion(), cteView.getLocalidad(), cteView.getMail(), cteView.getTelefono(), cteView.getTipoPersona(), cteView.getEmpleados());
 			c.save();
 			return true;
 		}else{ //Existe

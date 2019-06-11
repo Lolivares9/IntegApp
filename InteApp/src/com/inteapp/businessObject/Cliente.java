@@ -2,6 +2,8 @@ package com.inteapp.businessObject;
 
 import java.util.List;
 
+import com.inteapp.dao.ClienteDAO;
+
 public class Cliente {
 	
 	private String razonSocial;
@@ -84,7 +86,6 @@ public class Cliente {
 	}
 
 	public void save() {
-		// TODO Auto-generated method stub
-		
+		ClienteDAO.getInstancia().save(this);
 	}
 }

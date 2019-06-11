@@ -22,15 +22,6 @@ public class ClienteDAO {
 		return instancia;
 	}
 	
-	public void guardar(ClienteEntity c) {
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session s = sf.openSession();
-		s.beginTransaction();
-		s.saveOrUpdate(c);
-		s.getTransaction().commit();
-		s.close();
-	}
-	
 	public List<ClienteEntity> getCliente(String cuit){
 		List<ClienteEntity> clientesList = new ArrayList<ClienteEntity>();
 		
@@ -49,6 +40,11 @@ public class ClienteDAO {
 	public Cliente findByCodigo(String cuit) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void save(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
