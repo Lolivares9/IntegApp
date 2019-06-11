@@ -5,9 +5,7 @@ public class Factura {
 	private Cliente cliente;
 	private String descripcion;
 	private float importe;
-	
-	
-	
+
 	public Factura(Cliente cliente, String descripcion, float importe) {
 		super();
 		this.cliente = cliente;
@@ -31,7 +29,5 @@ public class Factura {
 	}
 	public void setImporte(float importe) {
 		this.importe = importe;
-	}
-		
-		
+	}	
 }
