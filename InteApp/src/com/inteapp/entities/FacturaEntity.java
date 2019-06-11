@@ -1,5 +1,7 @@
 package com.inteapp.entities;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +18,9 @@ public class FacturaEntity {
 	@Column (name="ID_FACTURA")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idFactura;
+	
+	@Column (name="FECHA")
+	private Date fecha;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_CLIENTE")
@@ -60,5 +65,13 @@ public class FacturaEntity {
 
 	public void setImporte(float importe) {
 		this.importe = importe;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 }

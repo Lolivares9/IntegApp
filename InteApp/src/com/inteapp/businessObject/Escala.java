@@ -1,18 +1,23 @@
 package com.inteapp.businessObject;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.sql.Date;
+import java.util.List;
+
+import com.inteapp.entities.CategoriaEntity;
+import com.inteapp.entities.EscalaEntity;
 
 public class Escala {
 	
 	private Date vigenteDesde;
 	private Date vigenteHasta;
-	private Categoria categoria;
+	private List<Categoria> categorias;
 	
-	public Escala(Date vigenteDesde, Date vigenteHasta, Categoria categoria) {
+	public Escala(Date vigenteDesde, Date vigenteHasta, List<Categoria> categorias) {
 		super();
 		this.vigenteDesde = vigenteDesde;
 		this.vigenteHasta = vigenteHasta;
-		this.categoria = categoria;
+		this.categorias = categorias;
 	}
 	public Date getVigenteDesde() {
 		return vigenteDesde;
@@ -26,10 +31,21 @@ public class Escala {
 	public void setVigenteHasta(Date vigenteHasta) {
 		this.vigenteHasta = vigenteHasta;
 	}
-	public Categoria getCategoria() {
-		return categoria;
+	public List<Categoria> getCategorias() {
+		return categorias;
 	}
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+	
+	public EscalaEntity toEntity(){
+		EscalaEntity esc = new EscalaEntity();
+		List<CategoriaEntity> cat = new ArrayList<CategoriaEntity>();
+		for(Categoria c : this.categorias){
+			cat.add(c.toEntity());
+		}
+		esc.setVigenciaDesde(this.vigenteDesde);
+		esc.setVigenciaHasta(this.vigenteHasta);
+		return esc;
 	}
 }

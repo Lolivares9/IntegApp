@@ -34,7 +34,8 @@ public class EscalaEntity {
 	private Date vigenciaHasta;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_CATEGORIA")
+	@JoinColumn(name="ID_ESCALA")
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<CategoriaEntity> categorias;
 	
 	public EscalaEntity(){
