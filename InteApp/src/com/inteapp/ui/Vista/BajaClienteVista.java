@@ -69,9 +69,9 @@ public class BajaClienteVista {
 		JButton button = new JButton("GRABAR");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//ab.BajaCliente(codigo.getText());	
-				//ClienteView c = new ClienteView(razonSocial.getText(), CUIT.getText(), direccion.getText(), localidad.getText(), email.getText(), telefono.getText(), tipo.toString(), null);
-				//Liquidador.getInstance().
+				//ClienteView c = new ClienteView(null, CUIT.getText(), null, null, null, null, null, null);
+				Liquidador.getInstance().BajaCliente(c)
+				
 			}
 		});
 		button.setBounds(172, 96, 91, 23);
