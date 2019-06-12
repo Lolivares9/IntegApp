@@ -3,6 +3,9 @@ package com.inteapp.businessObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.inteapp.dao.ClienteDAO;
+import com.inteapp.dao.RubroDAO;
+
 public class Rubro {
 	
 	private Integer idRubro;
@@ -57,5 +60,8 @@ public class Rubro {
 			}
 		}
 		return item;
+	}
+	public void save() {
+		RubroDAO.getInstancia().save(this);
 	}	
 }

@@ -1,14 +1,21 @@
 package com.inteapp.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.inteapp.businessObject.Cliente;
 import com.inteapp.businessObject.Concepto;
 import com.inteapp.businessObject.Empleado;
+import com.inteapp.businessObject.ItemRubro;
 import com.inteapp.businessObject.Novedad;
+import com.inteapp.businessObject.Rubro;
 import com.inteapp.dao.ClienteDAO;
 import com.inteapp.view.ClienteView;
 import com.inteapp.view.ConceptoView;
 import com.inteapp.view.EmpleadoView;
+import com.inteapp.view.ItemRubroView;
 import com.inteapp.view.NovedadView;
+import com.inteapp.view.RubroView;
 
 public class Liquidador {
 	private static Liquidador instance;
@@ -60,6 +67,32 @@ public class Liquidador {
 		}
 		return false;
 	}
+	
+	public boolean AltaRubro (RubroView rView) {
+		Rubro r = null;
+		r = buscarRubro (rView);
+		if (r == null){
+			List<ItemRubro> conceptos = new ArrayList<ItemRubro>();
+			ItemRubro itemRubro = null;
+			for (ItemRubroView it : rView.getConceptos()) {
+				ConceptoView cView = it.getConcepto();
+				Concepto c = new Concepto(cView.getDescripcion(), cView.isObligatorio(), cView.getSigno());
+				itemRubro = new ItemRubro(c, it.getPorcentaje());
+				conceptos.add(itemRubro);
+			}
+			r = new Rubro(rView.getNombre(), rView.getConvenio(), conceptos);
+			r.save();
+			return true;
+		}else{ //Existe
+			System.console().writer().println("Ya existe el cliente!");
+			return false;
+		}
+	}
+
+	private Rubro buscarRubro(RubroView rView) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public boolean altaNovedad (ClienteView cteView, EmpleadoView empView, NovedadView nView) {
 		Cliente c = null;
@@ -78,5 +111,6 @@ public class Liquidador {
 		}
 		return false;
 	}
+	
 	
 }
