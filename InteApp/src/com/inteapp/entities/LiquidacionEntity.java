@@ -36,11 +36,9 @@ public class LiquidacionEntity {
 	private EmpleadoEntity empleado;
 	
 	@Column(name="FECHA_DESDE")
-	@Temporal(TemporalType.DATE)
 	private Date fechaDesde;
 	
 	@Column(name="FECHA_HASTA")
-	@Temporal(TemporalType.DATE)
 	private Date fechaHasta;
 	
 	@Column (name="LIQ_BRUTA")

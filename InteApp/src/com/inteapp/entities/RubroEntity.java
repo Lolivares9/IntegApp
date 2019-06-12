@@ -31,6 +31,10 @@ public class RubroEntity {
 	@JoinColumn (name ="ID_ITEM_RUBRO") 
 	private List <ItemRubroEntity> itemsRubro;
 	
+	@OneToMany
+	@JoinColumn (name ="ID_RUBRO") 
+	private List <EscalaEntity> escalas;
+	
 	public RubroEntity(){
 	}
 
@@ -64,5 +68,17 @@ public class RubroEntity {
 
 	public void setItemsRubro(List<ItemRubroEntity> itemsRubro) {
 		this.itemsRubro = itemsRubro;
+	}
+
+	public List<EscalaEntity> getEscalas() {
+		return escalas;
+	}
+
+	public void setEscalas(List<EscalaEntity> escalas) {
+		this.escalas = escalas;
+	}
+
+	public void setIdRubro(Integer idRubro) {
+		this.idRubro = idRubro;
 	}
 }

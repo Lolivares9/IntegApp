@@ -1,6 +1,6 @@
 package com.inteapp.entities;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -37,6 +38,10 @@ public class EscalaEntity {
 	@JoinColumn(name="ID_ESCALA")
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<CategoriaEntity> categorias;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_RUBRO")
+	private RubroEntity rubro;
 	
 	public EscalaEntity(){
 	}

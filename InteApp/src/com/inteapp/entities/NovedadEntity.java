@@ -1,6 +1,6 @@
 package com.inteapp.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +33,7 @@ public class NovedadEntity {
 	@JoinColumn(name="ID_CONCEPTO")
 	private ConceptoEntity concepto;
 	
-	@Column(name="CANT_DIAS")
+	@Column(name="UNIDADES")
 	private Integer cantDias;
 	
 	public NovedadEntity(){

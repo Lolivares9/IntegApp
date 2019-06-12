@@ -82,4 +82,14 @@ public class ClienteDAO {
 		s.close();
 	}
 	
+ 	public void guardarEntity(ClienteEntity cli) {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.openSession();
+		
+		s.beginTransaction();
+		s.saveOrUpdate(cli);
+		s.getTransaction().commit();
+		s.close();
+	}
+	
 }

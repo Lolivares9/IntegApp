@@ -1,5 +1,6 @@
 package com.inteapp.entities;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -44,6 +47,15 @@ public class EmpleadoEntity {
 	
 	@Column (name="TELEFONO")
 	private String telefono;
+	
+	@Column(name="FECHA_INGRESO")
+	private Date fechaIngreso;
+	
+	@Column(name="FECHA_ULT_LIQ")
+	private Date FechaUltLiq;
+	
+	@Column(name="FECHA_PROX_LIQ")
+	private Date FechaProxLiq;
 	
 	@Column (name="TIPO_LIQUIDACION")
 	private String tipoLiquidacion;
@@ -220,4 +232,27 @@ public class EmpleadoEntity {
 		this.mail = mail;
 	}
 
+	public Date getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(Date fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+
+	public Date getFechaUltLiq() {
+		return FechaUltLiq;
+	}
+
+	public void setFechaUltLiq(Date fechaUltLiq) {
+		FechaUltLiq = fechaUltLiq;
+	}
+
+	public Date getFechaProxLiq() {
+		return FechaProxLiq;
+	}
+
+	public void setFechaProxLiq(Date fechaProxLiq) {
+		FechaProxLiq = fechaProxLiq;
+	}
 }

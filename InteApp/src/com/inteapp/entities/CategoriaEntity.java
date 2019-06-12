@@ -26,7 +26,7 @@ public class CategoriaEntity {
 	private float sueldo;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_ESCALA")
+	@JoinColumn(name="ID_RUBRO")
 	private EscalaEntity escala;
 	
 	public CategoriaEntity(){
