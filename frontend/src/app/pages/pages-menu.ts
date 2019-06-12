@@ -38,6 +38,46 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
+    title: 'Rubros',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Administrar',
+        link: '/pages/rubros/administrar',
+      },
+    ],
+  },
+  {
+    title: 'Conceptos',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Administrar',
+        link: '/pages/conceptos/administrar',
+      },
+    ],
+  },
+  {
+    title: 'Categorias',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Administrar',
+        link: '/pages/categoria/administrar',
+      },
+    ],
+  },
+  {
+    title: 'Escala',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Administrar',
+        link: '/pages/escala/administrar',
+      },
+    ],
+  },
+  {
     title: 'Novedades',
     icon: 'nb-notifications',
     children: [
