@@ -51,10 +51,6 @@ public class NovedadEntity {
 		return empleado;
 	}
 
-	public void setEmpleado(EmpleadoEntity empleado) {
-		this.empleado = empleado;
-	}
-
 	public Date getFechaNovedad() {
 		return fechaNovedad;
 	}

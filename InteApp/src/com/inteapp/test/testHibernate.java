@@ -52,7 +52,6 @@ public class testHibernate {
 		escala.setVigenciaDesde(new Date(0));
 		escala.setVigenciaHasta(new Date(0));
 		escala.setRubro(null);
-		categoriaVigente.setEscala(escala);
 		escalas.add(escala);
 		
 		concepto1.setBasico(true);
@@ -140,7 +139,7 @@ public class testHibernate {
 /*---------------------------------------------------------------------------*/		
 		
 		
-		/*
+		
 		List<EscalaEntity> escalasRubro = new ArrayList<EscalaEntity>();
 		List<CategoriaEntity> categoriasRubro = new ArrayList<CategoriaEntity>();
 		itemsRubros = new ArrayList<ItemRubroEntity>();
@@ -150,8 +149,6 @@ public class testHibernate {
 		itemRubro1.setPorcentaje((float)0.11);
 		itemRubro2.setConcepto(concepto2);
 		itemRubro2.setPorcentaje((float)0.03);
-		itemRubro1.setLiquidacion(null);
-		itemRubro2.setLiquidacion(null);
 		itemsRubros.add(itemRubro1);
 		itemsRubros.add(itemRubro2);
 		CategoriaEntity categoriaRubro = new CategoriaEntity();
@@ -169,7 +166,7 @@ public class testHibernate {
 		r.setNombre("JUB");
 		r.setItemsRubro(itemsRubros);
 		RubroDAO.getInstancia().guardar(r);
-		*/
+		
 		/*
 		 
 		 	public void guardarEntity(ClienteEntity cli) {

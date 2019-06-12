@@ -1,47 +1,4 @@
-package Vista;
-
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Graphics;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JMenu;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JTable;
-import java.awt.Font;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
-
-public class Menu {
-
-	private JFrame frame;
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Menu window = new Menu();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+ v
 
 	/**
 	 * Create the application.
@@ -99,10 +56,10 @@ public class Menu {
 		class Imagen extends javax.swing.JPanel {
 
 			public Imagen() {
-			this.setSize(300, 400); //se selecciona el tamaño del panel
+			this.setSize(300, 400); //se selecciona el tamaï¿½o del panel
 			}
 
-			//Se crea un método cuyo parámetro debe ser un objeto Graphics
+			//Se crea un mï¿½todo cuyo parï¿½metro debe ser un objeto Graphics
 
 			public void paint(Graphics grafico) {
 			Dimension height = getSize();
