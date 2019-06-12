@@ -5,7 +5,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Controlador.SocioController;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -21,7 +20,7 @@ public class ModificarEmpleado {
 	private JTextField mail;
 	private JTextField cuil;
 	private JComboBox BoxTipo;
-	private SocioController s = SocioController.getSingletonInstance();
+
 	private JButton btnNewButton_1;
 	private JTextField txtDireccion;
 	private JTextField txtConvenio;
