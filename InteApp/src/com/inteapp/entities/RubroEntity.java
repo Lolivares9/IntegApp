@@ -19,7 +19,7 @@ public class RubroEntity {
 	@Id
 	@Column (name="ID_RUBRO")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idRUbro;
+	private Integer idRubro;
 	
 	@Column (name= "nombre")	
 	private String nombre;
@@ -38,12 +38,12 @@ public class RubroEntity {
 	public RubroEntity(){
 	}
 
-	public Integer getIdRUbro() {
-		return idRUbro;
+	public Integer getIdRubro() {
+		return idRubro;
 	}
 
-	public void setIdRUbro(Integer idRUbro) {
-		this.idRUbro = idRUbro;
+	public void setIdRUbro(Integer idRubro) {
+		this.idRubro = idRubro;
 	}
 
 	
