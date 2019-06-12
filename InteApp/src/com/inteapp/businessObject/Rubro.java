@@ -16,12 +16,14 @@ public class Rubro {
 	private String nombre;
 	private String convenio;
 	private List <ItemRubro> conceptos;
+	private List <Escala> escalas;
 	
-	public Rubro(String nombre, String convenio, List<ItemRubro> conceptos) {
+	public Rubro(String nombre, String convenio, List<ItemRubro> conceptos, List <Escala> escalas) {
 		super();
 		this.nombre = nombre;
 		this.convenio = convenio;
 		this.conceptos = conceptos;
+		this.escalas = escalas;
 	}
 	public String getNombre() {
 		return nombre;
@@ -81,5 +83,11 @@ public class Rubro {
 		re.setItemsRubro(conceptosE);
 		
 		return re;
+	}
+	public List <Escala> getEscalas() {
+		return escalas;
+	}
+	public void setEscalas(List <Escala> escalas) {
+		this.escalas = escalas;
 	}	
 }

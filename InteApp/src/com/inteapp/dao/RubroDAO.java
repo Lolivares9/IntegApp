@@ -47,4 +47,13 @@ public class RubroDAO {
 		
 		return itr;
 	}
+
+	public void guardar(RubroEntity rubro) {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.openSession();	
+		s.beginTransaction();
+		s.saveOrUpdate(rubro);
+		s.getTransaction().commit();
+		s.close();
+	}
 }

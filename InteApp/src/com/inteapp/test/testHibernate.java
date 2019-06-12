@@ -16,6 +16,7 @@ import com.inteapp.businessObject.Liquidacion;
 import com.inteapp.businessObject.Novedad;
 import com.inteapp.businessObject.Rubro;
 import com.inteapp.dao.ClienteDAO;
+import com.inteapp.dao.RubroDAO;
 import com.inteapp.entities.*;
 import com.inteapp.hibernate.HibernateUtil;
 
@@ -25,10 +26,7 @@ public class testHibernate {
 		List<EmpleadoEntity> empleados = new ArrayList<EmpleadoEntity>();
 		List<NovedadEntity> novedades = new ArrayList<NovedadEntity>();
 		List<NovedadEntity> novedades2 = new ArrayList<NovedadEntity>();
-		List<NovedadEntity> novedades3 = new ArrayList<NovedadEntity>();
 		List<LiquidacionEntity> liquidaciones = new ArrayList<LiquidacionEntity>();
-		List<LiquidacionEntity> liquidaciones2 = new ArrayList<LiquidacionEntity>();
-		List<LiquidacionEntity> liquidaciones3 = new ArrayList<LiquidacionEntity>();
 		List<ItemRubroEntity> itemsRubros = new ArrayList<ItemRubroEntity>();
 		List<ItemRubroEntity> itemsRubros2 = new ArrayList<ItemRubroEntity>();
 		List<ItemRubroEntity> itemsRubros3 = new ArrayList<ItemRubroEntity>();
@@ -53,7 +51,6 @@ public class testHibernate {
 		RubroEntity rubro3 = new RubroEntity();
 		CategoriaEntity categoriaVigente = new CategoriaEntity();
 		EmpleadoEntity empleado1 = new EmpleadoEntity();
-		EmpleadoEntity empleado2 = new EmpleadoEntity();
 		List<EscalaEntity> escalas = new ArrayList<EscalaEntity>();
 		EscalaEntity escala = new EscalaEntity();
 		
@@ -152,8 +149,6 @@ public class testHibernate {
 		cal.set(2019, 5, 30, 0,0,0);
 		Date fechaProxLiq = (Date)cal.getTime() ;
 		
-		cal.set(2019, 4, 31, 0,0,0);
-		Date fechaProxLiq2 = (Date)cal.getTime() ;
 		
 		empleado1.setCuil("30391558486");
 		empleado1.setNombre("Matias");
@@ -168,11 +163,15 @@ public class testHibernate {
 		empleado1.setDiasEstudioDisp(15);
 		empleado1.setVacacionesDisp(15);
 		empleado1.setPerteneceConvenio(true);
-		empleado1.setRubro(rubro);
-		empleado1.setCategoria(categoriaVigente);
+		empleado1.setRubro(null);
+		//empleado1.setRubro(rubro);
+		//empleado1.setCategoria(categoriaVigente);
+		empleado1.setCategoria(null);
 		empleado1.setSalario(400000);
-		empleado1.setNovedades(novedades);
-		empleado1.setLiquidaciones(liquidaciones);
+		//empleado1.setNovedades(novedades);
+		//empleado1.setLiquidaciones(liquidaciones);
+		empleado1.setNovedades(null);
+		empleado1.setLiquidaciones(null);
 		empleados.add(empleado1);
 		
 		cli.setRazonSocial("Accenture");
@@ -184,6 +183,8 @@ public class testHibernate {
 		cli.setTipoPersona("J");
 		cli.setEmpleados(empleados);
 		ClienteDAO.getInstancia().guardarEntity(cli);
+		
+		//RubroDAO.getInstancia().guardar(rubro);
 		
 		/*
 		 

@@ -76,7 +76,8 @@ public class EmpleadoDAO {
 			for (ItemRubroEntity it: rE.getItemsRubro()) {
 				itemsRubro.add(RubroDAO.getInstancia().toNegocio(it));
 			}
-			Rubro r  = new Rubro(rE.getNombre(), rE.getConvenio(), itemsRubro );
+			//TODO REVISAR EN RUBRO, TENGO QUE CAMBIAR EL NULL POR ESCALA
+			Rubro r  = new Rubro(rE.getNombre(), rE.getConvenio(), itemsRubro ,null);
 			CategoriaEntity cE = e.getCategoria();
 			Categoria cat = new Categoria(cE.getCategoria(), cE.getSueldo());
 			//categoriaVigente

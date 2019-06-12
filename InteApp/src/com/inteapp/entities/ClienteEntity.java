@@ -46,7 +46,7 @@ public class ClienteEntity {
 	private String tipoPersona;
 
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_EMPLEADO")
+	@JoinColumn(name="ID_CLIENTE")
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<EmpleadoEntity> empleados;
 

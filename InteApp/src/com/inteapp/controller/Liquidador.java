@@ -95,7 +95,8 @@ public class Liquidador {
 				itemRubro = new ItemRubro(c, it.getPorcentaje());
 				conceptos.add(itemRubro);
 			}
-			r = new Rubro(rView.getNombre(), rView.getConvenio(), conceptos);
+			//TODO CAMBIAR EL NULL POR ESCALA (VER QUE LLEVA ADENTRO ESCALA)
+			r = new Rubro(rView.getNombre(), rView.getConvenio(), conceptos,null);
 			r.save();
 			return true;
 		}else{ //Existe

@@ -85,9 +85,10 @@ public class Run {
 		itemsRubros3.add(itemRubro4);
 		itemsRubros3.add(itemRubro6);
 		
-		rubro =  new Rubro("Informatica","S",itemsRubros);
-		rubro2 =  new Rubro("Bancario","S",itemsRubros2);
-		rubro3 =  new Rubro("Fuera de Convenio","S",itemsRubros3);
+		//TODO CAMBIAR EL NULL POR ESCALA (VER QUE LLEVA ADENTRO ESCALA)
+		rubro =  new Rubro("Informatica","S",itemsRubros,null);
+		rubro2 =  new Rubro("Bancario","S",itemsRubros2,null);
+		rubro3 =  new Rubro("Fuera de Convenio","S",itemsRubros3,null);
 		
 		novedad1 = new Novedad(new Date(0),concepto5,1);
 		novedad2 = new Novedad(new Date(0),concepto6,15);

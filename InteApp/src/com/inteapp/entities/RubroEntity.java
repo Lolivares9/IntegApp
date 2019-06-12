@@ -23,10 +23,10 @@ public class RubroEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idRubro;
 	
-	@Column (name= "nombre")	
+	@Column (name= "NOMBRE_RUBRO")	
 	private String nombre;
 
-	@Column (name= "convenio")
+	@Column (name= "CONVENIO")
 	private String convenio;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
