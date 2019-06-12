@@ -120,4 +120,9 @@ public class Cliente {
 		}
 		return true;
 	}
+
+	public Empleado buscarEmpleado(Empleado e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
