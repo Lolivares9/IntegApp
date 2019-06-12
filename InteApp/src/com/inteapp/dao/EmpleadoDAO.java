@@ -1,10 +1,14 @@
 package com.inteapp.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import com.inteapp.businessObject.Categoria;
 import com.inteapp.businessObject.Empleado;
 import com.inteapp.businessObject.Liquidacion;
 import com.inteapp.businessObject.Novedad;
+import com.inteapp.businessObject.Rubro;
 import com.inteapp.entities.EmpleadoEntity;
 
 public class EmpleadoDAO {
@@ -31,6 +35,28 @@ public class EmpleadoDAO {
 		return empNegocio;
 	}
 	
+
+
+//	private String cuil;
+//	private String nombre;
+//	private String apellido;
+//	private String direccion;
+//	private String mail; 
+//	private String telefono;
+//	
+//	//Datos laborales
+//	private Date fechaIngreso;
+//	private String tipoLiquidacion;
+//	private Date fechaUltimaLiquidacion;
+//	private Date fechaProximaLiquidacion;
+//	private int vacacionesDisp;
+//	private int diasEstudioDisp;
+//	private boolean convenio;
+//	private Rubro rubro;
+//	private Categoria categoriaVigente;
+//	private float salario;
+//	private List<Novedad> novedades;
+//	private List<Liquidacion> liquidaciones;
 	
 	
 	public List<Empleado> empleadosToNegocio(List<EmpleadoEntity> empleadosEntity) {
