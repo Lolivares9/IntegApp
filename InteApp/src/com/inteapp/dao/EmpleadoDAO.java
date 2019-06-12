@@ -34,10 +34,11 @@ public class EmpleadoDAO {
 	public List<Empleado> empleadosToNegocio(List<EmpleadoEntity> empleadosEntity) {
 		List <Empleado> empleados = new ArrayList<Empleado>();
 		List <Liquidacion> liquidaciones = new ArrayList<Liquidacion>();
-		List < Novedad> novedades = new ArrayList<Novedad>();
+		List <Novedad> novedades = new ArrayList<Novedad>();
 		for(EmpleadoEntity e: empleadosEntity)
 		{
 			liquidaciones = LiquidacionDAO.getInstancia().liquidacionesToNegocio(e.getLiquidaciones());
+			novedades = NovedadDAO.getInstancia().novedadesToNegocio(e.getNovedades());
 			Empleado nuevo =new Empleado();
 			
 		}

@@ -39,7 +39,7 @@ public class LiquidacionDAO {
 				Liquidacion LiqBO = new Liquidacion(rubrosBO,aux.getFechaDesde(),aux.getFechaHasta(),aux.getLiqBruta(),aux.getLiqNeta()); 
 				LiquidacionBO.add(LiqBO);
 			}
-			return null;
+			return LiquidacionBO;
 		}
 
 }

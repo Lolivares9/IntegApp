@@ -1,5 +1,6 @@
 package com.inteapp.dao;
 
+import com.inteapp.businessObject.Concepto;
 import com.inteapp.businessObject.Novedad;
 import com.inteapp.entities.NovedadEntity;
 
@@ -13,10 +14,10 @@ private static NovedadDAO instancia;
 		return instancia;
 	}
 	
-	public Novedad toNegocio(NovedadEntity novEnt){
-
-
-	Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(),null, novEnt.getCantDias());//TODO:AgregarConcepto
+	public Novedad novedadesToNegocio(NovedadEntity novEnt){
+	
+	Concepto conceptoBO = ConceptoDAO.getInstancia().toNegocio(novEnt.getConcepto());
+	Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(),conceptoBO, novEnt.getCantDias());//TODO:AgregarConcepto
 	return novNegocio;
 }
 //	public List<Novedad> toNegocioAll(List<NovedadEntity> novedadesEnt){
