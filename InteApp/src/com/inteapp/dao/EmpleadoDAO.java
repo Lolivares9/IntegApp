@@ -2,12 +2,7 @@ package com.inteapp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.inteapp.businessObject.Categoria;
 import com.inteapp.businessObject.Empleado;
-import com.inteapp.businessObject.Liquidacion;
-import com.inteapp.businessObject.Novedad;
-import com.inteapp.entities.EmpleadoEntity;
 
 public class EmpleadoDAO {
 	private static EmpleadoDAO instancia;

@@ -50,14 +50,9 @@ public class LiquidacionEntity {
 	private float liqNeta;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_NOVEDAD")
+	@JoinColumn(name="ID_ITEM_RUBRO")
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<NovedadEntity> novedades;
-	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_CONCEPTO")
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<ConceptoEntity> conceptos;
+	private List<ItemRubroEntity> itemsRubro;
 
 	public LiquidacionEntity(){
 	}
@@ -118,19 +113,11 @@ public class LiquidacionEntity {
 		this.liqNeta = liqNeta;
 	}
 
-	public List<NovedadEntity> getNovedades() {
-		return novedades;
+	public List<ItemRubroEntity> getItemsRubro() {
+		return itemsRubro;
 	}
 
-	public void setNovedades(List<NovedadEntity> novedades) {
-		this.novedades = novedades;
-	}
-
-	public List<ConceptoEntity> getConceptos() {
-		return conceptos;
-	}
-
-	public void setConceptos(List<ConceptoEntity> conceptos) {
-		this.conceptos = conceptos;
+	public void setItemsRubro(List<ItemRubroEntity> itemsRubro) {
+		this.itemsRubro = itemsRubro;
 	}
 }

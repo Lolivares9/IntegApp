@@ -3,7 +3,6 @@ package com.inteapp.view;
 import java.util.List;
 
 import com.inteapp.businessObject.Empleado;
-import com.inteapp.businessObject.Liquidacion;
 
 public class ClienteView {
 

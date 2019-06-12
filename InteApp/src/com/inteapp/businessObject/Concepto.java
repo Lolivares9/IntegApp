@@ -1,5 +1,7 @@
 package com.inteapp.businessObject;
 
+import com.inteapp.entities.ConceptoEntity;
+
 public class Concepto {
 	
 	private Integer idConcepto;
@@ -7,10 +9,11 @@ public class Concepto {
 	private boolean obligatorio;
 	private String signo;
 	
-	public Concepto(String descripcion, boolean obligatorio) {
+	public Concepto(String descripcion, boolean obligatorio, String signo) {
 		super();
 		this.descripcion = descripcion;
 		this.obligatorio = obligatorio;
+		this.signo = signo;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -35,5 +38,15 @@ public class Concepto {
 	}
 	public void setSigno(String signo) {
 		this.signo = signo;
+	}
+	public ConceptoEntity toEntity() {
+		ConceptoEntity cE = new ConceptoEntity();
+		
+		cE.setIdConcepto(this.idConcepto);
+		cE.setDescripcion(this.descripcion);
+		cE.setObligatorio(this.obligatorio);
+		cE.setSigno(this.signo);
+		
+		return cE;
 	}
 }
