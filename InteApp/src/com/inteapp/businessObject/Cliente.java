@@ -122,7 +122,12 @@ public class Cliente {
 	}
 
 	public Empleado buscarEmpleado(Empleado e) {
-		// TODO Auto-generated method stub
-		return null;
+		Empleado emp = null;
+		for (Empleado empleado : empleados ) {
+			if (empleado.getCuil().equals(e.getCuil())) {
+				emp = empleado;
+			}
+		}
+		return emp;
 	}
 }
