@@ -2,8 +2,10 @@ package com.inteapp.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,11 +29,11 @@ public class RubroEntity {
 	@Column (name= "convenio")
 	private String convenio;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn (name ="ID_ITEM_RUBRO") 
 	private List <ItemRubroEntity> itemsRubro;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn (name ="ID_RUBRO") 
 	private List <EscalaEntity> escalas;
 	
