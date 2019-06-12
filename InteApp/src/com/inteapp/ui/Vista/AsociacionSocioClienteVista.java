@@ -69,7 +69,7 @@ public class AsociacionSocioClienteVista {
 		AsociacionAbn.setLayout(null);
 
 				
-		JButton button = new JButton("GRABAR");
+		JButton button = new JButton("LIQUIDAR CLIENTE");
 		button.setBounds(187, 450, 91, 23);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,10 +78,10 @@ public class AsociacionSocioClienteVista {
 						Socio so = (Socio)comboBox_1.getSelectedItem();
 						so.AddCliente(cliente);
 						//abn.Asociar(Cliente,so);
-						JOptionPane.showMessageDialog(null, "Cliente Asociado","Informacion",JOptionPane.OK_OPTION);
+						JOptionPane.showMessageDialog(null, "Liquidacion exitosa","Informacion",JOptionPane.OK_OPTION);
 						
 					}catch(Exception e1){
-						JOptionPane.showMessageDialog(null, "No se pudo Asociar el Cliente","Informacion",JOptionPane.OK_OPTION);
+						JOptionPane.showMessageDialog(null, "No se pudo Liquidar el Cliente","Informacion",JOptionPane.OK_OPTION);
 					  //JOptionPane.showMessageDialog(null, "No se pudo Asociar el Socio con el Cliente","Informacion",JOptionPane.OK_OPTION);
 					}
 					
@@ -102,26 +102,17 @@ public class AsociacionSocioClienteVista {
 			}
 		});
 		
-		comboBox_1 = new JComboBox<Socio>(s.getSocios());
-		comboBox_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				
-			}
-		});
+		
 		
 		comboBox.setBounds(91, 49, 184, 20);
 		AsociacionAbn.add(comboBox);
 		
-		comboBox_1.setBounds(91, 96, 184, 20);
-		AsociacionAbn.add(comboBox_1);
+		
 		
 		JLabel lblNewLabel = new JLabel("Cliente:");
 		lblNewLabel.setBounds(10, 52, 61, 14);
 		AsociacionAbn.add(lblNewLabel);
 		
-		JLabel lblSocio = new JLabel("Socio:");
-		lblSocio.setBounds(10, 99, 61, 14);
-		AsociacionAbn.add(lblSocio);
 		
 
 	}

@@ -1,4 +1,4 @@
-package Vista;
+package com.inteapp.ui.Vista;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,21 +11,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Controlador.ClienteController;
-import Modelo.ClienteTipo;
+import com.inteapp.controller.Liquidador;
+import com.inteapp.view.ClienteView;
 
 public class AltaClienteVista {
 
 
-	private JTextField codigo;
-	private JTextField nombre;
-	private JTextField precio;
-	private JTextField vigencia;
-	private ClienteController ab = ClienteController.getSingletonInstance();
+	private JTextField CUIT;
+	private JTextField razonSocial;
+	private JTextField direccion;
+	private JTextField localidad;
 	private JPanel alta;
 	private JTextField textField;
 	JComboBox comboBox;
-	private JTextField textField_1;
+	private JTextField email;
+	private JTextField telefono;
 	
 
 	/**
@@ -47,7 +47,6 @@ public class AltaClienteVista {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		ab = ClienteController.getSingletonInstance();
 		
 		alta = new JPanel();
 		alta.setBounds(0, 0, 434, 441);
@@ -57,50 +56,51 @@ public class AltaClienteVista {
 		lblCodigo.setBounds(24, 58, 158, 14);
 		alta.add(lblCodigo);
 		
-		codigo = new JTextField();
-		codigo.setColumns(10);
-		codigo.setBounds(202, 58, 129, 20);
-		alta.add(codigo);
+		CUIT = new JTextField();
+		CUIT.setColumns(10);
+		CUIT.setBounds(202, 58, 129, 20);
+		alta.add(CUIT);
 		
 		JLabel lblNombre = new JLabel("Razon Social");
 		lblNombre.setBounds(24, 90, 158, 14);
 		alta.add(lblNombre);
 		
-		nombre = new JTextField();
-		nombre.setColumns(10);
-		nombre.setBounds(202, 90, 129, 20);
-		alta.add(nombre);
+		razonSocial = new JTextField();
+		razonSocial.setColumns(10);
+		razonSocial.setBounds(202, 90, 129, 20);
+		alta.add(razonSocial);
 		
 		JLabel lblPrecio = new JLabel("Direccion:");
 		lblPrecio.setBounds(24, 125, 158, 14);
 		alta.add(lblPrecio);
 		
-		precio = new JTextField();
-		precio.setColumns(10);
-		precio.setBounds(202, 125, 129, 20);
-		alta.add(precio);
+		direccion = new JTextField();
+		direccion.setColumns(10);
+		direccion.setBounds(202, 125, 129, 20);
+		alta.add(direccion);
 		
 		JLabel lblPeriodoVigencia = new JLabel("Localidad:");
 		lblPeriodoVigencia.setBounds(24, 156, 158, 14);
 		alta.add(lblPeriodoVigencia);
 		
-		vigencia = new JTextField();
-		vigencia.setColumns(10);
-		vigencia.setBounds(202, 156, 129, 20);
-		alta.add(vigencia);
+		localidad = new JTextField();
+		localidad.setColumns(10);
+		localidad.setBounds(202, 156, 129, 20);
+		alta.add(localidad);
 		
 		//int result = Integer.parseInt(dni.getText());
 		
 		JButton button = new JButton("GRABAR");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					ClienteTipo tipo = (ClienteTipo)comboBox.getSelectedItem();
-					ab.AltaCliente(codigo.getText(), nombre.getText(), precio.getText(), vigencia.getText(), tipo);
-					codigo.setText(null);
-					nombre.setText(null);
-					precio.setText(null);
-					vigencia.setText(null);
-					
+					PersonaTipo tipo = (PersonaTipo)comboBox.getSelectedItem();
+//					ab.AltaCliente(codigo.getText(), nombre.getText(), precio.getText(), vigencia.getText(), tipo);
+//					codigo.setText(null);
+//					nombre.setText(null);
+//					precio.setText(null);
+//					vigencia.setText(null);
+				ClienteView c = new ClienteView(razonSocial.getText(), CUIT.getText(), direccion.getText(), localidad.getText(), email.getText(), telefono.getText(), tipo.toString(), null);
+				Liquidador.getInstance().altaCliente(c);
 			}
 		});
 		button.setBounds(197, 391, 91, 23);
@@ -116,7 +116,7 @@ public class AltaClienteVista {
 		lblTipo.setBounds(24, 212, 158, 14);
 		alta.add(lblTipo);
 		
-		comboBox = new JComboBox(ClienteTipo.values());
+		comboBox = new JComboBox(PersonaTipo.values());
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				
@@ -130,10 +130,19 @@ public class AltaClienteVista {
 		lblEmail.setBounds(24, 184, 158, 14);
 		alta.add(lblEmail);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(202, 184, 129, 20);
-		alta.add(textField_1);
+		email = new JTextField();
+		email.setColumns(10);
+		email.setBounds(202, 184, 129, 20);
+		alta.add(email);
+		
+		JLabel lblNewLabel = new JLabel("Telefono:");
+		lblNewLabel.setBounds(24, 237, 46, 14);
+		alta.add(lblNewLabel);
+		
+		telefono = new JTextField();
+		telefono.setBounds(202, 234, 129, 20);
+		alta.add(telefono);
+		telefono.setColumns(10);
 		
 		
 		
