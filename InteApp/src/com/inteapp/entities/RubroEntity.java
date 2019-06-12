@@ -30,7 +30,7 @@ public class RubroEntity {
 	private String convenio;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn (name ="ID_ITEM_RUBRO") 
+	@JoinColumn (name ="ID_RUBRO") 
 	private List <ItemRubroEntity> itemsRubro;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)

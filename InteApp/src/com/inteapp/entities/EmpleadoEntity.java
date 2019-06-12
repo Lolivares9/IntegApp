@@ -76,7 +76,7 @@ public class EmpleadoEntity {
 	private float salario;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_LIQUIDACION")
+	@JoinColumn(name="ID_EMPLEADO")
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<LiquidacionEntity> liquidaciones;
 	

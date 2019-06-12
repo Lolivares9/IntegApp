@@ -1,6 +1,6 @@
 package com.inteapp.entities;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -28,9 +28,6 @@ public class LiquidacionEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idLiquidacion;
 	
-	@Column (name="DESCRIPCION")
-	private String descripcion;
-	
 	@ManyToOne
 	@JoinColumn(name="ID_EMPLEADO")
 	private EmpleadoEntity empleado;
@@ -48,7 +45,7 @@ public class LiquidacionEntity {
 	private float liqNeta;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_ITEM_RUBRO")
+	@JoinColumn(name="ID_LIQUIDACION")
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<ItemRubroEntity> itemsRubro;
 
@@ -61,14 +58,6 @@ public class LiquidacionEntity {
 
 	public void setIdLiquidacion(Integer idLiquidacion) {
 		this.idLiquidacion = idLiquidacion;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
 	}
 
 	public EmpleadoEntity getEmpleado() {

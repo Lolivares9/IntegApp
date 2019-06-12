@@ -77,4 +77,12 @@ public class EscalaEntity {
 	public void setCategorias(List<CategoriaEntity> categorias) {
 		this.categorias = categorias;
 	}
+
+	public RubroEntity getRubro() {
+		return rubro;
+	}
+
+	public void setRubro(RubroEntity rubro) {
+		this.rubro = rubro;
+	}
 }
