@@ -60,14 +60,6 @@ public class LiquidacionEntity {
 		this.idLiquidacion = idLiquidacion;
 	}
 
-	public EmpleadoEntity getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(EmpleadoEntity empleado) {
-		this.empleado = empleado;
-	}
-
 	public Date getFechaDesde() {
 		return fechaDesde;
 	}

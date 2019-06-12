@@ -59,8 +59,4 @@ public class CategoriaEntity {
 	public EscalaEntity getEscala() {
 		return escala;
 	}
-
-	public void setEscala(EscalaEntity escala) {
-		this.escala = escala;
-	}
 }

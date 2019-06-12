@@ -76,32 +76,31 @@ public class testHibernateFinal {
 		itemRubro1.setPorcentaje((float)0.11);
 		itemRubro2.setConcepto(concepto2);
 		itemRubro2.setPorcentaje((float)0.03);
-		itemRubro1.setLiquidacion(null);
-		itemRubro2.setLiquidacion(null);
 		itemsRubros.add(itemRubro1);
 		itemsRubros.add(itemRubro2);
 
 		/*--------------RUBRO--------------*/
-		r.setConvenio("SI");
+		r.setConvenio("5356");
 		r.setEscalas(escalasRubro);
-		r.setNombre("JUB");
+		r.setNombre("Comercio");
 		r.setItemsRubro(itemsRubros);
-		//empleado1.setRubro(r);
+		empleado1.setRubro(r);
 		
 		/*--------------NOVEDADES--------------*/
 		novedad.setCantDias(4);
 		novedad.setConcepto(concepto1);
 		novedad.setFechaNovedad(new Date(0));
+		novedades.add(novedad);
 		empleado1.setNovedades(novedades);
 		
 		/*--------------LIQUIDACIONES--------------*/
 		liquidacion.setItemsRubro(itemsRubros);
 		liquidacion.setFechaDesde(new Date(0));
 		liquidacion.setFechaHasta(new Date(0));
-		liquidacion.setItemsRubro(itemsRubros);
 		liquidacion.setLiqBruta(4000);
 		liquidacion.setLiqNeta(2000);
 		liquidaciones.add(liquidacion);
+		empleado1.setLiquidaciones(liquidaciones);//agregue
 		
 		/*--------------EMPLEADO--------------*/
 		empleado1.setCuil("30391558486");
@@ -117,9 +116,8 @@ public class testHibernateFinal {
 		empleado1.setDiasEstudioDisp(15);
 		empleado1.setVacacionesDisp(15);
 		empleado1.setPerteneceConvenio(true);
-		//empleado1.setCategoria(categoriaRubro);
-		empleado1.setSalario(400000);
-		empleado1.setLiquidaciones(liquidaciones);//agregue
+		empleado1.setCategoria(categoriaRubro);
+		empleado1.setSalario(40000);
 		empleados.add(empleado1);
 		
 		

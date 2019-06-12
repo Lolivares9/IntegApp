@@ -68,15 +68,7 @@ public class ItemRubroEntity {
 		return rubro;
 	}
 
-	public void setRubro(RubroEntity rubro) {
-		this.rubro = rubro;
-	}
-
 	public LiquidacionEntity getLiquidacion() {
 		return liquidacion;
-	}
-
-	public void setLiquidacion(LiquidacionEntity liquidacion) {
-		this.liquidacion = liquidacion;
 	}
 }
