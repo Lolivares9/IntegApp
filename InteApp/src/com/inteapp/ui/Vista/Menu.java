@@ -1,4 +1,4 @@
-package Vista;
+package com.inteapp.ui.Vista;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -15,10 +15,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import Controlador.ClienteController;
-import Controlador.ActividadController;
-import Controlador.CronogramaController;
-import Controlador.SocioController;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,10 +26,7 @@ import javax.swing.SwingConstants;
 public class Menu {
 
 	private JFrame frame;
-	private SocioController s = SocioController.getSingletonInstance();
-	private ActividadController a = ActividadController.getSingletonInstance();
-	private ClienteController ab = ClienteController.getSingletonInstance();
-	private CronogramaController cr = CronogramaController.getSingletonInstance();
+
 	/**
 	 * Launch the application.
 	 */
@@ -62,7 +55,7 @@ public class Menu {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 440, 520);
+		frame.setBounds(100, 100, 655, 520);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().setLayout(new java.awt.BorderLayout());
@@ -77,8 +70,8 @@ public class Menu {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menu.setVisible(false);
-				AltaSocioVista a = new AltaSocioVista ();
-				frame.setContentPane(a.getAlta());
+				//AltaSocioVista a = new AltaSocioVista ();
+				//frame.setContentPane(a.getAlta());
 				frame.repaint();
 			}
 		});
@@ -98,7 +91,7 @@ public class Menu {
 		JMenu mnSocio = new JMenu("Empleado");
 		menuBar.add(mnSocio);
 		
-		JMenu mnActividad = new JMenu("Actividad");
+		JMenu mnActividad = new JMenu("Sueldos");
 		menuBar.add(mnActividad);
 		
 		JMenu mnCliente = new JMenu("Cliente");
@@ -217,11 +210,11 @@ public class Menu {
 		
 		
 	// ACTIVIDAD SUBMENU
-		JMenuItem mntmAltaAct = new JMenuItem("Alta");
+		JMenuItem mntmAltaAct = new JMenuItem("Liquidar Sueldos");
 		mntmAltaAct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menu.setVisible(false);
-				AltaActividadVista a = new AltaActividadVista ();
+				LiquidarSueldos a = new LiquidarSueldos ();
 				frame.setContentPane(a.getAlta());
 				frame.repaint();
 			}
@@ -349,6 +342,33 @@ public class Menu {
 		});
 		mnCronograma.add(mntmAsociarCronograma);
 		
+		JMenu mnReportes = new JMenu("Reportes");
+		menuBar.add(mnReportes);
+		
+		
+		
+		
+		JMenuItem mntmGenerarReportes = new JMenuItem("Generar Reporte Total Cliente");
+		mntmGenerarReportes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menu.setVisible(false);
+				GenerarReporteTotalCliente a = new GenerarReporteTotalCliente ();
+				frame.setContentPane(a.getAlta());
+				frame.repaint();
+			}
+		});
+		mnReportes.add(mntmGenerarReportes);
+		
+		JMenuItem mntmGenerarReporteCliente = new JMenuItem("Generar Reporte Cliente");
+		mntmGenerarReporteCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menu.setVisible(false);
+				GenerarReporteCliente a = new GenerarReporteCliente ();
+				frame.setContentPane(a.getAlta());
+				frame.repaint();
+			}
+		});
+		mnReportes.add(mntmGenerarReporteCliente);
 
 	}
 }

@@ -1,4 +1,4 @@
-package Vista;
+package com.inteapp.ui.Vista;
 
 import java.awt.EventQueue;
 
@@ -11,9 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import Controlador.ClienteController;
-import Controlador.SocioController;
-import Modelo.Socio;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -21,13 +18,16 @@ import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+
+import com.inteapp.controller.Liquidador;
+import com.inteapp.view.ClienteView;
+
 import java.awt.Font;
 import javax.swing.JProgressBar;
 
 public class BajaClienteVista {
-	private ClienteController ab = ClienteController.getSingletonInstance();
 	private JPanel baja;
-	private JTextField codigo;
+	private JTextField CUIT;
 	
 	
 	/**
@@ -58,18 +58,20 @@ public class BajaClienteVista {
 		lblCodigo.setBounds(64, 68, 46, 14);
 		baja.add(lblCodigo);
 		
-		codigo = new JTextField();
+		CUIT = new JTextField();
 		//String text = dni.getText();
 		//int result = Integer.parseInt(text);
-		codigo.setBounds(120, 65, 143, 20);
-		baja.add(codigo);
-		codigo.setColumns(10);
+		CUIT.setBounds(120, 65, 143, 20);
+		baja.add(CUIT);
+		CUIT.setColumns(10);
 		
 		
 		JButton button = new JButton("GRABAR");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ab.BajaCliente(codigo.getText());		
+				//ab.BajaCliente(codigo.getText());	
+				//ClienteView c = new ClienteView(razonSocial.getText(), CUIT.getText(), direccion.getText(), localidad.getText(), email.getText(), telefono.getText(), tipo.toString(), null);
+				//Liquidador.getInstance().
 			}
 		});
 		button.setBounds(172, 96, 91, 23);

@@ -61,9 +61,7 @@ public class AsociacionSocioClienteVista {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		s = SocioController.getSingletonInstance();
-		c = CronogramaController.getSingletonInstance();
-		abn = ClienteController.getSingletonInstance();
+
 		AsociacionAbn = new JPanel();
 		AsociacionAbn.setBounds(0, 0, 700, 496);
 		AsociacionAbn.setLayout(null);
