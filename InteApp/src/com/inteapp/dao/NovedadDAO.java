@@ -14,6 +14,8 @@ private static NovedadDAO instancia;
 	}
 	
 	public Novedad toNegocio(NovedadEntity novEnt){
+
+
 	Novedad novNegocio = new Novedad(novEnt.getFechaNovedad(),null, novEnt.getCantDias());//TODO:AgregarConcepto
 	return novNegocio;
 }
@@ -24,7 +26,6 @@ private static NovedadDAO instancia;
 //		}
 //		return novNegocio;
 //	}
-	
 	
 	
 }
