@@ -1,4 +1,4 @@
-package Vista;
+package com.inteapp.ui.Vista;
 
 import java.awt.EventQueue;
 

@@ -1,7 +1,7 @@
 package com.inteapp.businessObject;
 
 import java.util.ArrayList;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import com.inteapp.dao.EscalaDAO;
