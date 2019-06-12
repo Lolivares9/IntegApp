@@ -6,10 +6,14 @@ import java.util.List;
 
 import com.inteapp.businessObject.Categoria;
 import com.inteapp.businessObject.Empleado;
+import com.inteapp.businessObject.ItemRubro;
 import com.inteapp.businessObject.Liquidacion;
 import com.inteapp.businessObject.Novedad;
 import com.inteapp.businessObject.Rubro;
+import com.inteapp.entities.CategoriaEntity;
 import com.inteapp.entities.EmpleadoEntity;
+import com.inteapp.entities.ItemRubroEntity;
+import com.inteapp.entities.RubroEntity;
 
 public class EmpleadoDAO {
 	private static EmpleadoDAO instancia;
@@ -67,8 +71,18 @@ public class EmpleadoDAO {
 		{
 			liquidaciones = LiquidacionDAO.getInstancia().liquidacionesToNegocio(e.getLiquidaciones());
 			novedades = NovedadDAO.getInstancia().toNegocioAll(e.getNovedades());
-			
-			Empleado nuevo =new Empleado();
+			RubroEntity rE= e.getRubro();//rubro
+			List <ItemRubro> itemsRubro = new ArrayList<ItemRubro>();
+			for (ItemRubroEntity it: rE.getItemsRubro()) {
+				itemsRubro.add(RubroDAO.getInstancia().toNegocio(it));
+			}
+			Rubro r  = new Rubro(rE.getNombre(), rE.getConvenio(), itemsRubro );
+			CategoriaEntity cE = e.getCategoria();
+			Categoria cat = new Categoria(cE.getCategoria(), cE.getSueldo());
+			//categoriaVigente
+			Empleado nuevo =new Empleado(e.getCuil(), e.getNombre(), e.getApellido(), e.getDireccion(),e.getMail(),e.getTelefono(), e.getFechaIngreso()
+					, e.getTipoLiquidacion(),e.getFechaUltLiq(), e.getFechaProxLiq(), e.getVacacionesDisp(),e.getDiasEstudioDisp(), e.isPerteneceConvenio()
+					,r, cat,e.getSalario(),novedades,liquidaciones);
 			
 		}
 		
