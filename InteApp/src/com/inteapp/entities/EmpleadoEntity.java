@@ -27,8 +27,7 @@ public class EmpleadoEntity {
 	private Integer idEmpleado;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_CLIENTE"
-	)
+	@JoinColumn(name="ID_CLIENTE")
 	private ClienteEntity cliente;
 	
 	@Column (name="CUIL")
@@ -57,12 +56,6 @@ public class EmpleadoEntity {
 	
 	@Column (name="EN_CONVENIO")
 	private boolean perteneceConvenio;
-	
-	@Column (name="RUBRO")
-	private String rubro;
-	
-	@Column (name="CATEGORIA")
-	private String categoria;
 
 	@Column (name="MAIL")
 	private String mail;
@@ -80,7 +73,13 @@ public class EmpleadoEntity {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<NovedadEntity> novedades;
 	
+	@ManyToOne
+	@JoinColumn(name="ID_RUBRO")
+	private RubroEntity rubro;
 	
+	@ManyToOne
+	@JoinColumn(name="ID_CATEGORIA")
+	private CategoriaEntity categoria;
 	
 	public EmpleadoEntity(){
 	}
@@ -173,19 +172,19 @@ public class EmpleadoEntity {
 		this.perteneceConvenio = perteneceConvenio;
 	}
 	
-	public String getRubro() {
+	public RubroEntity getRubro() {
 		return rubro;
 	}
 
-	public void setRubro(String rubro) {
+	public void setRubro(RubroEntity rubro) {
 		this.rubro = rubro;
 	}
 	
-	public String getCategoria() {
+	public CategoriaEntity getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(CategoriaEntity categoria) {
 		this.categoria = categoria;
 	}
 

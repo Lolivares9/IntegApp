@@ -25,14 +25,6 @@ public class ConceptoEntity {
 	
 	@Column (name="SIGNO")
 	private String signo;
-	
-	@ManyToOne
-	@JoinColumn(name="ID_RUBRO")
-	private RubroEntity rubro;
-	
-	@ManyToOne
-	@JoinColumn(name="ID_LIQUIDACION")
-	private LiquidacionEntity liquidacion;
 
 	public ConceptoEntity(){
 	}
@@ -75,21 +67,5 @@ public class ConceptoEntity {
 
 	public void setObligatorio(boolean obligatorio) {
 		this.obligatorio = obligatorio;
-	}
-
-	public RubroEntity getRubro() {
-		return rubro;
-	}
-
-	public void setRubro(RubroEntity rubro) {
-		this.rubro = rubro;
-	}
-
-	public LiquidacionEntity getLiquidacion() {
-		return liquidacion;
-	}
-
-	public void setLiquidacion(LiquidacionEntity liquidacion) {
-		this.liquidacion = liquidacion;
 	}
 }

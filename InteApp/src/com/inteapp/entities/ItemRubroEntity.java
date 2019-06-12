@@ -18,9 +18,9 @@ public class ItemRubroEntity {
 	@Id
 	@Column (name="ID_ITEM_RUBRO")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private String idItemRubro;
+	private Integer idItemRubro;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="ID_CONCEPTO")
 	private ConceptoEntity concepto;
 	
@@ -31,14 +31,18 @@ public class ItemRubroEntity {
 	@JoinColumn(name="ID_RUBRO")
 	private RubroEntity rubro;
 	
+	@ManyToOne
+	@JoinColumn(name="ID_LIQUIDACION")
+	private LiquidacionEntity liquidacion;
+	
 	public ItemRubroEntity(){
 	}
 
-	public String getIdItemRubro() {
+	public Integer getIdItemRubro() {
 		return idItemRubro;
 	}
 
-	public void setIdItemRubro(String idItemRubro) {
+	public void setIdItemRubro(Integer idItemRubro) {
 		this.idItemRubro = idItemRubro;
 	}
 
@@ -64,5 +68,13 @@ public class ItemRubroEntity {
 
 	public void setRubro(RubroEntity rubro) {
 		this.rubro = rubro;
+	}
+
+	public LiquidacionEntity getLiquidacion() {
+		return liquidacion;
+	}
+
+	public void setLiquidacion(LiquidacionEntity liquidacion) {
+		this.liquidacion = liquidacion;
 	}
 }
