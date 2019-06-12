@@ -17,6 +17,7 @@ import com.inteapp.businessObject.Rubro;
 public class Run {
 
 	public static void main(String[] args) {
+	
 		Cliente cli = null;
 		List<Empleado> empleados = new ArrayList<Empleado>();
 		List<Novedad> novedades = new ArrayList<Novedad>();
@@ -127,9 +128,9 @@ public class Run {
 		empleados.add(empleado3);
 		
 		cli = new Cliente("Accenture","30391558486","Avenida Belgrano 3629","Argentina, Bs As","acc@gmail.com","11562592","J",empleados);
-		cli.liquidarEmpleados();
+		//cli.liquidarEmpleados();
 
-
+		empleado3.liquidacionFinal(true);
 		
 //		Escala esc = new Escala(null,null,categorias);
 //		

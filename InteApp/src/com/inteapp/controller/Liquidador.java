@@ -69,15 +69,29 @@ public class Liquidador {
 		return false;
 	}
 	
+	public boolean liquidacionFinalEmpleado (ClienteView cteView, EmpleadoView empView, boolean renuncia) {
+		Cliente c = null;
+		Empleado e = null;
+		c = buscarCliente (cteView);
+		if (c != null) {
+			e = c.buscarEmpleado (e);
+			if (e != null) {
+				e.liquidacionFinal(renuncia);
+			}
+		}
+		return false;
+	}
+	
 	public boolean AltaRubro (RubroView rView) {
 		Rubro r = null;
 		r = buscarRubro (rView);
 		if (r == null){
 			List<ItemRubro> conceptos = new ArrayList<ItemRubro>();
 			ItemRubro itemRubro = null;
+			ConceptoView concView = null;
 			for (ItemRubroView it : rView.getConceptos()) {
-				ConceptoView cView = it.getConcepto();
-				Concepto c = new Concepto(cView.getDescripcion(), cView.isObligatorio(), cView.getSigno());
+				concView = it.getConcepto();
+				Concepto c = new Concepto(concView.getDescripcion(), concView.isObligatorio(), concView.getSigno());
 				itemRubro = new ItemRubro(c, it.getPorcentaje());
 				conceptos.add(itemRubro);
 			}
