@@ -3,9 +3,10 @@ package com.inteapp.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.inteapp.businessObject.Cliente;
+import com.inteapp.businessObject.Concepto;
+import com.inteapp.businessObject.ItemRubro;
 import com.inteapp.businessObject.Rubro;
-import com.inteapp.entities.ClienteEntity;
+import com.inteapp.entities.ItemRubroEntity;
 import com.inteapp.entities.RubroEntity;
 import com.inteapp.hibernate.HibernateUtil;
 
@@ -35,5 +36,15 @@ public class RubroDAO {
 	public Rubro buscarRubro(Integer idRubro) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	
+	public ItemRubro toNegocio(ItemRubroEntity itrEnt) {
+		Concepto conceptoBO =ConceptoDAO.getInstancia().toNegocio(itrEnt.getConcepto());
+		
+		ItemRubro itr = new ItemRubro (conceptoBO,itrEnt.getPorcentaje());
+		
+		return itr;
 	}
 }

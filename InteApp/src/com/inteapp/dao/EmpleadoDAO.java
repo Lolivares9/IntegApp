@@ -3,6 +3,9 @@ package com.inteapp.dao;
 import java.util.ArrayList;
 import java.util.List;
 import com.inteapp.businessObject.Empleado;
+import com.inteapp.businessObject.Liquidacion;
+import com.inteapp.businessObject.Novedad;
+import com.inteapp.entities.EmpleadoEntity;
 
 public class EmpleadoDAO {
 	private static EmpleadoDAO instancia;
@@ -28,5 +31,19 @@ public class EmpleadoDAO {
 		return empNegocio;
 	}
 	
+	public List<Empleado> empleadosToNegocio(List<EmpleadoEntity> empleadosEntity) {
+		List <Empleado> empleados = new ArrayList<Empleado>();
+		List <Liquidacion> liquidaciones = new ArrayList<Liquidacion>();
+		List < Novedad> novedades = new ArrayList<Novedad>();
+		for(EmpleadoEntity e: empleadosEntity)
+		{
+			liquidaciones = LiquidacionDAO.getInstancia().liquidacionesToNegocio(e.getLiquidaciones());
+			Empleado nuevo =new Empleado();
+			
+		}
+		
+		
+		return null;
+	}
 
 }

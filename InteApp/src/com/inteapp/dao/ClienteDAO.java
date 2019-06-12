@@ -9,8 +9,10 @@ import org.hibernate.SessionFactory;
 
 import com.inteapp.businessObject.Categoria;
 import com.inteapp.businessObject.Cliente;
+import com.inteapp.businessObject.Empleado;
 import com.inteapp.businessObject.Escala;
 import com.inteapp.entities.ClienteEntity;
+import com.inteapp.entities.EmpleadoEntity;
 import com.inteapp.entities.EscalaEntity;
 import com.inteapp.hibernate.HibernateUtil;
 
@@ -53,10 +55,11 @@ public class ClienteDAO {
 		
 	public Cliente toNegocio(ClienteEntity cli){
 		Cliente aux= null;
-		
+		List <Empleado> empleados = new ArrayList<Empleado>();
 		aux.setCuit(cli.getCuit());
 		aux.setDireccion(cli.getDireccion());
-		//aux.setEmpleados(cli.getEmpleados());
+		empleados = EmpleadoDAO.getInstancia().empleadosToNegocio(cli.getEmpleados());
+		aux.setEmpleados(empleados);
 		aux.setRazonSocial(cli.getRazonSocial());
 		aux.setLocalidad(cli.getLocalidad());
 		aux.setMail(cli.getMail());
@@ -65,6 +68,7 @@ public class ClienteDAO {
 		
 		return aux ;
 	}
+
 
 	public void save(Cliente c) {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
