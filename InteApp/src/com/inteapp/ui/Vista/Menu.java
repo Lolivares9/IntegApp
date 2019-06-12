@@ -1,4 +1,4 @@
-package com.inteapp.ui.Vista;
+package Vista;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -26,7 +26,7 @@ import javax.swing.SwingConstants;
 public class Menu {
 
 	private JFrame frame;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -81,7 +81,6 @@ public class Menu {
 		frame.getContentPane().add(btnNewButton);
 		
 		
-		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
@@ -96,9 +95,6 @@ public class Menu {
 		
 		JMenu mnCliente = new JMenu("Cliente");
 		menuBar.add(mnCliente);
-		
-		JMenu mnCronograma = new JMenu("Cronograma");
-		menuBar.add(mnCronograma);
 		
 		class Imagen extends javax.swing.JPanel {
 
@@ -330,18 +326,6 @@ public class Menu {
 		});
 		mnCliente.add(mntmAsociaCliente);
 		
-	// CRONOGRAMA SUBMENU	
-		JMenuItem mntmAsociarCronograma = new JMenuItem("Asociar Actividades");
-		mntmAsociarCronograma.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				menu.setVisible(false);
-				AltaCronogramaVista cr = new AltaCronogramaVista ();
-				frame.setContentPane(cr.getCronograma());
-				frame.repaint();
-			}
-		});
-		mnCronograma.add(mntmAsociarCronograma);
-		
 		JMenu mnReportes = new JMenu("Reportes");
 		menuBar.add(mnReportes);
 		
@@ -369,6 +353,31 @@ public class Menu {
 			}
 		});
 		mnReportes.add(mntmGenerarReporteCliente);
+		
+		JMenuItem mntmGenerarReporteEmpleado = new JMenuItem("Generar Reporte Empleado");
+		mntmGenerarReporteEmpleado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menu.setVisible(false);
+				GenerarReporteEmpleado a = new GenerarReporteEmpleado ();
+				frame.setContentPane(a.getAlta());
+				frame.repaint();
+			}
+		});
+		mnReportes.add(mntmGenerarReporteEmpleado);
+		
+		JMenu mnNovedades = new JMenu("Novedades");
+		menuBar.add(mnNovedades);
+		
+		JMenuItem mntmCargarNovedades = new JMenuItem("Cargar Novedades");
+		mntmCargarNovedades.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menu.setVisible(false);
+				CargarNovedades a = new CargarNovedades ();
+				frame.setContentPane(a.getAlta());
+				frame.repaint();
+			}
+		});
+		mnNovedades.add(mntmCargarNovedades);
 
 	}
 }

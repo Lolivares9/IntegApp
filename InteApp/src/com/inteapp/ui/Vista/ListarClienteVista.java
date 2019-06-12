@@ -8,6 +8,8 @@ import Modelo.Cliente;
 import Controlador.ClienteController;
 import javax.swing.JTable;
 
+import com.inteapp.controller.Liquidador;
+
 
 public class ListarClienteVista {
 
@@ -35,14 +37,14 @@ public class ListarClienteVista {
 		
 
 		Vector<String> columnas = new Vector<String>();
-		columnas.add("Codigo");
+		columnas.add("CUIT");
 		columnas.add("Nombre");
 		columnas.add("Precio");
 		columnas.add("Vigencia");
 		columnas.add("Tipo");
 
 		Vector<Vector> rows = new Vector<Vector>();
-		Vector<Cliente> clientes = Cliente.getClientes();
+		Vector<Cliente> clientes = Liquidador.getInstance().;
 		
 		for (int i=0; i < clientes.size(); i++) {
 			Vector<String> x = new Vector<String>();

@@ -70,7 +70,7 @@ public class BajaClienteVista {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//ClienteView c = new ClienteView(null, CUIT.getText(), null, null, null, null, null, null);
-				Liquidador.getInstance().BajaCliente(c)
+				Liquidador.getInstance().BajaCliente(c);
 				
 			}
 		});
