@@ -9,10 +9,10 @@ public class NovedadView {
 	
 	private Integer idNovedad;
 	private Date fecha;
-	private Concepto concepto;
+	private ConceptoView concepto;
 	private int unidades;
 	
-		public NovedadView(Date fecha, Concepto concepto, int unidades) {
+		public NovedadView(Date fecha, ConceptoView concepto, int unidades) {
 		super();
 		this.fecha = fecha;
 		this.concepto = concepto;
@@ -25,10 +25,10 @@ public class NovedadView {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public Concepto getConcepto() {
+	public ConceptoView getConcepto() {
 		return concepto;
 	}
-	public void setConcepto(Concepto concepto) {
+	public void setConcepto(ConceptoView concepto) {
 		this.concepto = concepto;
 	}
 	public int getUnidades() {

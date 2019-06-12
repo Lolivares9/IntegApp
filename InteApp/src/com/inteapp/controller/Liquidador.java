@@ -1,10 +1,14 @@
 package com.inteapp.controller;
 
 import com.inteapp.businessObject.Cliente;
+import com.inteapp.businessObject.Concepto;
 import com.inteapp.businessObject.Empleado;
+import com.inteapp.businessObject.Novedad;
 import com.inteapp.dao.ClienteDAO;
 import com.inteapp.view.ClienteView;
+import com.inteapp.view.ConceptoView;
 import com.inteapp.view.EmpleadoView;
+import com.inteapp.view.NovedadView;
 
 public class Liquidador {
 	private static Liquidador instance;
@@ -57,5 +61,22 @@ public class Liquidador {
 		return false;
 	}
 
-	public void altaNovedad (NovedadView nView, )
+	public boolean altaNovedad (ClienteView cteView, EmpleadoView empView, NovedadView nView) {
+		Cliente c = null;
+		Empleado e = null;
+		c = buscarCliente (cteView);
+		if (c != null) {
+			e = c.buscarEmpleado (e);
+			if (e != null) {
+				ConceptoView cView = nView.getConcepto();
+				Concepto con = new Concepto(cView.getDescripcion(), cView.isObligatorio(), cView.getSigno());
+				Novedad nov = new Novedad(nView.getFecha(), con, nView.getUnidades());
+				e.AltaNovedad(nov);
+				c.save();
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
