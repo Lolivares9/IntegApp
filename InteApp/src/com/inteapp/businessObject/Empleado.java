@@ -208,9 +208,24 @@ public class Empleado {
 			//Liquidacion de sueldo normal
 			float sueldoBruto = 0;
 			float sueldoNeto = 0;
+			int mes = cal.get(Calendar.MONTH);
 			List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
 			
 			cargarNovedadesItemsRubro(itemsRubro);
+			
+			if (mes == 5 ) {
+				float antiguedadSemestre = calcularAntiguedadSemestre();
+				Concepto c = new Concepto("SAC 1er Semestre", false, "+");
+				ItemRubro it = new ItemRubro(c, (float) (0.5 * antiguedadSemestre / 180));
+				itemsRubro.add(it);	
+			}
+			else if (mes == 11) {
+				float antiguedadSemestre = calcularAntiguedadSemestre();
+				Concepto c = new Concepto("SAC 2do Semestre", false, "+");
+				ItemRubro it = new ItemRubro(c, (float) (0.5 * antiguedadSemestre / 180));
+				itemsRubro.add(it);	
+			}
+			
 			List<ItemRubro> retribuciones = new ArrayList<ItemRubro>();
 			List<ItemRubro> contribuciones = new ArrayList<ItemRubro>();
 			
@@ -363,7 +378,6 @@ public class Empleado {
 		float sueldoBruto = 0;
 		float sueldoNeto = 0;
 		List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
-		
 		cargarNovedadesItemsRubro(itemsRubro);
 		
 		Concepto c = null;
@@ -371,11 +385,11 @@ public class Empleado {
 		
 		if(renuncia) {
 			c = new Concepto("Vacaciones No Gozadas", false, "+");
-			it = new ItemRubro(c, this.vacacionesDisp);
+			it = new ItemRubro(c, this.vacacionesDisp / 25);
 			itemsRubro.add(it);	
 			
 			c = new Concepto("SAC Proporcional", false, "+");
-			it = new ItemRubro(c, antiguedadSemestre / 180);
+			it = new ItemRubro(c, (float) (0.5 * antiguedadSemestre / 180));
 			itemsRubro.add(it);
 			
 		}else {
@@ -384,11 +398,11 @@ public class Empleado {
 			itemsRubro.add(it);
 			
 			c = new Concepto("Vacaciones No Gozadas", false, "+");
-			it = new ItemRubro(c, this.vacacionesDisp);
+			it = new ItemRubro(c, this.vacacionesDisp / 25);
 			itemsRubro.add(it);	
 			
 			c = new Concepto("SAC Proporcional", false, "+");
-			it = new ItemRubro(c, antiguedadSemestre / 180);
+			it = new ItemRubro(c, (float) (0.5 * antiguedadSemestre / 180));
 			itemsRubro.add(it);
 		}
 		
@@ -397,12 +411,19 @@ public class Empleado {
 		
 		separarItemsRubro (itemsRubro, retribuciones, contribuciones);
 		
+		for (ItemRubro item : retribuciones) {
+			if (item.getConcepto().getDescripcion().equals("Sueldo Basico")) {
+				item.setPorcentaje((float)diasPendientesLiquidar / 30);
+				break;
+			}
+		}
+		
 		sueldoBruto = calcularSueldoBruto(sueldo, retribuciones);
 		sueldoNeto = calcularSueldoNeto(sueldoBruto, contribuciones);
 		
 		Liquidacion liq = new Liquidacion (itemsRubro, new Date(0), new Date(0), sueldoBruto, sueldoNeto);
 		liquidaciones.add(liq);
-		
+		imprimirLiquidacionEnConsola(sueldoBruto);
 	}
 
 	private float calcularAntiguedadSemestre() {
@@ -410,11 +431,11 @@ public class Empleado {
 		Calendar cal = Calendar.getInstance();	
 		int mes = cal.get(Calendar.MONTH);
 	
-		if (mes <= 6) {
-			diasSemestre = cal.getActualMaximum(Calendar.DAY_OF_YEAR);
+		if (mes <= 5) {
+			diasSemestre = cal.get(Calendar.DAY_OF_YEAR);
 		}
 		else {
-			diasSemestre = cal.getActualMaximum(Calendar.DAY_OF_YEAR) - 180;
+			diasSemestre = cal.get(Calendar.DAY_OF_YEAR) - 180;
 		}
 		return diasSemestre;
 	}	

@@ -52,12 +52,12 @@ public class Run {
 		categoriaVigente = new Categoria("SENIOR",40000);
 		categorias.add(categoriaVigente);
 		
-		concepto1 = new Concepto("JUBILACION",true,"-");
-		concepto2 = new Concepto("LEY 19.032",true,"-");
-		concepto3 = new Concepto("OBRA SOCIAL",true,"-");
-		concepto4 = new Concepto("SUELDO BASICO",true,"+");
-		concepto5 = new Concepto("BONO DESEMPEÑO",false,"+");
-		concepto6 = new Concepto("VACACIONES",false,"+");
+		concepto1 = new Concepto("Jubilacion",true,"-");
+		concepto2 = new Concepto("Ley 19.032",true,"-");
+		concepto3 = new Concepto("Obra Social",true,"-");
+		concepto4 = new Concepto("Sueldo Basico",true,"+");
+		concepto5 = new Concepto("Bono Desempeño",false,"+");
+		concepto6 = new Concepto("Licencia Vacaciones",false,"+");
 		
 		itemRubro1 = new ItemRubro(concepto1,(float)0.11);
 		itemRubro2 = new ItemRubro(concepto2,(float)0.03);
@@ -85,9 +85,9 @@ public class Run {
 		itemsRubros3.add(itemRubro4);
 		itemsRubros3.add(itemRubro6);
 		
-		rubro =  new Rubro("INFORMATICA","S",itemsRubros);
-		rubro2 =  new Rubro("BANCARIO","S",itemsRubros2);
-		rubro3 =  new Rubro("FUERA DE CONVENIO","S",itemsRubros3);
+		rubro =  new Rubro("Informatica","S",itemsRubros);
+		rubro2 =  new Rubro("Bancario","S",itemsRubros2);
+		rubro3 =  new Rubro("Fuera de Convenio","S",itemsRubros3);
 		
 		novedad1 = new Novedad(new Date(0),concepto5,1);
 		novedad2 = new Novedad(new Date(0),concepto6,15);
@@ -130,7 +130,7 @@ public class Run {
 		cli = new Cliente("Accenture","30391558486","Avenida Belgrano 3629","Argentina, Bs As","acc@gmail.com","11562592","J",empleados);
 		//cli.liquidarEmpleados();
 
-		empleado3.liquidacionFinal(true);
+		empleado3.liquidacionFinal(false);
 		
 //		Escala esc = new Escala(null,null,categorias);
 //		
