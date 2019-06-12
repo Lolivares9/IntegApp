@@ -255,19 +255,21 @@ public class Empleado {
 
 	private void actualizarProximaFechaLiquidacion() {
 		Calendar cal = Calendar.getInstance();
+		cal.setTime(fechaProximaLiquidacion);
+		
 		if (tipoLiquidacion.equals("MENSUAL")) {
-			int anio = fechaProximaLiquidacion.getYear();
-			int mes = fechaProximaLiquidacion.getMonth() + 1;
+			int anio = cal.get(Calendar.YEAR) ;
+			int mes = cal.get(Calendar.MONTH) + 1;
 			int ultimoDiaMes= cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 		
 			cal.set(anio, mes, ultimoDiaMes);
 		}
 		else if (tipoLiquidacion.equals("QUINCENAL")) {
 			int ultimoDiaMes = 15;
-			cal.setTime(fechaProximaLiquidacion);
-			int anio = fechaProximaLiquidacion.getYear() + 1900 ;
-			int mes = fechaProximaLiquidacion.getMonth();
-			int dia = cal.DAY_OF_MONTH;
+			
+			int anio = cal.get(Calendar.YEAR) ;
+			int mes = cal.get(Calendar.MONTH);
+			int dia = cal.get(Calendar.DAY_OF_MONTH);
 			if (dia == 15) {
 				ultimoDiaMes= cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 			}else {
