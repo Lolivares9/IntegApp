@@ -8,7 +8,7 @@ import com.inteapp.entities.EmpleadoEntity;
 
 public class Empleado {
 	
-	private Integer idCliente;
+	private Integer idEmpleado;
 	//Datos personales
 	private String cuil;
 	private String nombre;
@@ -172,12 +172,12 @@ public class Empleado {
 		return null;
 	}
 	
-	public Integer getIdCliente() {
-		return idCliente;
+	public Integer getIdEmpleado() {
+		return idEmpleado;
 	}
 
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
+	public void setIdEmpleado(Integer idEmpleado) {
+		this.idEmpleado = idEmpleado;
 	}
 
 	public Date getFechaUltimaLiquidacion() {
@@ -264,9 +264,10 @@ public class Empleado {
 		}
 		else if (tipoLiquidacion.equals("QUINCENAL")) {
 			int ultimoDiaMes = 15;
-			int anio = fechaProximaLiquidacion.getYear();
+			cal.setTime(fechaProximaLiquidacion);
+			int anio = fechaProximaLiquidacion.getYear() + 1900 ;
 			int mes = fechaProximaLiquidacion.getMonth();
-			int dia = fechaProximaLiquidacion.getDay();
+			int dia = cal.DAY_OF_MONTH;
 			if (dia == 15) {
 				ultimoDiaMes= cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 			}else {
