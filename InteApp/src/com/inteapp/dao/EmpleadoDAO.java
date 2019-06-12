@@ -31,6 +31,8 @@ public class EmpleadoDAO {
 		return empNegocio;
 	}
 	
+	
+	
 	public List<Empleado> empleadosToNegocio(List<EmpleadoEntity> empleadosEntity) {
 		List <Empleado> empleados = new ArrayList<Empleado>();
 		List <Liquidacion> liquidaciones = new ArrayList<Liquidacion>();
@@ -38,7 +40,8 @@ public class EmpleadoDAO {
 		for(EmpleadoEntity e: empleadosEntity)
 		{
 			liquidaciones = LiquidacionDAO.getInstancia().liquidacionesToNegocio(e.getLiquidaciones());
-			novedades = NovedadDAO.getInstancia().novedadesToNegocio(e.getNovedades());
+			novedades = NovedadDAO.getInstancia().toNegocioAll(e.getNovedades());
+			
 			Empleado nuevo =new Empleado();
 			
 		}
