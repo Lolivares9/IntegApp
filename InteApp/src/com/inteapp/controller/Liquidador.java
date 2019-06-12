@@ -1,8 +1,5 @@
 package com.inteapp.controller;
 
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-
 import com.inteapp.businessObject.Cliente;
 import com.inteapp.dao.ClienteDAO;
 import com.inteapp.view.ClienteView;

@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.inteapp.dao.ClienteDAO;
-import com.inteapp.entities.CategoriaEntity;
 import com.inteapp.entities.ClienteEntity;
 import com.inteapp.entities.EmpleadoEntity;
-import com.inteapp.entities.EscalaEntity;
 
 public class Cliente {
 	

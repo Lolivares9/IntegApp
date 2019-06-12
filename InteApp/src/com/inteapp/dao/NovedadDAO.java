@@ -1,13 +1,6 @@
 package com.inteapp.dao;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import com.inteapp.businessObject.Categoria;
-import com.inteapp.businessObject.Concepto;
 import com.inteapp.businessObject.Novedad;
-import com.inteapp.entities.CategoriaEntity;
 import com.inteapp.entities.NovedadEntity;
 
 public class NovedadDAO {
