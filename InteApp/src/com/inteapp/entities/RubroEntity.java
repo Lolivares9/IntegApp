@@ -77,8 +77,4 @@ public class RubroEntity {
 	public void setEscalas(List<EscalaEntity> escalas) {
 		this.escalas = escalas;
 	}
-
-	public void setIdRubro(Integer idRubro) {
-		this.idRubro = idRubro;
-	}
 }
