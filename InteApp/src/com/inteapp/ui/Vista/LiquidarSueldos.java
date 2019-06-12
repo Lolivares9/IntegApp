@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -16,9 +17,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
+import com.inteapp.businessObject.Liquidacion;
 import com.inteapp.controller.Liquidador;
 import com.inteapp.view.ClienteView;
 
+import com.inteapp.dao.ClienteDAO;
 import java.awt.Font;
 import javax.swing.JComboBox;
 
@@ -65,6 +68,18 @@ public class LiquidarSueldos {
 		JButton btnLiquidar = new JButton("LIQUIDAR");
 		btnLiquidar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try{
+					ClienteView cliente = (ClienteView)comboBox.getSelectedItem();
+					Liquidador.getInstance().liquidarCliente(cliente);
+					JOptionPane.showMessageDialog(null, "Liquidacion exitosa","Informacion",JOptionPane.OK_OPTION);
+					
+				}catch(Exception e1){
+					JOptionPane.showMessageDialog(null, "No se pudo Liquidar el Cliente","Informacion",JOptionPane.OK_OPTION);
+				}
+				
+				
+				
 				//ClienteView c = new ClienteView(razonSocial.getText(), CUIT.getText(), direccion.getText(), localidad.getText(), email.getText(), telefono.getText(), tipo.toString(), null);
 				Liquidador.getInstance().liquidarCliente(c);
 			}
@@ -78,10 +93,17 @@ public class LiquidarSueldos {
 		lblAltaDeUsuarios.setBounds(120, 13, 198, 16);
 		alta.add(lblAltaDeUsuarios);
 		
-		BoxTipo = new JComboBox();
+		BoxTipo = new JComboBox<ClienteView>(Liquidador.getInstance().CargarClientes());
+		BoxTipo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				
+			}
+		
 		BoxTipo.setBounds(106, 54, 63, 22);
 		alta.add(BoxTipo);
 		
+		comboBox = new JComboBox<ClienteView>(abn.getClientes());
+	
 		
 		
 		

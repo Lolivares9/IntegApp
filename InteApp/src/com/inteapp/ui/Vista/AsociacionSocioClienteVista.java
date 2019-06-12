@@ -1,4 +1,4 @@
-package Vista;
+package com.inteapp.ui.Vista;
 
 import java.awt.Container;
 import java.awt.Font;
@@ -19,26 +19,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-//import javax.swing.JFormattedTextField;
-import com.toedter.calendar.JCalendar;
+import com.inteapp.view.ClienteView;
 
-import Controlador.ClienteController;
-import Controlador.ActividadController;
-import Controlador.CronogramaController;
-import Controlador.SocioController;
-import Modelo.Cliente;
-import Modelo.Actividad;
-import Modelo.AptoMedico;
-import Modelo.Socio;
-import Modelo.Cronograma;
-import com.lavantech.gui.comp.DateTimePicker;
+//import javax.swing.JFormattedTextField;
+
 import java.util.Vector;
 
 public class AsociacionSocioClienteVista {
-	private JCalendar calendar;
-	private CronogramaController c;
-	private ClienteController abn;
-	private SocioController s;
+
 	private JPanel AsociacionAbn;
 	Date fec= new Date();
 	Date fec2= new Date();
@@ -72,10 +60,8 @@ public class AsociacionSocioClienteVista {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try{
-						Cliente cliente = (Cliente)comboBox.getSelectedItem();
-						Socio so = (Socio)comboBox_1.getSelectedItem();
-						so.AddCliente(cliente);
-						//abn.Asociar(Cliente,so);
+						ClienteView cliente = (ClienteView)comboBox.getSelectedItem();
+						
 						JOptionPane.showMessageDialog(null, "Liquidacion exitosa","Informacion",JOptionPane.OK_OPTION);
 						
 					}catch(Exception e1){
