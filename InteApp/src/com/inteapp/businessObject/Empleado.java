@@ -197,18 +197,12 @@ public class Empleado {
 	}
 
 	public void liquidarSueldo() {
-		//Obtengo el sueldo del empleado. Ya sea por convenio o por lo negociado con el empleador
-		float sueldo = 0;
+		float sueldo = obtenerSueldo();
+		
 		Calendar cal = Calendar.getInstance();
 		Date today = cal.getTime();
 		System.out.println("Fecha obten: " + today);
-
-		if (convenio == true ) {
-			sueldo = categoriaVigente.getSueldo();
-		}
-		else {
-			sueldo = this.salario;
-		}
+		
 		if (today.compareTo(fechaProximaLiquidacion) >= 0) {
 			
 			//Liquidacion de sueldo normal
@@ -229,26 +223,40 @@ public class Empleado {
 			liquidaciones.add(liq);
 			
 
-			//Impresion por Consola de la liquidacion del cliente 
-			System.out.println("Cliente " + nombre + ": ");
-			System.out.println("Fecha Ingreso: " + fechaIngreso);
-			System.out.println("Fecha Ultima Liquidacion: " + fechaUltimaLiquidacion);
-			System.out.println("Fecha Proxima Liquidacion: " + fechaProximaLiquidacion);
-			for (Liquidacion l : liquidaciones){
-				System.out.println("Liquidacion: ");
-				System.out.println("Sueldo Bruto: " + l.getLiqBruta());
-				System.out.println("Sueldo Neta: " + l.getLiqNeta());
-				System.out.println("Conceptos: ");
-				for (ItemRubro it: l.getItems()){
-					System.out.println(it.getConcepto().getDescripcion() + " Porcentaje: " + it.getPorcentaje() + " $" + it.getPorcentaje() * sueldoBruto);
-				}
-			}
-			System.out.println("");
-			//Fin impresion liquidacion
-			
+			imprimirLiquidacionEnConsola(sueldoBruto);
 			actualizarProximaFechaLiquidacion();
 			
 		}
+	}
+
+	private float obtenerSueldo() {
+		float sueldo = 0;
+		if (convenio == true ) {
+			sueldo = categoriaVigente.getSueldo();
+		}
+		else {
+			sueldo = this.salario;
+		}
+		return sueldo;
+	}
+
+	private void imprimirLiquidacionEnConsola(float sueldoBruto) {
+		//Impresion por Consola de la liquidacion del cliente 
+		System.out.println("Cliente " + nombre + ": ");
+		System.out.println("Fecha Ingreso: " + fechaIngreso);
+		System.out.println("Fecha Ultima Liquidacion: " + fechaUltimaLiquidacion);
+		System.out.println("Fecha Proxima Liquidacion: " + fechaProximaLiquidacion);
+		for (Liquidacion l : liquidaciones){
+			System.out.println("Liquidacion: ");
+			System.out.println("Sueldo Bruto: " + l.getLiqBruta());
+			System.out.println("Sueldo Neta: " + l.getLiqNeta());
+			System.out.println("Conceptos: ");
+			for (ItemRubro it: l.getItems()){
+				System.out.println(it.getConcepto().getDescripcion() + " Porcentaje: " + it.getPorcentaje() + " $" + it.getPorcentaje() * sueldoBruto);
+			}
+		}
+		System.out.println("");
+		//Fin impresion liquidacion
 	}
 
 	private void actualizarProximaFechaLiquidacion() {
@@ -337,5 +345,77 @@ public class Empleado {
 				itemsRubro.add(it);
 			}
 		}
+	}
+
+	public void liquidacionFinal(boolean renuncia) {
+		float sueldo = obtenerSueldo();
+		
+		Calendar cal = Calendar.getInstance();
+		Date today = cal.getTime();
+		//System.out.println("Fecha obten: " + today);
+		
+		Long dateDiff = today.getTime() - fechaUltimaLiquidacion.getTime();
+		int diasPendientesLiquidar = (int) (dateDiff / 1000 / 60 / 60 / 24);
+		dateDiff = today.getTime() - fechaIngreso.getTime();
+		float antiguedad = (float) (dateDiff / 1000 / 60 / 60 / 24/ 365);
+		float antiguedadSemestre = calcularAntiguedadSemestre();
+		
+		float sueldoBruto = 0;
+		float sueldoNeto = 0;
+		List<ItemRubro> itemsRubro = rubro.getItemsRubroObligatorios();
+		
+		cargarNovedadesItemsRubro(itemsRubro);
+		
+		Concepto c = null;
+		ItemRubro it = null;
+		
+		if(renuncia) {
+			c = new Concepto("Vacaciones No Gozadas", false, "+");
+			it = new ItemRubro(c, this.vacacionesDisp);
+			itemsRubro.add(it);	
+			
+			c = new Concepto("SAC Proporcional", false, "+");
+			it = new ItemRubro(c, antiguedadSemestre / 180);
+			itemsRubro.add(it);
+			
+		}else {
+			c = new Concepto("Antiguedad", false, "+");
+			it = new ItemRubro(c, antiguedad);
+			itemsRubro.add(it);
+			
+			c = new Concepto("Vacaciones No Gozadas", false, "+");
+			it = new ItemRubro(c, this.vacacionesDisp);
+			itemsRubro.add(it);	
+			
+			c = new Concepto("SAC Proporcional", false, "+");
+			it = new ItemRubro(c, antiguedadSemestre / 180);
+			itemsRubro.add(it);
+		}
+		
+		List<ItemRubro> retribuciones = new ArrayList<ItemRubro>();
+		List<ItemRubro> contribuciones = new ArrayList<ItemRubro>();
+		
+		separarItemsRubro (itemsRubro, retribuciones, contribuciones);
+		
+		sueldoBruto = calcularSueldoBruto(sueldo, retribuciones);
+		sueldoNeto = calcularSueldoNeto(sueldoBruto, contribuciones);
+		
+		Liquidacion liq = new Liquidacion (itemsRubro, new Date(0), new Date(0), sueldoBruto, sueldoNeto);
+		liquidaciones.add(liq);
+		
+	}
+
+	private float calcularAntiguedadSemestre() {
+		float diasSemestre = 0;
+		Calendar cal = Calendar.getInstance();	
+		int mes = cal.get(Calendar.MONTH);
+	
+		if (mes <= 6) {
+			diasSemestre = cal.getActualMaximum(Calendar.DAY_OF_YEAR);
+		}
+		else {
+			diasSemestre = cal.getActualMaximum(Calendar.DAY_OF_YEAR) - 180;
+		}
+		return diasSemestre;
 	}	
 }
