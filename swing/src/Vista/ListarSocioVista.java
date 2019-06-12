@@ -12,9 +12,9 @@ import java.util.Vector;
 
 import javax.swing.SwingConstants;
 
-import Modelo.Abono;
+import Modelo.Cliente;
 import Modelo.Socio;
-import Controlador.AbonoController;
+import Controlador.ClienteController;
 import Controlador.ActividadController;
 import Controlador.SocioController;
 
@@ -26,7 +26,7 @@ public class ListarSocioVista {
 	private JPanel lista;
 	private JTable tabla;
 	private SocioController socio;
-	private AbonoController abono;
+	private ClienteController Cliente;
 	private ActividadController actividad;
 	/**
 	 * Create the application.
@@ -45,7 +45,7 @@ public class ListarSocioVista {
 	private void initialize() {
 		
 		socio = SocioController.getSingletonInstance();
-		abono = AbonoController.getSingletonInstance();
+		Cliente = ClienteController.getSingletonInstance();
 		actividad = ActividadController.getSingletonInstance();
 
 		Vector<String> columnas = new Vector<String>();
@@ -54,8 +54,8 @@ public class ListarSocioVista {
 		columnas.add("Domicilio");
 		columnas.add("Telefono");
 		columnas.add("Mail");
-		if(!abono.getAbonos().isEmpty()){
-		columnas.add("Abono");
+		if(!Cliente.getClientes().isEmpty()){
+		columnas.add("Cliente");
 		}
 		if(!actividad.getActividades().isEmpty()){
 			columnas.add("Actividad");
@@ -73,8 +73,8 @@ public class ListarSocioVista {
 			x.addElement(socios.get(i).getDomicilio());
 			x.addElement(socios.get(i).getTelefono());
 			x.addElement(socios.get(i).getMail());
-			if(!abono.getAbonos().isEmpty()){
-				x.addElement(socios.get(i).getAbonosA().elementAt(0).getNombre());		
+			if(!Cliente.getClientes().isEmpty()){
+				x.addElement(socios.get(i).getClientesA().elementAt(0).getNombre());		
 			}
 			if(!actividad.getActividades().isEmpty()){
 				x.addElement(socios.get(i).getActividadesA().elementAt(0).getDescripcion());

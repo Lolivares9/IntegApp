@@ -8,9 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Controlador.AbonoController;
+import Controlador.ClienteController;
 import Controlador.ActividadController;
-import Modelo.AbonoTipo;
+import Modelo.ClienteTipo;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
@@ -119,7 +119,7 @@ public class ModificarActividadVista {
 				titulo.setText(act.modificarActividad(codigo.getText()).getTitulo());
 				descripcion.setText(act.modificarActividad(codigo.getText()).getDescripcion());
 				horarios.setText(act.modificarActividad(codigo.getText()).getHorarios());
-				//VER COMO MOSTRAR comboBox.(AbonoTipo)(ab.modificarAbono(codigo.getText()).getTipo();
+				//VER COMO MOSTRAR comboBox.(ClienteTipo)(ab.modificarAbono(codigo.getText()).getTipo();
 			
 				btnNewButton_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {

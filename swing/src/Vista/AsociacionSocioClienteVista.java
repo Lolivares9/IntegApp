@@ -34,26 +34,26 @@ import Modelo.Cronograma;
 import com.lavantech.gui.comp.DateTimePicker;
 import java.util.Vector;
 
-public class AsociacionSocioActividadVista {
+public class AsociacionSocioClienteVista {
 	private JCalendar calendar;
 	private CronogramaController c;
-	private ActividadController act;
+	private ClienteController abn;
 	private SocioController s;
-	private JPanel AsociacionAct;
+	private JPanel AsociacionAbn;
 	Date fec= new Date();
 	Date fec2= new Date();
-	JComboBox comboBox;
-	JComboBox comboBox_1;
+	JComboBox<Cliente> comboBox;
+	JComboBox<Socio> comboBox_1;
 	
 	
 	public JPanel getAso() {
-		return AsociacionAct;
+		return AsociacionAbn;
 	}
 
 	/**
 	 * Create the application.
 	 */
-	public AsociacionSocioActividadVista() {
+	public AsociacionSocioClienteVista() {
 		initialize();
 	}
 
@@ -63,38 +63,39 @@ public class AsociacionSocioActividadVista {
 	private void initialize() {
 		s = SocioController.getSingletonInstance();
 		c = CronogramaController.getSingletonInstance();
-		act = ActividadController.getSingletonInstance();
-		AsociacionAct = new JPanel();
-		AsociacionAct.setBounds(0, 0, 700, 496);
-		AsociacionAct.setLayout(null);
-		
+		abn = ClienteController.getSingletonInstance();
+		AsociacionAbn = new JPanel();
+		AsociacionAbn.setBounds(0, 0, 700, 496);
+		AsociacionAbn.setLayout(null);
+
+				
 		JButton button = new JButton("GRABAR");
 		button.setBounds(187, 450, 91, 23);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try{
-						Actividad actividad = (Actividad)comboBox.getSelectedItem();
+						Cliente cliente = (Cliente)comboBox.getSelectedItem();
 						Socio so = (Socio)comboBox_1.getSelectedItem();
-						so.AddActividad(actividad);
-						//act.Asociar(actividad,so);
-						JOptionPane.showMessageDialog(null, "Actividad Asociada","Informacion",JOptionPane.OK_OPTION);
+						so.AddCliente(cliente);
+						//abn.Asociar(Cliente,so);
+						JOptionPane.showMessageDialog(null, "Cliente Asociado","Informacion",JOptionPane.OK_OPTION);
 						
 					}catch(Exception e1){
-						JOptionPane.showMessageDialog(null, "Actividad Asociada","Informacion",JOptionPane.OK_OPTION);
-					  //JOptionPane.showMessageDialog(null, "No se pudo Asociar el Socio con la Actividad","Informacion",JOptionPane.OK_OPTION);
+						JOptionPane.showMessageDialog(null, "No se pudo Asociar el Cliente","Informacion",JOptionPane.OK_OPTION);
+					  //JOptionPane.showMessageDialog(null, "No se pudo Asociar el Socio con el Cliente","Informacion",JOptionPane.OK_OPTION);
 					}
 					
 			}
 		});
-		AsociacionAct.add(button);
+		AsociacionAbn.add(button);
 		
-		JLabel lblAltaAptoMedico = new JLabel("ASOCIAR SOCIO ACTIVIDAD:");
-		lblAltaAptoMedico.setBounds(121, 11, 322, 27);
+		JLabel lblAltaAptoMedico = new JLabel("ASOCIAR SOCIO Cliente:");
+		lblAltaAptoMedico.setBounds(54, 11, 322, 32);
 		lblAltaAptoMedico.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAltaAptoMedico.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		AsociacionAct.add(lblAltaAptoMedico);
+		AsociacionAbn.add(lblAltaAptoMedico);
 		
-		comboBox = new JComboBox<Actividad>(act.getActividades());
+		comboBox = new JComboBox<Cliente>(abn.getClientes());
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				
@@ -109,18 +110,18 @@ public class AsociacionSocioActividadVista {
 		});
 		
 		comboBox.setBounds(91, 49, 184, 20);
-		AsociacionAct.add(comboBox);
+		AsociacionAbn.add(comboBox);
 		
 		comboBox_1.setBounds(91, 96, 184, 20);
-		AsociacionAct.add(comboBox_1);
+		AsociacionAbn.add(comboBox_1);
 		
 		JLabel lblNewLabel = new JLabel("Cliente:");
 		lblNewLabel.setBounds(10, 52, 61, 14);
-		AsociacionAct.add(lblNewLabel);
+		AsociacionAbn.add(lblNewLabel);
 		
-		JLabel lblSocio = new JLabel("Actividad:");
+		JLabel lblSocio = new JLabel("Socio:");
 		lblSocio.setBounds(10, 99, 61, 14);
-		AsociacionAct.add(lblSocio);
+		AsociacionAbn.add(lblSocio);
 		
 
 	}

@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import Controlador.AbonoController;
+import Controlador.ClienteController;
 import Controlador.ActividadController;
 import Controlador.CronogramaController;
 import Controlador.SocioController;
@@ -32,7 +32,7 @@ public class Menu {
 	private JFrame frame;
 	private SocioController s = SocioController.getSingletonInstance();
 	private ActividadController a = ActividadController.getSingletonInstance();
-	private AbonoController ab = AbonoController.getSingletonInstance();
+	private ClienteController ab = ClienteController.getSingletonInstance();
 	private CronogramaController cr = CronogramaController.getSingletonInstance();
 	/**
 	 * Launch the application.
@@ -100,8 +100,8 @@ public class Menu {
 		JMenu mnActividad = new JMenu("Actividad");
 		menuBar.add(mnActividad);
 		
-		JMenu mnAbono = new JMenu("Abono");
-		menuBar.add(mnAbono);
+		JMenu mnCliente = new JMenu("Cliente");
+		menuBar.add(mnCliente);
 		
 		JMenu mnCronograma = new JMenu("Cronograma");
 		menuBar.add(mnCronograma);
@@ -270,60 +270,60 @@ public class Menu {
 		mnActividad.add(mntmAsociar);
 	
 		
-	// ABONO SUBMENU	
-		JMenuItem mntmAltaAbono = new JMenuItem("Alta");
-		mntmAltaAbono.addActionListener(new ActionListener() {
+	// Cliente SUBMENU	
+		JMenuItem mntmAltaCliente = new JMenuItem("Alta");
+		mntmAltaCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menu.setVisible(false);
-				AltaAbonoVista a = new AltaAbonoVista ();
+				AltaClienteVista a = new AltaClienteVista ();
 				frame.setContentPane(a.getAlta());
 				frame.repaint();
 			}
 		});
-		mnAbono.add(mntmAltaAbono);
+		mnCliente.add(mntmAltaCliente);
 		
-		JMenuItem mntmModifAbono = new JMenuItem("Modificacion");
-		mntmModifAbono.addActionListener(new ActionListener() {
+		JMenuItem mntmModifCliente = new JMenuItem("Modificacion");
+		mntmModifCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menu.setVisible(false);
-				ModificarAbonoVista a = new ModificarAbonoVista ();
+				ModificarClienteVista a = new ModificarClienteVista ();
 				frame.setContentPane(a.getModif());
 				frame.repaint();
 			}
 		});
-		mnAbono.add(mntmModifAbono);
+		mnCliente.add(mntmModifCliente);
 	
-		JMenuItem mntmBajaAbono = new JMenuItem("Baja");
-		mntmBajaAbono.addActionListener(new ActionListener() {
+		JMenuItem mntmBajaCliente = new JMenuItem("Baja");
+		mntmBajaCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menu.setVisible(false);
-				BajaAbonoVista ab = new BajaAbonoVista ();
+				BajaClienteVista ab = new BajaClienteVista ();
 				frame.setContentPane(ab.getBaja());
 				frame.repaint();
 			}
 		});
-		mnAbono.add(mntmBajaAbono);
+		mnCliente.add(mntmBajaCliente);
 		
 		JMenuItem mntmListarAbo = new JMenuItem("Listar");
 		mntmListarAbo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ListarAbonoVista l = new ListarAbonoVista ();
+				ListarClienteVista l = new ListarClienteVista ();
 				frame.setContentPane(l.getLista());
 				frame.repaint();
 			}
 		});
-		mnAbono.add(mntmListarAbo);
+		mnCliente.add(mntmListarAbo);
 		
-		JMenuItem mntmAsociaAbono = new JMenuItem("Asociar");
-		mntmAsociaAbono.addActionListener(new ActionListener() {
+		JMenuItem mntmAsociaCliente = new JMenuItem("Asociar");
+		mntmAsociaCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menu.setVisible(false);
-				AsociacionSocioAbonoVista a = new AsociacionSocioAbonoVista ();
+				AsociacionSocioClienteVista a = new AsociacionSocioClienteVista ();
 				frame.setContentPane(a.getAso());
 				frame.repaint();
 			}
 		});
-		mnAbono.add(mntmAsociaAbono);
+		mnCliente.add(mntmAsociaCliente);
 		
 	// CRONOGRAMA SUBMENU	
 		JMenuItem mntmAsociarCronograma = new JMenuItem("Asociar Actividades");

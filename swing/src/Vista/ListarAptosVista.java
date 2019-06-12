@@ -12,9 +12,9 @@ import java.util.Vector;
 
 import javax.swing.SwingConstants;
 
-import Modelo.Abono;
+import Modelo.Cliente;
 import Modelo.Socio;
-import Controlador.AbonoController;
+import Controlador.ClienteController;
 import Controlador.ActividadController;
 import Controlador.SocioController;
 
@@ -26,7 +26,7 @@ public class ListarAptosVista {
 	private JPanel lista;
 	private JTable tabla;
 	private SocioController socio;
-	private AbonoController abono;
+	private ClienteController Cliente;
 	private ActividadController actividad;
 	/**
 	 * Create the application.
@@ -45,7 +45,7 @@ public class ListarAptosVista {
 	private void initialize() {
 		
 		socio = SocioController.getSingletonInstance();
-		abono = AbonoController.getSingletonInstance();
+		Cliente = ClienteController.getSingletonInstance();
 		actividad = ActividadController.getSingletonInstance();
 
 		Vector<String> columnas = new Vector<String>();

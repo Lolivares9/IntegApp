@@ -5,8 +5,8 @@ import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
-import Modelo.Abono;
-import Modelo.AbonoTipo;
+import Modelo.Cliente;
+import Modelo.ClienteTipo;
 import Modelo.Actividad;
 import Modelo.Actividad.Asociacion2;
 import Modelo.AptoMedico;

@@ -11,7 +11,7 @@ public class Socio {
 	private String mail;
 	private String dni;
 	private Vector<AptoMedico> aptos = new Vector<AptoMedico>();
-	private Vector<Abono> abonosA = new Vector<Abono>();
+	private Vector<Cliente> ClientesA = new Vector<Cliente>();
 	private Vector<Actividad> actividadesA = new Vector<Actividad>();
 	
 	public Socio(String nombre, String apellido, String domicilio, String telefono, String mail, String dni) {
@@ -92,16 +92,16 @@ public class Socio {
 		this.actividadesA.addElement(act);
 	}
 	
-	public void AddAbono(Abono a){
-		this.abonosA.addElement(a);
+	public void AddCliente(Cliente a){
+		this.ClientesA.addElement(a);
 	}
 
-	public Vector<Abono> getAbonosA() {
-		return abonosA;
+	public Vector<Cliente> getClientesA() {
+		return ClientesA;
 	}
 
-	public void setAbonosA(Vector<Abono> abonosA) {
-		this.abonosA = abonosA;
+	public void setClientesA(Vector<Cliente> ClientesA) {
+		this.ClientesA = ClientesA;
 	}
 
 	public Vector<Actividad> getActividadesA() {
