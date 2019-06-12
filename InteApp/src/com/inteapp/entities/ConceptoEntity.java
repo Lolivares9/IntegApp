@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.inteapp.dao.Concepto;
+
 @Entity
 @Table(name = "CONCEPTOS")
 public class ConceptoEntity {
@@ -68,4 +70,7 @@ public class ConceptoEntity {
 	public void setObligatorio(boolean obligatorio) {
 		this.obligatorio = obligatorio;
 	}
+
+	
+	
 }
