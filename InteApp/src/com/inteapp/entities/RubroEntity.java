@@ -38,11 +38,10 @@ public class RubroEntity {
 		return idRubro;
 	}
 
-	public void setIdRUbro(Integer idRubro) {
+	public void setIdRubro(Integer idRubro) {
 		this.idRubro = idRubro;
 	}
 
-	
 	public String getNombre() {
 		return nombre;
 	}

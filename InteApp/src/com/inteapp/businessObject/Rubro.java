@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.inteapp.dao.ClienteDAO;
 import com.inteapp.dao.RubroDAO;
+import com.inteapp.entities.ClienteEntity;
+import com.inteapp.entities.EmpleadoEntity;
+import com.inteapp.entities.ItemRubroEntity;
+import com.inteapp.entities.RubroEntity;
 
 public class Rubro {
 	
@@ -63,5 +67,19 @@ public class Rubro {
 	}
 	public void save() {
 		RubroDAO.getInstancia().save(this);
+	}
+	public RubroEntity toEntity() {
+		RubroEntity re = new RubroEntity();
+		List<ItemRubroEntity> conceptosE = new ArrayList<ItemRubroEntity>();
+		for(ItemRubro it : this.conceptos){
+			conceptosE.add(it.toEntity());
+		}
+		
+		re.setIdRubro(this.idRubro);
+		re.setNombre(this.nombre);
+		re.setConvenio(this.convenio);
+		re.setItemsRubro(conceptosE);
+		
+		return re;
 	}	
 }

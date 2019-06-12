@@ -1,5 +1,7 @@
 package com.inteapp.businessObject;
 
+import com.inteapp.entities.ConceptoEntity;
+
 public class Concepto {
 	
 	private Integer idConcepto;
@@ -36,5 +38,15 @@ public class Concepto {
 	}
 	public void setSigno(String signo) {
 		this.signo = signo;
+	}
+	public ConceptoEntity toEntity() {
+		ConceptoEntity cE = new ConceptoEntity();
+		
+		cE.setIdConcepto(this.idConcepto);
+		cE.setDescripcion(this.descripcion);
+		cE.setObligatorio(this.obligatorio);
+		cE.setSigno(this.signo);
+		
+		return cE;
 	}
 }

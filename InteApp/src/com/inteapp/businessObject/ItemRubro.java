@@ -1,6 +1,10 @@
 
 package com.inteapp.businessObject;
 
+import com.inteapp.entities.ConceptoEntity;
+import com.inteapp.entities.ItemRubroEntity;
+import com.inteapp.entities.RubroEntity;
+
 public class ItemRubro {
 	
 	private Integer idItemRubro;
@@ -29,5 +33,15 @@ public class ItemRubro {
 	}
 	public void setIdItemRubro(Integer idItemRubro) {
 		this.idItemRubro = idItemRubro;
+	}
+	public ItemRubroEntity toEntity() {
+		ItemRubroEntity it = new ItemRubroEntity();
+		ConceptoEntity c = this.concepto.toEntity();
+		
+		it.setIdItemRubro(this.idItemRubro);
+		it.setConcepto(c);
+		it.setPorcentaje(this.porcentaje);
+		
+		return it;
 	}
 }

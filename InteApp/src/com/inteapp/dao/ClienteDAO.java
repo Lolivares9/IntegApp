@@ -51,10 +51,6 @@ public class ClienteDAO {
 	return cliente;
 	}
 		
-	
-	
-	
-	
 	public Cliente toNegocio(ClienteEntity cli){
 		Cliente aux= null;
 		
@@ -71,8 +67,6 @@ public class ClienteDAO {
 	}
 
 	public void save(Cliente c) {
-		
-		
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
 		ClienteEntity cliEnt = new ClienteEntity();

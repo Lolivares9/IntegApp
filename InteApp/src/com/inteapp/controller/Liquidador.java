@@ -10,6 +10,7 @@ import com.inteapp.businessObject.ItemRubro;
 import com.inteapp.businessObject.Novedad;
 import com.inteapp.businessObject.Rubro;
 import com.inteapp.dao.ClienteDAO;
+import com.inteapp.dao.RubroDAO;
 import com.inteapp.view.ClienteView;
 import com.inteapp.view.ConceptoView;
 import com.inteapp.view.EmpleadoView;
@@ -84,14 +85,14 @@ public class Liquidador {
 			r.save();
 			return true;
 		}else{ //Existe
-			System.console().writer().println("Ya existe el cliente!");
+			System.console().writer().println("Ya existe el Rubro!");
 			return false;
 		}
 	}
 
 	private Rubro buscarRubro(RubroView rView) {
-		// TODO Auto-generated method stub
-		return null;
+		Rubro r = RubroDAO.getInstancia().buscarRubro(rView.getIdRubro());
+		return r;
 	}
 
 	public boolean altaNovedad (ClienteView cteView, EmpleadoView empView, NovedadView nView) {
