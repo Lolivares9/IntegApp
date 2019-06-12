@@ -91,7 +91,6 @@ public class ClienteDAO {
 		Session s = sf.openSession();
 		ClienteEntity cliEnt = new ClienteEntity();
 		cliEnt = c.toEntity();
-		
 		s.beginTransaction();
 		s.saveOrUpdate(cliEnt);
 		s.getTransaction().commit();
@@ -101,7 +100,6 @@ public class ClienteDAO {
  	public void guardarEntity(ClienteEntity cli) {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
-		
 		s.beginTransaction();
 		s.saveOrUpdate(cli);
 		s.getTransaction().commit();

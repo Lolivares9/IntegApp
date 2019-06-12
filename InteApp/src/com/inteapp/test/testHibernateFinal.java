@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.inteapp.businessObject.Cliente;
 import com.inteapp.dao.ClienteDAO;
 import com.inteapp.entities.*;
 
@@ -129,9 +130,10 @@ public class testHibernateFinal {
 		cli.setLocalidad("Argentina, Bs As");
 		cli.setTelefono("11562592");
 		cli.setTipoPersona("J");
-		cli.setEmpleados(empleados);
+		//cli.setEmpleados(empleados);
 		ClienteDAO.getInstancia().guardarEntity(cli);
-
+		Cliente clienBO = ClienteDAO.getInstancia().buscarCliente("30391558486");
+		
 	}
 
 }
