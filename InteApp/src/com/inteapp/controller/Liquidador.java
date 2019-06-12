@@ -57,4 +57,5 @@ public class Liquidador {
 		return false;
 	}
 
+	public void altaNovedad (NovedadView nView, )
 }

@@ -6,13 +6,13 @@ public class Novedad {
 	private Integer idNovedad;
 	private Date fecha;
 	private Concepto concepto;
-	private int dias;
+	private int unidades;
 	
-		public Novedad(Date fecha, Concepto concepto, int dias) {
+		public Novedad(Date fecha, Concepto concepto, int unidades) {
 		super();
 		this.fecha = fecha;
 		this.concepto = concepto;
-		this.dias = dias;
+		this.unidades = unidades;
 	}
 	
 	public Date getFecha() {
@@ -27,11 +27,11 @@ public class Novedad {
 	public void setConcepto(Concepto concepto) {
 		this.concepto = concepto;
 	}
-	public int getDias() {
-		return dias;
+	public int getUnidades() {
+		return unidades;
 	}
-	public void setDias(int dias) {
-		this.dias = dias;
+	public void setUnidades(int unidades) {
+		this.unidades = unidades;
 	}
 	public Integer getIdNovedad() {
 		return idNovedad;
