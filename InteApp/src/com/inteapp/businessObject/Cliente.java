@@ -96,6 +96,9 @@ public class Cliente {
 		ClienteDAO.getInstancia().save(this);
 	}
 
+	public void delete() {
+		ClienteDAO.getInstancia().delete(this);
+	}
 	public ClienteEntity toEntity() {
 		ClienteEntity ce = new ClienteEntity();
 		List<EmpleadoEntity> empleados = new ArrayList<EmpleadoEntity>();
@@ -130,4 +133,6 @@ public class Cliente {
 		}
 		return emp;
 	}
+
+
 }

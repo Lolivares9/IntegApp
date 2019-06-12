@@ -91,5 +91,14 @@ public class ClienteDAO {
 		s.getTransaction().commit();
 		s.close();
 	}
-	
+	public void delete(Cliente c) {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.openSession();
+		ClienteEntity cliEnt = new ClienteEntity();
+		cliEnt = c.toEntity();
+		s.beginTransaction();
+		s.delete(cliEnt);
+		s.getTransaction().commit();
+		s.close();
+	}
 }

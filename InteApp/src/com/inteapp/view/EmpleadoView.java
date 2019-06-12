@@ -28,16 +28,16 @@ public class EmpleadoView {
 	private int vacacionesDisp;
 	private int diasEstudioDisp;
 	private boolean convenio;
-	private Rubro rubro;
-	private Categoria categoriaVigente;
+	private RubroView rubro;
+	private CategoriaView categoriaVigente;
 	private float salario;
-	private List<Novedad> novedades;
-	private List<Liquidacion> liquidaciones;
+	private List<NovedadView> novedades;
+	private List<LiquidacionView> liquidaciones;
 	
 
 	public EmpleadoView(String cuil, String nombre, String apellido, String direccion, String mail, String telefono, Date fechaIngreso,
-			String tipoLiquidacion,Date fechaUltimaLiquidacion ,Date fechaProximaLiquidacion,  int vacacionesDisp, int diasEstudioDisp, boolean convenio, Rubro rubro,
-			Categoria categoriaVigente, float salario, List<Novedad> novedades, List<Liquidacion> liquidaciones) {
+			String tipoLiquidacion,Date fechaUltimaLiquidacion ,Date fechaProximaLiquidacion,  int vacacionesDisp, int diasEstudioDisp, boolean convenio, RubroView rubro,
+			CategoriaView categoriaVigente, float salario, List<NovedadView> novedades, List<LiquidacionView> liquidaciones) {
 		super();
 		this.cuil = cuil;
 		this.nombre = nombre;
@@ -57,14 +57,6 @@ public class EmpleadoView {
 		this.salario = salario;
 		this.novedades = novedades;
 		this.liquidaciones = liquidaciones;
-	}
-	
-	public void AltaNovedad(Novedad n) {
-		this.novedades.add(n);
-	}
-	
-	public void AltaLiquidacion (Liquidacion l){
-		this.liquidaciones.add(l);	
 	}
 	
 	public String getCuil() {
@@ -127,16 +119,16 @@ public class EmpleadoView {
 	public void setConvenio(boolean convenio) {
 		this.convenio = convenio;
 	}
-	public Rubro getRubro() {
+	public RubroView getRubro() {
 		return rubro;
 	}
-	public void setRubro(Rubro rubro) {
+	public void setRubro(RubroView rubro) {
 		this.rubro = rubro;
 	}
-	public Categoria getCategoriaVigente() {
+	public CategoriaView getCategoriaVigente() {
 		return categoriaVigente;
 	}
-	public void setCategoria(Categoria categoriaVigente) {
+	public void setCategoria(CategoriaView categoriaVigente) {
 		this.categoriaVigente = categoriaVigente;
 	}
 	public float getSalario() {
@@ -145,16 +137,16 @@ public class EmpleadoView {
 	public void setSalario(float salario) {
 		this.salario = salario;
 	}
-	public List<Novedad> getNovedades() {
+	public List<NovedadView> getNovedades() {
 		return novedades;
 	}
-	public void setNovedades(List<Novedad> novedades) {
+	public void setNovedades(List<NovedadView> novedades) {
 		this.novedades = novedades;
 	}
-	public List<Liquidacion> getLiquidaciones() {
+	public List<LiquidacionView> getLiquidaciones() {
 		return liquidaciones;
 	}
-	public void setLiquidaciones(List<Liquidacion> liquidaciones) {
+	public void setLiquidaciones(List<LiquidacionView> liquidaciones) {
 		this.liquidaciones = liquidaciones;
 	}
 
@@ -166,7 +158,7 @@ public class EmpleadoView {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public void setCategoriaVigente(Categoria categoriaVigente) {
+	public void setCategoriaVigente(CategoriaView categoriaVigente) {
 		this.categoriaVigente = categoriaVigente;
 	}
 

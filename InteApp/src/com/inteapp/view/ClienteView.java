@@ -14,12 +14,12 @@ public class ClienteView {
 	private String mail;
 	private String telefono;
 	private String tipoPersona;
-	private List<Empleado> empleados;
+	private List<EmpleadoView> empleados;
 	
 	public ClienteView() {};
 	
 	public ClienteView(String razonSocial, String cuit, String direccion, String localidad, String mail, String telefono,
-			String tipoPersona, List<Empleado> empleados) {
+			String tipoPersona, List<EmpleadoView> empleados) {
 		super();
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
@@ -74,10 +74,10 @@ public class ClienteView {
 	public void setTipoPersona(String tipoPersona) {
 		this.tipoPersona = tipoPersona;
 	}
-	public List<Empleado> getEmpleados() {
+	public List<EmpleadoView> getEmpleados() {
 		return empleados;
 	}
-	public void setEmpleados(List<Empleado> empleados) {
+	public void setEmpleados(List<EmpleadoView> empleados) {
 		this.empleados = empleados;
 	}
 }

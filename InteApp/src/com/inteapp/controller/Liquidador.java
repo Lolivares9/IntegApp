@@ -10,10 +10,12 @@ import com.inteapp.businessObject.ItemRubro;
 import com.inteapp.businessObject.Novedad;
 import com.inteapp.businessObject.Rubro;
 import com.inteapp.dao.ClienteDAO;
+import com.inteapp.dao.DAOUtils;
 import com.inteapp.dao.RubroDAO;
 import com.inteapp.view.ClienteView;
 import com.inteapp.view.ConceptoView;
 import com.inteapp.view.EmpleadoView;
+import com.inteapp.view.FacturaView;
 import com.inteapp.view.ItemRubroView;
 import com.inteapp.view.NovedadView;
 import com.inteapp.view.RubroView;
@@ -32,7 +34,7 @@ public class Liquidador {
 		Cliente c = null;
 		c = buscarCliente (cteView);
 		if (c == null){
-			c = new Cliente(cteView.getRazonSocial(), cteView.getCuit(), cteView.getDireccion(), cteView.getLocalidad(), cteView.getMail(), cteView.getTelefono(), cteView.getTipoPersona(), cteView.getEmpleados());
+			c = DAOUtils.clienteViewToNegocio(cteView);
 			c.save();
 			return true;
 		}else{ //Existe
@@ -44,6 +46,24 @@ public class Liquidador {
 	public boolean liquidarCliente (ClienteView cView) {
 		Cliente c = buscarCliente(cView); 
 		return c.liquidarEmpleados();
+	}
+	
+	public boolean bajaCliente (ClienteView cteView){
+		Cliente c = null;
+		c = buscarCliente (cteView);
+		if (c != null){
+			c.delete();
+			return true;
+		}else{ //Existe
+			System.console().writer().println("El cliente no existe!");
+			return false;
+		}
+	}
+	
+	public boolean facturarCliente(FacturaView f){
+		ClienteView cView = f.getCliente();
+		Cliente c = DAOUtils.clienteViewToNegocio(cView);
+		return false;
 	}
 	
 	private Cliente buscarCliente(ClienteView cView) {
@@ -58,9 +78,7 @@ public class Liquidador {
 		if (c != null) {
 			e = c.buscarEmpleado (e);
 			if (e == null) {
-				e = new Empleado(empView.getCuil(), empView.getNombre(), empView.getApellido(), empView.getDireccion(), empView.getMail(), empView.getTelefono()
-						, empView.getFechaIngreso(), empView.getTipoLiquidacion(), empView.getFechaUltimaLiquidacion(), empView.getFechaProximaLiquidacion()
-						, empView.getVacacionesDisp(), empView.getDiasEstudioDisp(), empView.isConvenio(), empView.getRubro(), empView.getCategoriaVigente(), empView.getSalario(), empView.getNovedades(), empView.getLiquidaciones());
+				e = DAOUtils.empleadoViewToNegocio(empView);
 				c.AltaEmpleado(e);
 				c.save();
 				return true;
@@ -127,6 +145,4 @@ public class Liquidador {
 		}
 		return false;
 	}
-	
-	
 }
