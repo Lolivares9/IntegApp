@@ -39,6 +39,22 @@ public class ClienteDAO {
 		}
 	}
 	
+	public List<Cliente> obtenerClientes (){
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.openSession();
+		List<Cliente> clientesBO = new ArrayList<Cliente>();
+		
+		List<ClienteEntity> clientesEntity = (List<ClienteEntity>) s.createQuery("from ClienteEntity").list();
+		for(ClienteEntity cl : clientesEntity){
+			
+			Cliente aux= new Cliente(cl.getRazonSocial(), cl.getCuit(),cl.getDireccion(),cl.getLocalidad(), cl.getMail(), cl.getTelefono(), cl.getTipoPersona(), null);
+					
+					clientesBO.add(aux);
+		}
+		return clientesBO;
+	}
+	
+	
 	
 	public Cliente buscarCliente(String cuit){
 		SessionFactory sf = HibernateUtil.getSessionFactory();
