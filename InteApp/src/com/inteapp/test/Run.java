@@ -113,13 +113,13 @@ public class Run {
 		cal.set(2009, 7, 30,0,0,0);
 		Date date = (Date)cal.getTime() ;// get back a Date object
 		
-		cal.set(2019, 4, 30,0,0,0);
+		cal.set(2019, 4, 31,0,0,0);
 		Date fechaUltLiq = (Date)cal.getTime() ;
 		
 		cal.set(2019, 5, 30, 0,0,0);
 		Date fechaProxLiq = (Date)cal.getTime() ;
 		
-		cal.set(2019, 5, 15, 0,0,0);
+		cal.set(2019, 4, 31, 0,0,0);
 		Date fechaProxLiq2 = (Date)cal.getTime() ;
 		
 		empleado1 = new Empleado("30391558486","Matias","Boccardo","Avenida Belgrano 3629","mati_boc@gmail.com",
@@ -129,7 +129,7 @@ public class Run {
 				"11562592",date , "MENSUAL",fechaUltLiq, fechaProxLiq, 15,15,true,rubro2,categoriaVigente,40000,novedades2,liquidaciones2);
 		
 		empleado3 = new Empleado("30391558486","Cristian","Boccardo","Avenida Belgrano 3629","mati_boc@gmail.com",
-				"11562592",date , "QUINCENAL", fechaUltLiq,  fechaProxLiq2, 15,15,false,rubro3,null,40000,novedades3,liquidaciones3);
+				"11562592",date , "SEMANAL", fechaUltLiq,  fechaProxLiq2, 15,15,false,rubro3,null,40000,novedades3,liquidaciones3);
 		
 
 		empleados.add(empleado1);

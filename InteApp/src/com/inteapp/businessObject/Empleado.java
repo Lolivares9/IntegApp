@@ -200,8 +200,6 @@ public class Empleado {
 		//Obtengo el sueldo del empleado. Ya sea por convenio o por lo negociado con el empleador
 		float sueldo = 0;
 		Calendar cal = Calendar.getInstance();
-		cal.setTimeInMillis(0);
-		cal.set(2019, 5, 15, 0,0,0);
 		Date today = cal.getTime();
 		System.out.println("Fecha obten: " + today);
 
@@ -259,10 +257,10 @@ public class Empleado {
 		
 		if (tipoLiquidacion.equals("MENSUAL")) {
 			int anio = cal.get(Calendar.YEAR) ;
-			int mes = cal.get(Calendar.MONTH) + 1;
+			int mes = cal.get(Calendar.MONTH);
 			int ultimoDiaMes= cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 		
-			cal.set(anio, mes, ultimoDiaMes);
+			cal.set(anio, mes + 1, ultimoDiaMes);
 		}
 		else if (tipoLiquidacion.equals("QUINCENAL")) {
 			int ultimoDiaMes = 15;
@@ -277,6 +275,22 @@ public class Empleado {
 			}
 			cal.set(anio, mes, ultimoDiaMes);
 		}
+		else if (tipoLiquidacion.equals("SEMANAL")) {
+			
+			int anio = cal.get(Calendar.YEAR) ;
+			int mes = cal.get(Calendar.MONTH);
+			int dia = cal.get(Calendar.DAY_OF_MONTH);
+			
+			cal.set(anio, mes, dia + 7);
+		}	
+		else if (tipoLiquidacion.equals("DIARIO")) {			
+			int anio = cal.get(Calendar.YEAR) ;
+			int mes = cal.get(Calendar.MONTH);
+			int dia = cal.get(Calendar.DAY_OF_MONTH);
+			
+			cal.set(anio, mes, dia + 1);
+		}
+		
 		fechaUltimaLiquidacion = fechaProximaLiquidacion;
 		fechaProximaLiquidacion = cal.getTime();
 		
