@@ -30,10 +30,6 @@ public class RubroEntity {
 	@OneToMany
 	@JoinColumn (name ="ID_ITEM_RUBRO") 
 	private List <ItemRubroEntity> itemsRubro;
-
-	@OneToMany
-	@JoinColumn (name ="ID_CONCEPTO") 
-	private List <ConceptoEntity> conceptos;
 	
 	public RubroEntity(){
 	}
@@ -70,14 +66,4 @@ public class RubroEntity {
 	public void setItemsRubro(List<ItemRubroEntity> itemsRubro) {
 		this.itemsRubro = itemsRubro;
 	}
-
-	public List<ConceptoEntity> getConceptos() {
-		return conceptos;
-	}
-
-	public void setConceptos(List<ConceptoEntity> conceptos) {
-		this.conceptos = conceptos;
-	}
-	
-	
 }
