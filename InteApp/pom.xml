@@ -91,7 +91,7 @@
     <dependency>
 	    <groupId>ch.qos.logback</groupId>
 	    <artifactId>logback-classic</artifactId>
-	    <version>0.9.24</version>
+	    <version>1.2.0</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.webjars/Eonasdan-bootstrap-datetimepicker -->
 	<dependency>
